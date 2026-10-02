@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Numo
+Exec=numo
+Icon=org.gnome.Example
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

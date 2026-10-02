@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="numo">
+  <enum id="org.gnome.Example.Difficulty">
+    <value nick="easy" value="0"/>
+    <value nick="medium" value="1"/>
+    <value nick="hard" value="2"/>
+  </enum>
+
+  <schema id="org.gnome.Example" path="/org/gnome/Example/">
+    <key name="difficulty" enum="org.gnome.Example.Difficulty">
+      <default>'medium'</default>
+      <summary>Default difficulty</summary>
+      <description>Difficulty applied to all game modes by default.</description>
+    </key>
+
+    <key name="timer-duration-min" type="i">
+      <range min="1" max="10"/>
+      <default>3</default>
+      <summary>Timer duration</summary>
+      <description>Duration of the Timer mode in minutes.</description>
+    </key>
+
+    <key name="bonus-initial-sec" type="i">
+      <range min="30" max="600"/>
+      <default>60</default>
+      <summary>Initial time for Timer + Bonus</summary>
+      <description>Starting time of the Timer + Bonus mode in seconds.</description>
+    </key>
+
+    <key name="bonus-per-correct-sec" type="i">
+      <range min="1" max="10"/>
+      <default>3</default>
+      <summary>Bonus per correct answer</summary>
+      <description>Extra seconds added for each correct answer in Timer + Bonus mode.</description>
+    </key>
+
+    <key name="tasks-count" type="i">
+      <range min="1" max="100"/>
+      <default>20</default>
+      <summary>Task count</summary>
+      <description>Number of tasks in the Task Count mode.</description>
+    </key>
+  </schema>
+</schemalist>

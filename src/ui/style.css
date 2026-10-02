@@ -1,0 +1,57 @@
+.answer-entry {
+  padding: 12px 12px;
+  font-weight: 600;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.numo-result {
+  font-size: 2em;
+  font-weight: 800;
+}
+
+.expression {
+  font-size: 2em;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.expression.success {
+  background-color: alpha(@success_color, 0.20);
+  color: @success_color;
+}
+
+.expression.error {
+  background-color: alpha(@error_color, 0.20);
+  color: @error_color;
+}
+
+entry.answer-entry {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-image: none;
+  background-color: alpha(@window_fg_color, 0.06);
+  transition: background-color 150ms ease;
+}
+
+entry.answer-entry:focus,
+entry.answer-entry:focus-visible,
+entry.answer-entry:focus-within {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-image: none;
+  background-color: alpha(@window_fg_color, 0.10);
+}
+
+button.submit-icon {
+  -gtk-icon-size: 24px;
+  min-height: 44px;
+  padding: 0px 36px;
+}
+
+

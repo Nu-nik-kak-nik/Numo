@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="NumoWindow" parent="AdwApplicationWindow">
+    <property name="title" translatable="yes">Numo</property>
+    <property name="default-width">600</property>
+    <property name="default-height">700</property>
+    <property name="content">
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <property name="child">
+          <object class="AdwNavigationView" id="nav_view">
+            <child>
+              <object class="AdwNavigationPage">
+                <property name="title" translatable="yes">Numo</property>
+                <property name="tag">home</property>
+                <property name="child">
+                  <object class="AdwToolbarView">
+                    <child type="top">
+                      <object class="AdwHeaderBar">
+                        <child type="end">
+                          <object class="GtkMenuButton">
+                            <property name="primary">True</property>
+                            <property name="icon-name">open-menu-symbolic</property>
+                            <property name="menu-model">primary_menu</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <property name="content">
+                      <object class="AdwClamp">
+                        <property name="maximum-size">700</property>
+                        <property name="margin-top">24</property>
+                        <property name="margin-bottom">24</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="valign">center</property>
+                        <property name="child">
+                          <object class="GtkListBox" id="mode_list">
+                            <property name="selection-mode">none</property>
+                            <style><class name="boxed-list"/></style>
+                            <child>
+                              <object class="AdwActionRow" id="mode_normal">
+                                <property name="title" translatable="yes">Normal</property>
+                                <property name="subtitle" translatable="yes">Solve until you make a mistake</property>
+                                <property name="activatable">True</property>
+                                <child type="prefix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">input-gaming-symbolic</property>
+                                    <style><class name="accent"/></style>
+                                  </object>
+                                </child>
+                                <child type="suffix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">go-next-symbolic</property>
+                                    <style><class name="dim-label"/></style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwActionRow" id="mode_timer">
+                                <property name="title" translatable="yes">Timer</property>
+                                <property name="subtitle" translatable="yes">Solve as many as possible in a fixed time</property>
+                                <property name="activatable">True</property>
+                                <child type="prefix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">document-open-recent-symbolic</property>
+                                    <style><class name="warning"/></style>
+                                  </object>
+                                </child>
+                                <child type="suffix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">go-next-symbolic</property>
+                                    <style><class name="dim-label"/></style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwActionRow" id="mode_timer_bonus">
+                                <property name="title" translatable="yes">Timer + Bonus</property>
+                                <property name="subtitle" translatable="yes">Earn extra seconds for every correct answer</property>
+                                <property name="activatable">True</property>
+                                <child type="prefix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">alarm-symbolic</property>
+                                    <style><class name="success"/></style>
+                                  </object>
+                                </child>
+                                <child type="suffix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">go-next-symbolic</property>
+                                    <style><class name="dim-label"/></style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwActionRow" id="mode_tasks">
+                                <property name="title" translatable="yes">Task Count</property>
+                                <property name="subtitle" translatable="yes">Complete a set number of tasks</property>
+                                <property name="activatable">True</property>
+                                <child type="prefix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">view-list-symbolic</property>
+                                    <style><class name="error"/></style>
+                                  </object>
+                                </child>
+                                <child type="suffix">
+                                  <object class="GtkImage">
+                                    <property name="icon-name">go-next-symbolic</property>
+                                    <style><class name="dim-label"/></style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwNavigationPage">
+                <property name="title" translatable="yes">Game</property>
+                <property name="tag">game</property>
+                <property name="can-pop">False</property>
+                <property name="child">
+                  <object class="AdwToolbarView">
+                    <child type="top">
+                      <object class="AdwHeaderBar">
+                        <property name="show-title">False</property>
+                        <child type="start">
+                          <object class="GtkButton" id="game_back_button">
+                            <property name="icon-name">go-previous-symbolic</property>
+                            <property name="tooltip-text" translatable="yes">Back</property>
+                            <style><class name="flat"/></style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <property name="content">
+                      <object class="AdwClamp">
+                        <property name="maximum-size">600</property>
+                        <property name="margin-top">36</property>
+                        <property name="margin-bottom">36</property>
+                        <property name="margin-start">36</property>
+                        <property name="margin-end">36</property>
+                        <property name="valign">center</property>
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">0</property>
+                            <property name="valign">center</property>
+                            <child>
+                              <object class="GtkLabel" id="status_label">
+                                <property name="label">1</property>
+                                <property name="halign">center</property>
+                                <property name="margin-bottom">12</property>
+                                <style>
+                                  <class name="bonus-label"/>
+                                  <class name="title-2"/>
+                                  <class name="numeric"/>
+                                  <class name="dim-label"/>
+                                </style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="bonus_label">
+                                <property name="label"></property>
+                                <property name="halign">center</property>
+                                <property name="margin-bottom">48</property>
+                                <style>
+                                  <class name="title-3"/>
+                                  <class name="numeric"/>
+                                  <class name="success"/>
+                                </style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="spacing">28</property>
+                                <property name="halign">center</property>
+                                <child>
+                                  <object class="GtkLabel" id="expression_label">
+                                    <property name="label">23 + 7 = ?</property>
+                                    <property name="halign">center</property>
+                                    <property name="justify">center</property>
+                                    <style><class name="expression"/></style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">32</property>
+                                    <property name="halign">center</property>
+                                    <child>
+                                      <object class="GtkEntry" id="answer_entry">
+                                        <property name="xalign">0.5</property>
+                                        <property name="width-chars">5</property>
+                                        <property name="max-width-chars">7</property>
+                                        <style>
+                                          <class name="answer-entry"/>
+                                          <class name="title-2"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkButton" id="submit_button">
+                                        <property name="icon-name">media-playback-start-symbolic</property>
+                                        <property name="halign">center</property>
+                                        <property name="tooltip-text" translatable="yes">Submit</property>
+                                        <style>
+                                          <class name="suggested-action"/>
+                                          <class name="submit-icon"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwNavigationPage">
+                <property name="title" translatable="yes">Game Over</property>
+                <property name="tag">results</property>
+                <property name="can-pop">False</property>
+                <property name="child">
+                  <object class="AdwToolbarView">
+                    <child type="top">
+                      <object class="AdwHeaderBar"/>
+                    </child>
+                    <child type="bottom">
+                      <object class="GtkBox">
+                        <property name="halign">center</property>
+                        <property name="margin-top">12</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <child>
+                          <object class="GtkButton" id="results_ok_button">
+                            <property name="label" translatable="yes">Continue</property>
+                            <property name="halign">center</property>
+                            <style>
+                              <class name="suggested-action"/>
+                              <class name="pill"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <property name="content">
+                      <object class="GtkScrolledWindow">
+                        <property name="hscrollbar-policy">never</property>
+                        <property name="vscrollbar-policy">automatic</property>
+                        <property name="vexpand">True</property>
+                        <property name="child">
+                          <object class="AdwClamp">
+                            <property name="maximum-size">600</property>
+                            <property name="margin-top">48</property>
+                            <property name="margin-bottom">32</property>
+                            <property name="margin-start">24</property>
+                            <property name="margin-end">24</property>
+                            <property name="valign">center</property>
+                            <property name="child">
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="spacing">24</property>
+                                <property name="valign">center</property>
+                                <child>
+                                  <object class="GtkImage" id="results_big_icon">
+                                    <property name="icon-name">input-gaming-symbolic</property>
+                                    <property name="pixel-size">96</property>
+                                    <property name="halign">center</property>
+                                    <property name="margin-bottom">36</property>
+                                    <style><class name="dim-label"/></style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwWrapBox">
+                                    <property name="halign">center</property>
+                                    <property name="align">0.5</property>
+                                    <property name="child-spacing">32</property>
+                                    <property name="line-spacing">32</property>
+                                    <property name="margin-bottom">12</property>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">0</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkLabel" id="results_value_correct">
+                                            <property name="label">0</property>
+                                            <property name="halign">center</property>
+                                            <style>
+                                              <class name="title-1"/>
+                                              <class name="numeric"/>
+                                              <class name="numo-result"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="label" translatable="yes">Correct</property>
+                                            <property name="halign">center</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">0</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkLabel" id="results_value_wrong">
+                                            <property name="label">0</property>
+                                            <property name="halign">center</property>
+                                            <style>
+                                              <class name="title-1"/>
+                                              <class name="numeric"/>
+                                              <class name="numo-result"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="label" translatable="yes">Wrong</property>
+                                            <property name="halign">center</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">0</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkLabel" id="results_value_accuracy">
+                                            <property name="label">—</property>
+                                            <property name="halign">center</property>
+                                            <style>
+                                              <class name="title-1"/>
+                                              <class name="numeric"/>
+                                              <class name="numo-result"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="label" translatable="yes">Accuracy</property>
+                                            <property name="halign">center</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">0</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkLabel" id="results_value_time">
+                                            <property name="label">0:00</property>
+                                            <property name="halign">center</property>
+                                            <style>
+                                              <class name="title-1"/>
+                                              <class name="numeric"/>
+                                              <class name="numo-result"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="label" translatable="yes">Time</property>
+                                            <property name="halign">center</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+
+                                  </object>
+                                </child>
+
+                                <child>
+                                  <object class="AdwWrapBox">
+                                    <property name="halign">center</property>
+                                    <property name="align">0.5</property>
+                                    <property name="child-spacing">32</property>
+                                    <property name="line-spacing">12</property>
+
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">horizontal</property>
+                                        <property name="spacing">8</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkImage" id="results_icon_mode">
+                                            <property name="icon-name">input-gaming-symbolic</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="results_label_mode">
+                                            <property name="label" translatable="yes">Normal</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">horizontal</property>
+                                        <property name="spacing">8</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkImage" id="results_icon_difficulty">
+                                            <property name="icon-name">starred-symbolic</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="results_label_difficulty">
+                                            <property name="label" translatable="yes">Medium</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">horizontal</property>
+                                        <property name="spacing">8</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkImage" id="results_icon_extra">
+                                            <property name="icon-name">media-playback-start-symbolic</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="results_label_extra">
+                                            <property name="label">—</property>
+                                            <style><class name="dim-label"/></style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </property>
+                          </object>
+                        </property>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Statistics</attribute>
+        <attribute name="action">app.statistics</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Numo</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">app.shortcuts</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

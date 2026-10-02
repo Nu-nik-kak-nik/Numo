@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="NumoSettingsWindow" parent="AdwPreferencesDialog">
+    <property name="title" translatable="yes">Settings</property>
+    <property name="content-width">650</property>
+    <property name="content-height">790</property>
+    <property name="search-enabled">False</property>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Game</property>
+        <property name="icon-name">applications-games-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">General</property>
+            <child>
+              <object class="AdwComboRow" id="difficulty_row">
+                <property name="title" translatable="yes">Default Difficulty</property>
+                <property name="model">
+                  <object class="GtkStringList">
+                    <items>
+                      <item translatable="yes">Easy</item>
+                      <item translatable="yes">Medium</item>
+                      <item translatable="yes">Hard</item>
+                    </items>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Timer Mode</property>
+            <child>
+              <object class="AdwSpinRow" id="timer_minutes_row">
+                <property name="title" translatable="yes">Duration</property>
+                <property name="subtitle" translatable="yes">Minutes</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">1</property>
+                    <property name="upper">10</property>
+                    <property name="step-increment">1</property>
+                    <property name="page-increment">1</property>
+                    <property name="value">3</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Timer + Bonus Mode</property>
+            <child>
+              <object class="AdwSpinRow" id="bonus_start_row">
+                <property name="title" translatable="yes">Initial time</property>
+                <property name="subtitle" translatable="yes">Seconds</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">30</property>
+                    <property name="upper">600</property>
+                    <property name="step-increment">10</property>
+                    <property name="value">60</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSpinRow" id="bonus_seconds_row">
+                <property name="title" translatable="yes">Bonus per correct answer</property>
+                <property name="subtitle" translatable="yes">Seconds</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">1</property>
+                    <property name="upper">10</property>
+                    <property name="step-increment">1</property>
+                    <property name="value">3</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Task Count Mode</property>
+            <child>
+              <object class="AdwSpinRow" id="tasks_count_row">
+                <property name="title" translatable="yes">Number of tasks</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">1</property>
+                    <property name="upper">100</property>
+                    <property name="step-increment">1</property>
+                    <property name="value">30</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

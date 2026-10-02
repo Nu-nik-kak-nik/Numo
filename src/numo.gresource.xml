@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/Example">
+    <file preprocess="xml-stripblanks">ui/window.ui</file>
+    <file preprocess="xml-stripblanks">ui/settings.ui</file>
+    <file preprocess="xml-stripblanks">ui/statistics.ui</file>
+    <file preprocess="xml-stripblanks">ui/shortcuts-dialog.ui</file>
+    <file>icons/hicolor/symbolic/apps/hourglass-symbolic.svg</file>
+    <file>ui/style.css</file>
+  </gresource>
+</gresources>

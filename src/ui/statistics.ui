@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+
+  <template class="NumoStatsWindow" parent="AdwDialog">
+    <property name="title" translatable="yes">Statistics</property>
+    <property name="content-width">650</property>
+    <property name="content-height">790</property>
+
+    <property name="child">
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <property name="child">
+          <object class="AdwToolbarView">
+            <child type="top">
+              <object class="AdwHeaderBar"/>
+            </child>
+
+            <property name="content">
+              <object class="AdwPreferencesPage">
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Overview</property>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Sessions played</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">media-playback-start-symbolic</property>
+                            <style><class name="accent"/></style>
+                          </object>
+                        </child>
+                        <child type="suffix">
+                          <object class="GtkLabel" id="sessions_label">
+                            <property name="label">0</property>
+                            <style>
+                              <class name="heading"/>
+                              <class name="numeric"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                                        <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Tasks solved</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">object-select-symbolic</property>
+                            <style><class name="success"/></style>
+                          </object>
+                        </child>
+                        <child type="suffix">
+                          <object class="GtkLabel" id="solved_label">
+                            <property name="label">0</property>
+                            <style>
+                              <class name="heading"/>
+                              <class name="numeric"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Tasks failed</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">dialog-error-symbolic</property>
+                            <style><class name="error"/></style>
+                          </object>
+                        </child>
+                        <child type="suffix">
+                          <object class="GtkLabel" id="failed_label">
+                            <property name="label">0</property>
+                            <style>
+                              <class name="heading"/>
+                              <class name="numeric"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Time played</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">document-open-recent-symbolic</property>
+                            <style><class name="success"/></style>
+                          </object>
+                        </child>
+                        <child type="suffix">
+                          <object class="GtkLabel" id="game_time_label">
+                            <property name="label">0</property>
+                            <style>
+                              <class name="heading"/>
+                              <class name="numeric"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Avg solve time</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">hourglass-symbolic</property>
+                            <style><class name="accent"/></style>
+                          </object>
+                        </child>
+                        <child type="suffix">
+                          <object class="GtkLabel" id="avg_solve_label">
+                            <property name="label">0</property>
+                            <style>
+                              <class name="heading"/>
+                              <class name="numeric"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Overall accuracy</property>
+                        <child type="prefix">
+                          <object class="GtkImage" id="accuracy_icon">
+                            <property name="icon-name">emblem-important-symbolic</property>
+                          </object>
+                        </child>
+                        <child type="suffix">
+                          <object class="GtkLabel" id="accuracy_label">
+                            <property name="label">—</property>
+                            <style>
+                              <class name="heading"/>
+                              <class name="numeric"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Best results</property>
+
+                    <child>
+                      <object class="AdwExpanderRow">
+                        <property name="title" translatable="yes">Normal</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">input-gaming-symbolic</property>
+                            <style><class name="accent"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Easy</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_normal_easy">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Medium</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_normal_medium">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Hard</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_normal_hard">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwExpanderRow">
+                        <property name="title" translatable="yes">Timer</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">document-open-recent-symbolic</property>
+                            <style><class name="warning"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Easy</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_timer_easy">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Medium</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_timer_medium">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Hard</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_timer_hard">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwExpanderRow">
+                        <property name="title" translatable="yes">Timer + Bonus</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">alarm-symbolic</property>
+                            <style><class name="success"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Easy</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_bonus_easy">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Medium</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_bonus_medium">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Hard</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_bonus_hard">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwExpanderRow">
+                        <property name="title" translatable="yes">Task Count</property>
+                        <child type="prefix">
+                          <object class="GtkImage">
+                            <property name="icon-name">view-list-symbolic</property>
+                            <style><class name="error"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Easy</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_tasks_easy">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Medium</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_tasks_medium">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Hard</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_tasks_hard">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Recent sessions</property>
+
+                    <child>
+                      <object class="GtkListBox" id="recent_list">
+                        <property name="selection-mode">none</property>
+                        <style><class name="boxed-list"/></style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Data</property>
+
+                    <child>
+                      <object class="AdwButtonRow" id="export_stats_row">
+                        <property name="title" translatable="yes">Export statistics</property>
+                        <property name="start-icon-name">document-save-symbolic</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwButtonRow" id="import_stats_row">
+                        <property name="title" translatable="yes">Import statistics</property>
+                        <property name="start-icon-name">document-open-symbolic</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwButtonRow" id="delete_stats_row">
+                        <property name="title" translatable="yes">Delete all statistics</property>
+                        <property name="start-icon-name">user-trash-symbolic</property>
+                        <style><class name="destructive-action"/></style>
+                      </object>
+                    </child>
+
+                  </object>
+                </child>
+
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
