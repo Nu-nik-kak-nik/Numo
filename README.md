@@ -10,7 +10,7 @@
 
 **Fast mental math training**
 
-<img src="/data/screenshots/1-main.png" alt="Main page">
+<img src="/data/screenshots/readme.png" alt="Main page">
 
 </div>
 
