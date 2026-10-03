@@ -1,4 +1,4 @@
-application_id = 'org.gnome.Example'
+application_id = 'io.github.Nu_nik_kak_nik.Numo'
 
 scalable_dir = 'hicolor' / 'scalable' / 'apps'
 install_data(

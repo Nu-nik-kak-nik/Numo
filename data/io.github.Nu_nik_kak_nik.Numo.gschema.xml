@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="numo">
-  <enum id="org.gnome.Example.Difficulty">
+  <enum id="io.github.Nu_nik_kak_nik.Numo.Difficulty">
     <value nick="easy" value="0"/>
     <value nick="medium" value="1"/>
     <value nick="hard" value="2"/>
   </enum>
 
-  <schema id="org.gnome.Example" path="/org/gnome/Example/">
-    <key name="difficulty" enum="org.gnome.Example.Difficulty">
+  <schema id="io.github.Nu_nik_kak_nik.Numo" path="/io/github/Nu_nik_kak_nik/Numo/">
+    <key name="difficulty" enum="io.github.Nu_nik_kak_nik.Numo.Difficulty">
       <default>'medium'</default>
       <summary>Default difficulty</summary>
       <description>Difficulty applied to all game modes by default.</description>
@@ -36,7 +36,7 @@
 
     <key name="tasks-count" type="i">
       <range min="1" max="100"/>
-      <default>20</default>
+      <default>10</default>
       <summary>Task count</summary>
       <description>Number of tasks in the Task Count mode.</description>
     </key>
