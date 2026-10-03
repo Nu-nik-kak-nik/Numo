@@ -2,11 +2,18 @@ pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
 moduledir  = pkgdatadir / 'numo'
 gnome      = import('gnome')
 
+metainfo_dir = meson.project_build_root() / 'data'
+
 gnome.compile_resources('numo',
   'numo.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
+  source_dir: [
+    '.',
+    metainfo_dir,
+    meson.current_source_dir(),
+  ],
 )
 
 py = import('python').find_installation('python3')

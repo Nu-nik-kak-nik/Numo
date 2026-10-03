@@ -129,14 +129,16 @@ class NumoApplication(Adw.Application):
 
     def on_about_action(self, *args):
         """Callback for the app.about action."""
-        about = Adw.AboutDialog(application_name='Numo',
-                                application_icon='io.github.Nu_nik_kak_nik.Numo',
-                                developer_name='Nu-nik-kak-nik',
-                                version=APP_VERSION,
-                                # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-                                translator_credits = _('translator-credits'),
-                                developers=['Nu-nik-kak-nik'],
-                                copyright='© 2026 Nu-nik-kak-nik')
+        about = Adw.AboutDialog.new_from_appdata(
+        "/io/github/Nu_nik_kak_nik/Numo/io.github.Nu_nik_kak_nik.Numo.metainfo.xml",
+        APP_VERSION,
+        )
+        about.set_copyright("© 2026 Nu-nik-kak-nik")
+        about.set_translator_credits(_("translator-credits"))
+        about.add_credit_section(
+            _("Code author"),
+            ["Nu-nik-kak-nik https://github.com/Nu-nik-kak-nik"],
+        )
         about.present(self.props.active_window)
 
     def on_shortcuts_action(self, *args):

@@ -31,6 +31,5 @@ APP_DATA_SUBDIR = "numo"
 RECENT_GAMES = 10
 
 SCHEMA_ID = "io.github.Nu_nik_kak_nik.Numo"
-RESOURCE_PATH_PREFIX = '/io/github/Nu_nik_kak_nik/Numo'
-
+RESOURCE_PATH_PREFIX = "/io/github/Nu_nik_kak_nik/Numo"
 

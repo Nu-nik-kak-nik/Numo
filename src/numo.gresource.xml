@@ -6,6 +6,7 @@
     <file preprocess="xml-stripblanks">ui/statistics.ui</file>
     <file preprocess="xml-stripblanks">ui/shortcuts-dialog.ui</file>
     <file>icons/hicolor/symbolic/apps/hourglass-symbolic.svg</file>
+    <file>io.github.Nu_nik_kak_nik.Numo.metainfo.xml</file>
     <file>ui/style.css</file>
   </gresource>
 </gresources>
