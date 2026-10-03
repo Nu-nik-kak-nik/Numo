@@ -36,8 +36,8 @@
     <p>
       Three difficulty levels let you start simple and work your way up.
       Easy is just addition and subtraction. Medium adds multiplication
-      and exact division. Hard goes into negative numbers, floor division,
-      and modulo.
+      and exact division. Hard goes into negative numbers, floor div,
+      and mod.
     </p>
 
     <p>
