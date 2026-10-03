@@ -10,7 +10,7 @@
 
 **Fast mental math training**
 
-<img src="/data/screenshots/readme.png" alt="Main page">
+<img src="/data/screenshots/readme.png" width="325" height="375" alt="Main page">
 
 </div>
 
