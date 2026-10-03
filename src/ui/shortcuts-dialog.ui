@@ -48,7 +48,7 @@
         <child>
           <object class="AdwShortcutsItem">
             <property name="title" translatable="yes" context="shortcut window">Quit the game</property>
-            <property name="accelerator">Escape</property>
+            <property name="accelerator">&lt;Control&gt;Escape</property>
           </object>
         </child>
       </object>
