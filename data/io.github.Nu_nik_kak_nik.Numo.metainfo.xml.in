@@ -8,19 +8,48 @@
   <summary>Fast mental math training</summary>
   <description>
     <p>
-      Numo is a small app for training mental arithmetic. It generates
-      tasks on the fly and checks your answers instantly.
+      Numo is a lightweight app for sharpening mental arithmetic.
+      It generates tasks on the fly and checks your answers the moment
+      you press Enter — no setup, no menus, just numbers.
     </p>
-    <p>Four modes are available:</p>
+
+    <p>Pick one of four modes depending on what you want to train:</p>
     <ul>
-      <li>Normal — solve until you make a mistake</li>
-      <li>Timer — solve as many as possible in a fixed time</li>
-      <li>Timer + Bonus — earn extra seconds for correct answers</li>
-      <li>Task Count — solve a fixed number of tasks</li>
+      <li>
+        <b>Normal</b> — an endless run of tasks that ends the moment
+        you make a mistake. A test of focus and consistency.
+      </li>
+      <li>
+        <b>Timer</b> — a fixed countdown. Solve as many tasks as you can
+        before time runs out.
+      </li>
+      <li>
+        <b>Timer + Bonus</b> — start with a small amount of time and
+        earn extra seconds for every correct answer.
+      </li>
+      <li>
+        <b>Task Count</b> — a set number of tasks to solve. A clear goal to
+        reach at your own pace.
+      </li>
     </ul>
+
     <p>
-      Three difficulty levels let you start simple and work up to
-      negative numbers, division, and modulo.
+      Three difficulty levels let you start simple and work your way up.
+      Easy is just addition and subtraction. Medium adds multiplication
+      and exact division. Hard goes into negative numbers, floor division,
+      and modulo.
+    </p>
+
+    <p>
+      Every session is recorded: results, accuracy, and time spent.
+      The statistics screen shows your best results per mode and
+      difficulty, recent games, and overall progress, and you can export
+      or import your data at any time.
+    </p>
+
+    <p>
+      Numo is designed to stay out of your way. Big readable tasks,
+      an unobtrusive interface, and a focus on the numbers themselves.
     </p>
   </description>
 
@@ -46,8 +75,8 @@
   <content_rating type="oars-1.1" />
 
   <branding>
-    <color type="primary" scheme_preference="light">#ff00ff</color>
-    <color type="primary" scheme_preference="dark">#993d3d</color>
+    <color type="primary" scheme_preference="light">#8ff0a4</color>
+    <color type="primary" scheme_preference="dark">#1a5e3a</color>
   </branding>
 
   <!-- <screenshots> -->
@@ -60,6 +89,32 @@
   <!--     <caption>A caption</caption> -->
   <!--   </screenshot> -->
   <!-- </screenshots> -->
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/1-main.png</image>
+      <caption>Main screen with game mode selection</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/2-game-b.png</image>
+      <caption>Game screen in "Task Count" mode</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/3-game-w.png</image>
+      <caption>Game screen in "Task Count" mode (light mode)</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/4-result.png</image>
+      <caption>Game session result screen with statistics</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/5-stats.png</image>
+      <caption>User statistics screen</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/6-settings.png</image>
+      <caption>Game modes and difficulty settings screen</caption>
+    </screenshot>
+  </screenshots>
 
   <releases>
     <release version="0.1" date="2026-10-03">
