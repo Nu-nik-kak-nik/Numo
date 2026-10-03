@@ -12,9 +12,8 @@
 
 </div>
 
----
 
-## About project
+## About project 🖩
 Numo is a small GNOME app for training mental arithmetic. It generates
 tasks on the fly and checks your answers instantly — no distraction, just numbers.
 
@@ -35,18 +34,14 @@ Every session is recorded: result, accuracy, and time spent. The
 statistics screen shows your best results per mode and difficulty,
 recent games. Data can be exported and imported
 as JSON at any time.
-
----
   
-## My first project
+## My first project 🌟
 This is my first GNOME application built with GTK4 and libadwaita. I'm using it as an opportunity to learn modern GNOME development practices.
 
 Because of that, the codebase is deliberately kept and small readable.
 If you spot something that could be done better according to the GNOME way, I'd be glad to hear about it.
   
----
-  
-## Roadmap
+## Roadmap 🗺️
   
 The list below is not a rigid schedule, but merely an outline of the directions in which I would like to move.
 
@@ -63,8 +58,6 @@ The list below is not a rigid schedule, but merely an outline of the directions 
   
 ### Localization
   - [ ] **Prepare the project for translations** 
-  
----
 
 ## License
 
