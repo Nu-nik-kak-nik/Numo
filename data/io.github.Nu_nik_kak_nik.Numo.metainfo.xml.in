@@ -10,25 +10,25 @@
     <p>
       Numo is a lightweight app for sharpening mental arithmetic.
       It generates tasks on the fly and checks your answers the moment
-      you press Enter — no setup, no menus, just numbers.
+      you press Enter — no menus, just numbers.
     </p>
 
     <p>Pick one of four modes depending on what you want to train:</p>
     <ul>
       <li>
-        <b>Normal</b> — an endless run of tasks that ends the moment
+        <b>Normal</b>: an endless run of tasks that ends the moment
         you make a mistake. A test of focus and consistency.
       </li>
       <li>
-        <b>Timer</b> — a fixed countdown. Solve as many tasks as you can
+        <b>Timer</b>: a fixed countdown. Solve as many tasks as you can
         before time runs out.
       </li>
       <li>
-        <b>Timer + Bonus</b> — start with a small amount of time and
+        <b>Timer + Bonus</b>: start with a small amount of time and
         earn extra seconds for every correct answer.
       </li>
       <li>
-        <b>Task Count</b> — a set number of tasks to solve. A clear goal to
+        <b>Task Count</b>: a set number of tasks to solve. A clear goal to
         reach at your own pace.
       </li>
     </ul>
@@ -79,16 +79,6 @@
     <color type="primary" scheme_preference="dark">#1a5e3a</color>
   </branding>
 
-  <!-- <screenshots> -->
-  <!--   <screenshot type="default"> -->
-  <!--     <image>https://example.org/example1.png</image> -->
-  <!--     <caption>A caption</caption> -->
-  <!--   </screenshot> -->
-  <!--   <screenshot> -->
-  <!--     <image>https://example.org/example2.png</image> -->
-  <!--     <caption>A caption</caption> -->
-  <!--   </screenshot> -->
-  <!-- </screenshots> -->
   <screenshots>
     <screenshot type="default">
       <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/1-main.png</image>
