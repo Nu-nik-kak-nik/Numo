@@ -61,3 +61,4 @@ class SettingsManager:
                 target_tasks=self.get_tasks_count(),
             )
         return SessionOptions()
+

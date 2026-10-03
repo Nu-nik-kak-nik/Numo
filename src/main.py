@@ -41,9 +41,9 @@ class NumoApplication(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self):
-        super().__init__(application_id='org.gnome.Example',
+        super().__init__(application_id='io.github.Nu_nik_kak_nik.Numo',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
-                         resource_base_path='/org/gnome/Example')
+                         resource_base_path='/io/github/Nu_nik_kak_nik/Numo')
         self.settings = SettingsManager()
         self.stats_manager = StatsManager(
             app_version=APP_VERSION,
@@ -62,7 +62,7 @@ class NumoApplication(Adw.Application):
 
     def _load_css(self):
         provider = Gtk.CssProvider()
-        provider.load_from_resource("/org/gnome/Example/ui/style.css")
+        provider.load_from_resource("/io/github/Nu_nik_kak_nik/Numo/ui/style.css")
         display = Gdk.Display.get_default()
         if display is not None:
             Gtk.StyleContext.add_provider_for_display(
@@ -74,7 +74,7 @@ class NumoApplication(Adw.Application):
     def _load_icons(self):
         display = Gdk.Display.get_default()
         theme = Gtk.IconTheme.get_for_display(display)
-        theme.add_resource_path("/org/gnome/Example/icons")
+        theme.add_resource_path("/io/github/Nu_nik_kak_nik/Numo/icons")
 
     def do_activate(self):
         """Called when the application is activated.
@@ -130,18 +130,18 @@ class NumoApplication(Adw.Application):
     def on_about_action(self, *args):
         """Callback for the app.about action."""
         about = Adw.AboutDialog(application_name='Numo',
-                                application_icon='org.gnome.Example',
-                                developer_name='lis',
+                                application_icon='io.github.Nu_nik_kak_nik.Numo',
+                                developer_name='Nu-nik-kak-nik',
                                 version=APP_VERSION,
                                 # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
                                 translator_credits = _('translator-credits'),
-                                developers=['lis'],
-                                copyright='© 2026 lis')
+                                developers=['Nu-nik-kak-nik'],
+                                copyright='© 2026 Nu-nik-kak-nik')
         about.present(self.props.active_window)
 
     def on_shortcuts_action(self, *args):
         builder = Gtk.Builder.new_from_resource(
-            '/org/gnome/Example/ui/shortcuts-dialog.ui'
+            '/io/github/Nu_nik_kak_nik/Numo/ui/shortcuts-dialog.ui'
         )
         dialog = builder.get_object('shortcuts_dialog')
         dialog.present(self.window)

@@ -6,7 +6,7 @@
   <template class="NumoStatsWindow" parent="AdwDialog">
     <property name="title" translatable="yes">Statistics</property>
     <property name="content-width">650</property>
-    <property name="content-height">790</property>
+    <property name="content-height">750</property>
 
     <property name="child">
       <object class="AdwToastOverlay" id="toast_overlay">

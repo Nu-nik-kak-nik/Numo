@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-data/org.gnome.Example.desktop.in
-data/org.gnome.Example.metainfo.xml.in
-data/org.gnome.Example.gschema.xml
+data/io.github.Nu_nik_kak_nik.Numo.desktop.in
+data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in
+data/io.github.Nu_nik_kak_nik.Numo.gschema.xml
 src/main.py
 src/window.py
 src/window.ui

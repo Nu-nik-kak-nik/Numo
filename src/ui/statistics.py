@@ -9,7 +9,7 @@ from gettext import gettext as _
 
 from gi.repository import Adw, Gtk, Gio, GLib
 
-from numo.core.core_settings import GameMode, Difficulty
+from numo.core.core_settings import GameMode, Difficulty, RESOURCE_PATH_PREFIX
 from numo.core.custom_errors import StatsError
 from numo.utils.stats_manager import StatsManager
 from numo.core.ui_constants import (
@@ -23,7 +23,7 @@ from numo.core.ui_constants import (
 )
 
 
-@Gtk.Template(resource_path="/org/gnome/Example/ui/statistics.ui")
+@Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/statistics.ui")
 class NumoStatsWindow(Adw.Dialog):
     __gtype_name__ = "NumoStatsWindow"
 

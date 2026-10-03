@@ -25,7 +25,7 @@ from gettext import gettext as _
 
 from gi.repository import Adw, Gtk, GLib, Gdk
 
-from numo.core.core_settings import GameMode, Difficulty
+from numo.core.core_settings import GameMode, Difficulty, RESOURCE_PATH_PREFIX
 from numo.core.custom_errors import StatsError
 from numo.core.settings_manager import SettingsManager
 from numo.game.game_session import GameSession
@@ -42,7 +42,7 @@ DIFFICULTY_ICONS
 )
 
 
-@Gtk.Template(resource_path='/org/gnome/Example/ui/window.ui')
+@Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/window.ui")
 class NumoWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'NumoWindow'
 
@@ -379,3 +379,4 @@ class NumoWindow(Adw.ApplicationWindow):
         self._finished = False
         self._reset_status_label_style()
         self.nav_view.pop_to_tag("home")
+

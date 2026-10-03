@@ -5,11 +5,12 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gtk, Gio
 
+from numo.core.core_settings import RESOURCE_PATH_PREFIX
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import DIFF_ORDER
 
 
-@Gtk.Template(resource_path="/org/gnome/Example/ui/settings.ui")
+@Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/settings.ui")
 class NumoSettingsWindow(Adw.PreferencesDialog):
     __gtype_name__ = "NumoSettingsWindow"
 

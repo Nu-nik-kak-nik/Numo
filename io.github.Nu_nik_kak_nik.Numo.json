@@ -1,5 +1,5 @@
 {
-    "id" : "org.gnome.Example",
+    "id" : "io.github.Nu_nik_kak_nik.Numo",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "50",
     "sdk" : "org.gnome.Sdk",
@@ -9,7 +9,7 @@
         "--share=ipc",
         "--socket=fallback-x11",
         "--device=dri",
-        "--socket=wayland"
+        "--socket=wayland",
     ],
     "cleanup" : [
         "/include",
@@ -27,12 +27,12 @@
             "name" : "numo",
             "builddir" : true,
             "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "file:///home/lis/Projects/gnome_projects"
-                }
-            ]
+            "sources": [
+		    {
+		        "type": "dir",
+		        "path": "."
+		    }
+        	]
         }
     ]
 }

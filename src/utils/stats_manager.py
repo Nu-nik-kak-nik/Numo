@@ -201,11 +201,11 @@ class StatsManager:
 
         if attempts == 0:
             accuracy = None
-            time_to_task = None
+            time_to_task = 0
 
         elif total_time == 0:
             accuracy = round(correct / attempts * 100.0, 1)
-            time_to_task = None
+            time_to_task = 0
 
         else:
             accuracy = round(correct / attempts * 100.0, 1)

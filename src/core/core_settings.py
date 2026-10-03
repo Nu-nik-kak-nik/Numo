@@ -29,4 +29,8 @@ MAX_SESSIONS = 5000
 STATS_FILENAME = "stats.json"
 APP_DATA_SUBDIR = "numo"
 RECENT_GAMES = 10
-SCHEMA_ID = "org.gnome.Example"
+
+SCHEMA_ID = "io.github.Nu_nik_kak_nik.Numo"
+RESOURCE_PATH_PREFIX = '/io/github/Nu_nik_kak_nik/Numo'
+
+
