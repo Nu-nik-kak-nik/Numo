@@ -12,6 +12,8 @@
 
 </div>
 
+![Main page](/data/screenshots/1-main.png)
+
 
 ## About project 🖩
 Numo is a small GNOME app for training mental arithmetic. It generates
