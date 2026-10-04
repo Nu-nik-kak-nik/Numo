@@ -14,11 +14,11 @@ from numo.core.ui_constants import DIFF_ORDER
 class NumoSettingsWindow(Adw.PreferencesDialog):
     __gtype_name__ = "NumoSettingsWindow"
 
-    difficulty_row     = Gtk.Template.Child()
-    timer_minutes_row  = Gtk.Template.Child()
-    bonus_start_row    = Gtk.Template.Child()
-    bonus_seconds_row  = Gtk.Template.Child()
-    tasks_count_row    = Gtk.Template.Child()
+    difficulty_row = Gtk.Template.Child()
+    timer_minutes_row = Gtk.Template.Child()
+    bonus_start_row = Gtk.Template.Child()
+    bonus_seconds_row = Gtk.Template.Child()
+    tasks_count_row = Gtk.Template.Child()
 
     def __init__(self, settings: SettingsManager, **kwargs):
         super().__init__(**kwargs)

@@ -48,7 +48,3 @@ configure_file(
 )
 
 subdir('icons')
-
-gnome.post_install(
-  glib_compile_schemas: true,
-)

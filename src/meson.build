@@ -1,6 +1,6 @@
 pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
-moduledir  = pkgdatadir / 'numo'
-gnome      = import('gnome')
+moduledir = pkgdatadir / 'numo'
+gnome = import('gnome')
 
 metainfo_dir = meson.project_build_root() / 'data'
 
@@ -11,9 +11,9 @@ gnome.compile_resources('numo',
   install_dir: pkgdatadir,
   source_dir: [
     '.',
-    metainfo_dir,
     meson.current_source_dir(),
   ],
+  dependencies: [appstream_file],
 )
 
 py = import('python').find_installation('python3')
@@ -34,14 +34,14 @@ configure_file(
 )
 
 python_sources = {
-  ''      : ['__init__.py', 'main.py'],
-  'ui'    : [
+  '' : ['__init__.py', 'main.py'],
+  'ui' : [
     'ui/__init__.py',
     'ui/window.py',
     'ui/settings.py',
     'ui/statistics.py',
   ],
-  'core'  : [
+  'core' : [
     'core/__init__.py',
     'core/core_settings.py',
     'core/stats_schema.py',
@@ -53,7 +53,7 @@ python_sources = {
     'utils/__init__.py',
     'utils/stats_manager.py',
   ],
-  'game'  : [
+  'game' : [
     'game/__init__.py',
     'game/task.py',
     'game/task_generator.py',

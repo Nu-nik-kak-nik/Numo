@@ -3,12 +3,12 @@ from dataclasses import dataclass
 
 
 class Operation(str, Enum):
-    ADD      = "add"
-    SUB      = "sub"
-    MUL      = "mul"
-    DIV      = "div_exact"
+    ADD = "add"
+    SUB = "sub"
+    MUL = "mul"
+    DIV = "div_exact"
     FLOOR_DIV = "floor_div"
-    MOD      = "mod"
+    MOD = "mod"
 
     @property
     def symbol(self) -> str:
