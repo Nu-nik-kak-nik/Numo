@@ -16,6 +16,7 @@ from numo.core.core_settings import (
     STATS_FILENAME,
     APP_DATA_SUBDIR,
     RECENT_GAMES,
+    APP_VERSION,
 )
 from numo.core.stats_schema import Session, StatsFile
 from numo.core.custom_errors import StatsError
@@ -23,7 +24,7 @@ from numo.core.custom_errors import StatsError
 
 class StatsManager:
 
-    def __init__(self, app_version: str = "", on_warning=None):
+    def __init__(self, app_version: str = APP_VERSION, on_warning=None):
         super().__init__()
         self._app_version: str = app_version
         self._on_warning = on_warning
