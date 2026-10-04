@@ -24,7 +24,7 @@ class SessionOptions:
 
 
 SCHEMA_VERSION = 1
-APP_VERSION = '0.2'
+APP_VERSION = '0.3'
 MAX_SESSIONS = 5000
 STATS_FILENAME = "stats.json"
 APP_DATA_SUBDIR = "numo"
