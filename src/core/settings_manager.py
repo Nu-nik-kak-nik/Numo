@@ -62,3 +62,9 @@ class SettingsManager:
             )
         return SessionOptions()
 
+    def get_recent_sessions(self) -> int:
+        return self._settings.get_int("recent-sessions")
+
+    def set_recent_sessions(self, value: int) -> None:
+        return self._settings.set_int("recent-sessions", value)
+

@@ -12,14 +12,14 @@ from gi.repository import Adw, Gtk, Gio, GLib
 from numo.core.core_settings import GameMode, Difficulty, RESOURCE_PATH_PREFIX
 from numo.core.custom_errors import StatsError
 from numo.utils.stats_manager import StatsManager
+from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import (
     MODE_LABELS,
     DIFF_LABELS,
     MODE_ICONS,
     MODE_COLORS,
     ACC_PERCENTAGE_SUCCESS,
-    ACC_PERCENTAGE_WARNING,
-    NUMBER_OF_RECENT_GAMES
+    ACC_PERCENTAGE_WARNING
 )
 
 
@@ -60,9 +60,10 @@ class NumoStatsWindow(Adw.Dialog):
     delete_stats_row = Gtk.Template.Child()
 
 
-    def __init__(self, stats_manager: StatsManager, **kwargs):
+    def __init__(self, stats_manager: StatsManager, settings: SettingsManager, **kwargs):
         super().__init__(**kwargs)
         self._stats = stats_manager
+        self._settings = settings
 
         self.delete_stats_row.connect("activated", self._on_delete_activated)
         self.export_stats_row.connect("activated", self._on_export_activated)
@@ -155,8 +156,9 @@ class NumoStatsWindow(Adw.Dialog):
         hard_lbl.set_label(self._format_best_session(mode_best[Difficulty.HARD]))
 
     def _populate_recent(self) -> None:
+        limit = self._settings.get_recent_sessions()
         self.recent_list.remove_all()
-        sessions = self._stats.recent(NUMBER_OF_RECENT_GAMES)
+        sessions = self._stats.recent(limit)
         if not sessions:
             row = Adw.ActionRow(
                 title=_("No sessions yet"),
@@ -169,10 +171,10 @@ class NumoStatsWindow(Adw.Dialog):
             row = self._format_recent_sessions(s)
             self.recent_list.append(row)
 
-        if len(sessions) < NUMBER_OF_RECENT_GAMES:
+        if len(sessions) < limit:
             row = Adw.ActionRow(
                 title=_("No more sessions"),
-                subtitle=_("You have fewer than %d recorded sessions") % NUMBER_OF_RECENT_GAMES,
+                subtitle=_("You have fewer than %(limit)d recorded sessions") % {"limit": limit},
             )
             self.recent_list.append(row)
 

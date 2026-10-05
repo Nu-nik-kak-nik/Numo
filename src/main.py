@@ -109,7 +109,7 @@ class NumoApplication(Adw.Application):
             if isinstance(win, NumoStatsWindow):
                 win.present(self.window)
                 return None
-        win = NumoStatsWindow(stats_manager=self.stats_manager)
+        win = NumoStatsWindow(stats_manager=self.stats_manager, settings=self.settings)
         win.present(self.window)
 
     def create_action(self, name, callback, shortcuts=None):

@@ -11,8 +11,6 @@ TICK_INTERVAL_MS = 200
 FEEDBACK_DURATION_MS = 500
 BONUS_FADE_MS = 400
 
-NUMBER_OF_RECENT_GAMES = 10
-
 DIFF_TO_NICK = {
     Difficulty.EASY: "easy",
     Difficulty.MEDIUM: "medium",

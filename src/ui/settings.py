@@ -19,6 +19,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
     bonus_start_row = Gtk.Template.Child()
     bonus_seconds_row = Gtk.Template.Child()
     tasks_count_row = Gtk.Template.Child()
+    recent_sessions_row = Gtk.Template.Child()
 
     def __init__(self, settings: SettingsManager, **kwargs):
         super().__init__(**kwargs)
@@ -35,6 +36,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._gio.bind("bonus-initial-sec", self.bonus_start_row, "value", Gio.SettingsBindFlags.DEFAULT)
         self._gio.bind("bonus-per-correct-sec", self.bonus_seconds_row, "value", Gio.SettingsBindFlags.DEFAULT)
         self._gio.bind("tasks-count", self.tasks_count_row, "value", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("recent-sessions", self.recent_sessions_row, "value", Gio.SettingsBindFlags.DEFAULT)
 
 
     def _sync_difficulty_from_settings(self):
