@@ -319,22 +319,22 @@ class NumoWindow(Adw.ApplicationWindow):
         match data["mode"]:
             case GameMode.NORMAL:
                 self.results_label_extra.set_label(
-                    _("{count} tasks solved").format(count=data["mode_data"])
+                    _("%(count)d tasks solved") % {"count": data["mode_data"] or 0}
                 )
             case GameMode.TIMER:
                 self.results_label_extra.set_label(
-                    _("{minutes} min").format(minutes=data["mode_data"])
+                    _("%(minutes)d min") % {"minutes": data["mode_data"] or 0}
                 )
             case GameMode.TIMER_BONUS:
                 self.results_label_extra.set_label(
-                    _("{initial} s + {bonus} s").format(
-                        initial=options.initial_time_sec or 0,
-                        bonus=options.bonus_sec or 0,
-                    )
+                    _("%(initial)d s + %(bonus)d s") % {
+                        "initial": options.initial_time_sec or 0,
+                        "bonus": options.bonus_sec or 0,
+                    }
                 )
             case GameMode.TASKS:
                 self.results_label_extra.set_label(
-                    _("{count} tasks").format(count=data["mode_data"] or 0)
+                    _("%(count)d tasks") % {"count": data["mode_data"] or 0}
                 )
 
             case _:
