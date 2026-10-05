@@ -59,6 +59,7 @@ class NumoStatsWindow(Adw.Dialog):
     import_stats_row = Gtk.Template.Child()
     delete_stats_row = Gtk.Template.Child()
 
+
     def __init__(self, stats_manager: StatsManager, **kwargs):
         super().__init__(**kwargs)
         self._stats = stats_manager
@@ -165,21 +166,32 @@ class NumoStatsWindow(Adw.Dialog):
             return
 
         for s in sessions:
-            row = Adw.ActionRow(
-                title=self._format_timestamp(s.dt),
-                subtitle=f"{MODE_LABELS[s.mode]} · {DIFF_LABELS[s.difficulty]}",
-            )
-
-            icon = Gtk.Image.new_from_icon_name(MODE_ICONS[s.mode])
-            icon.add_css_class(MODE_COLORS[s.mode])
-            row.add_prefix(icon)
-
-            row.add_suffix(Gtk.Label(
-                label=self._format_session_summary(s),
-                css_classes=["dim-label", "numeric"],
-            ))
-
+            row = self._format_recent_sessions(s)
             self.recent_list.append(row)
+
+        if len(sessions) < NUMBER_OF_RECENT_GAMES:
+            row = Adw.ActionRow(
+                title=_("No more sessions"),
+                subtitle=_("You have fewer than %d recorded sessions") % NUMBER_OF_RECENT_GAMES,
+            )
+            self.recent_list.append(row)
+
+    def _format_recent_sessions(self, s) -> Adw.ActionRow:
+        row = Adw.ActionRow(
+            title=self._format_timestamp(s.dt),
+            subtitle=f"{MODE_LABELS[s.mode]} · {DIFF_LABELS[s.difficulty]}",
+        )
+
+        icon = Gtk.Image.new_from_icon_name(MODE_ICONS[s.mode])
+        icon.add_css_class(MODE_COLORS[s.mode])
+        row.add_prefix(icon)
+
+        row.add_suffix(Gtk.Label(
+            label=self._format_session_summary(s),
+            css_classes=["dim-label", "numeric"],
+        ))
+
+        return row
 
     def _format_best_session(self, s) -> str:
         if s is None:

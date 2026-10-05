@@ -94,13 +94,35 @@
                     <property name="lower">1</property>
                     <property name="upper">100</property>
                     <property name="step-increment">1</property>
-                    <property name="value">30</property>
+                    <property name="value">10</property>
                   </object>
                 </property>
               </object>
             </child>
           </object>
         </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Statistics</property>
+            <child>
+              <object class="AdwSpinRow" id="recent_sessions_row">
+                <property name="title" translatable="yes">Number of recent sessions</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">1</property>
+                    <property name="upper">25</property>
+                    <property name="step-increment">1</property>
+                    <property name="value">10</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+<!-- настройки сложности (операции, диапозоны чисел); настройки числа последних матчей -->
+
       </object>
     </child>
   </template>
