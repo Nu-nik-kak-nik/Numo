@@ -109,6 +109,16 @@
   <releases>
     <release version="0.3" date="2026-10-04">
       <description translate="no">
+        <p>Minor changes.</p>
+      </description>
+    </release>
+    <release version="0.2" date="2026-10-04">
+      <description translate="no">
+        <p>Minor changes.</p>
+      </description>
+    </release>
+    <release version="0.1" date="2026-10-04">
+      <description translate="no">
         <p>First public release.</p>
         <ul>
           <li>Four game modes</li>
