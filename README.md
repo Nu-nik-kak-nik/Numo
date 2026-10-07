@@ -47,12 +47,7 @@ If you spot something that could be done better according to the GNOME way, I'd 
 The list below is not a rigid schedule, but merely an outline of the directions in which I would like to move.
 
 ### Difficulty
-  - **Difficulty icons**:  add symbolic icons for each level (Easy, Medium, Hard) so the current setting is visible at a glance.
   - **Flexible difficulty settings**: allow customizing what each level does: which operations are included, number ranges, whether negative results are allowed. Right now the rules are hardcoded.
-  
-### Statistics
-  - **Configurable number of recent matches**:  let the user choose how many sessions the "Recent" section shows.
-  - **Redesign of the recent matches list**:  cleaner layout.
   
 ### Modes
   - **New game modes**: no concrete ideas yet. Candidate: "Reverse" (given the result, find the expression). Open to suggestions.
