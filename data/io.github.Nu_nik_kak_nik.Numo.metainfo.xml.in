@@ -107,16 +107,30 @@
   </screenshots>
 
   <releases>
-    <release version="0.3" date="2026-10-04">
+    <release version="0.4" date="2026-10-07">
+      <description translate="no">
+        <p>Project refinement.</p>
+        <ul>
+          <li>Added a setting for the number of recent matches displayed</li>
+          <li>Icons are now installed in the project</li>
+          <li>Icons for difficulty levels have been added</li>
+          <li>And other minor improvements</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="0.3" date="2026-10-05">
       <description translate="no">
         <p>Minor changes.</p>
       </description>
     </release>
-    <release version="0.2" date="2026-10-04">
+
+    <release version="0.2" date="2026-10-05">
       <description translate="no">
         <p>Minor changes.</p>
       </description>
     </release>
+
     <release version="0.1" date="2026-10-04">
       <description translate="no">
         <p>First public release.</p>
@@ -127,6 +141,7 @@
         </ul>
       </description>
     </release>
+
   </releases>
 
 </component>
