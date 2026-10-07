@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/io/github/Nu_nik_kak_nik/Numo">
+    <file>io.github.Nu_nik_kak_nik.Numo.metainfo.xml</file>
+    <file>ui/style.css</file>
     <file preprocess="xml-stripblanks">ui/window.ui</file>
     <file preprocess="xml-stripblanks">ui/settings.ui</file>
     <file preprocess="xml-stripblanks">ui/statistics.ui</file>
     <file preprocess="xml-stripblanks">ui/shortcuts-dialog.ui</file>
-    <file>icons/hicolor/symbolic/apps/hourglass-symbolic.svg</file>
-    <file>io.github.Nu_nik_kak_nik.Numo.metainfo.xml</file>
-    <file>ui/style.css</file>
+
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/alarm-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/dialog-error-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/document-open-recent-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/emblem-important-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/hourglass-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/input-gaming-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/leaves-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/info-outline-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/media-playback-start-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/object-select-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/skull-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/tree-circle-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/view-list-symbolic.svg</file>
   </gresource>
 </gresources>

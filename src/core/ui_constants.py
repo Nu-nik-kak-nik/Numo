@@ -54,8 +54,8 @@ DIFFICULTY_LABELS = {
 }
 
 DIFFICULTY_ICONS = {
-    Difficulty.EASY: "starred-symbolic",
-    Difficulty.MEDIUM: "starred-symbolic",
-    Difficulty.HARD: "starred-symbolic",
+    Difficulty.EASY: "leaves-symbolic",
+    Difficulty.MEDIUM: "tree-circle-symbolic",
+    Difficulty.HARD: "skull-symbolic",
 }
 

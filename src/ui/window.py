@@ -306,7 +306,6 @@ class NumoWindow(Adw.ApplicationWindow):
         self.results_label_mode.set_label(MODE_LABELS[s.mode])
         self.results_icon_difficulty.set_from_icon_name(DIFFICULTY_ICONS[data["difficulty"]])
         self.results_label_difficulty.set_label(DIFFICULTY_LABELS[data["difficulty"]])
-        self.results_icon_extra.set_from_icon_name("media-playback-start-symbolic")
 
         self._populate_end(data)
 

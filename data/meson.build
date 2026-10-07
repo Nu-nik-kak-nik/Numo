@@ -27,10 +27,6 @@ test('Validate appstream file', appstreamcli,
 install_data('io.github.Nu_nik_kak_nik.Numo.gschema.xml',
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
 )
-install_data(
-  '../src/icons/hicolor/symbolic/apps/hourglass-symbolic.svg',
-  install_dir: get_option('datadir') / 'icons' / 'hicolor' / 'symbolic' / 'apps',
-)
 
 compile_schemas = find_program('glib-compile-schemas', required: false, disabler: true)
 test('Validate schema file',

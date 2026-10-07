@@ -419,6 +419,7 @@
                                         <child>
                                           <object class="GtkImage" id="results_icon_mode">
                                             <property name="icon-name">input-gaming-symbolic</property>
+                                            <property name="pixel-size">24</property>
                                             <style><class name="dim-label"/></style>
                                           </object>
                                         </child>
@@ -437,14 +438,15 @@
                                         <property name="spacing">8</property>
                                         <property name="halign">center</property>
                                         <child>
-                                          <object class="GtkImage" id="results_icon_difficulty">
-                                            <property name="icon-name">starred-symbolic</property>
+                                          <object class="GtkImage" id="results_icon_extra">
+                                            <property name="icon-name">info-outline-symbolic</property>
+                                            <property name="pixel-size">24</property>
                                             <style><class name="dim-label"/></style>
                                           </object>
                                         </child>
                                         <child>
-                                          <object class="GtkLabel" id="results_label_difficulty">
-                                            <property name="label" translatable="yes">Medium</property>
+                                          <object class="GtkLabel" id="results_label_extra">
+                                            <property name="label">—</property>
                                             <style><class name="dim-label"/></style>
                                           </object>
                                         </child>
@@ -457,19 +459,21 @@
                                         <property name="spacing">8</property>
                                         <property name="halign">center</property>
                                         <child>
-                                          <object class="GtkImage" id="results_icon_extra">
-                                            <property name="icon-name">media-playback-start-symbolic</property>
+                                          <object class="GtkImage" id="results_icon_difficulty">
+                                            <property name="icon-name">tree-circle-symbolic"</property>
+                                            <property name="pixel-size">24</property>
                                             <style><class name="dim-label"/></style>
                                           </object>
                                         </child>
                                         <child>
-                                          <object class="GtkLabel" id="results_label_extra">
-                                            <property name="label">—</property>
+                                          <object class="GtkLabel" id="results_label_difficulty">
+                                            <property name="label" translatable="yes">Medium</property>
                                             <style><class name="dim-label"/></style>
                                           </object>
                                         </child>
                                       </object>
                                     </child>
+
                                   </object>
                                 </child>
                               </object>
