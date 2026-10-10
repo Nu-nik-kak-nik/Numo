@@ -38,7 +38,8 @@ MODE_ICONS,
 MODE_COLORS,
 MODE_LABELS,
 DIFFICULTY_LABELS,
-DIFFICULTY_ICONS
+DIFFICULTY_ICONS,
+MAX_LENGHT_ANSWER
 )
 
 
@@ -103,7 +104,7 @@ class NumoWindow(Adw.ApplicationWindow):
         self.results_ok_button.connect("clicked", self._on_results_ok_clicked)
 
         self.answer_entry.connect("activate", self._on_answer_activated)
-        self.answer_entry.set_max_length(7)
+        self.answer_entry.set_max_length(MAX_LENGHT_ANSWER)
 
         self._key_controller = Gtk.EventControllerKey.new()
         self._key_controller.connect("key-pressed", self._on_key_pressed)

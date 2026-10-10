@@ -11,6 +11,8 @@ TICK_INTERVAL_MS = 200
 FEEDBACK_DURATION_MS = 500
 BONUS_FADE_MS = 400
 
+MAX_LENGHT_ANSWER = 6
+
 DIFF_TO_NICK = {
     Difficulty.EASY: "easy",
     Difficulty.MEDIUM: "medium",
