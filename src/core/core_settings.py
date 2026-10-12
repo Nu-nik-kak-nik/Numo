@@ -81,11 +81,15 @@ class DifficultySettings:
 
 DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
     Difficulty.EASY: DifficultySettings(
-        operations=(Operation.ADD, Operation.SUB),
+        operations=(Operation.ADD, Operation.SUB, Operation.MUL,),
         add_sub=AddSubRange(
             min_first=1, max_first=50,
             min_second=1, max_second=50,
             keep_non_negative=True,
+        ),
+        multiplication=MultiplicationRange(
+            min_first=1, max_first=5,
+            min_second=1, max_second=5,
         ),
     ),
 
@@ -95,16 +99,16 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
             Operation.MUL, Operation.DIV,
         ),
         add_sub=AddSubRange(
-            min_first=5, max_first=99,
-            min_second=5, max_second=99,
+            min_first=-100, max_first=100,
+            min_second=-100, max_second=100,
         ),
         multiplication=MultiplicationRange(
-            min_first=2, max_first=14,
-            min_second=2, max_second=14,
+            min_first=2, max_first=12,
+            min_second=2, max_second=12,
         ),
         division=DivisionRange(
-            min_divisor=2, max_divisor=15,
-            min_quotient=2, max_quotient=20,
+            min_divisor=-12, max_divisor=12,
+            min_quotient=-12, max_quotient=12,
         ),
     ),
 
@@ -123,12 +127,12 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
             min_second=-20, max_second=20,
         ),
         division=DivisionRange(
-            min_divisor=3, max_divisor=25,
-            min_quotient=3, max_quotient=25,
+            min_divisor=-20, max_divisor=20,
+            min_quotient=-20, max_quotient=20,
         ),
         div_mod=DivModRange(
-            min_divisor=3, max_divisor=25,
-            min_base=3, max_base=25,
+            min_divisor=3, max_divisor=20,
+            min_base=3, max_base=20,
             min_remainder=1,
         ),
     ),
