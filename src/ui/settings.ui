@@ -9,8 +9,6 @@
     <property name="search-enabled">False</property>
     <child>
       <object class="AdwPreferencesPage">
-        <property name="title" translatable="yes">Game</property>
-        <property name="icon-name">applications-games-symbolic</property>
         <child>
           <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">General</property>
@@ -101,7 +99,6 @@
             </child>
           </object>
         </child>
-
         <child>
           <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">Statistics</property>
@@ -120,6 +117,287 @@
             </child>
           </object>
         </child>
+
+
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Custom difficulty</property>
+            <property name="description" translatable="yes">Choose operations and set number ranges to create your own math challenge</property>
+            <child>
+              <object class="AdwExpanderRow" id="custom_add">
+                <property name="title" translatable="yes">Addition</property>
+                <property name="show-enable-switch">True</property>
+                <property name="enable-expansion">False</property>
+                <child type="suffix">
+                  <object class="GtkLabel">
+                    <property name="label">+</property>
+                    <style>
+                      <class name="title-4"/>
+                      <class name="dim-label"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_add_min">
+                    <property name="title" translatable="yes">Minimum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-5000</property>
+                        <property name="upper">5000</property>
+                        <property name="step-increment">1</property>
+                        <property name="page-increment">10</property>
+                        <property name="value">-5000</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_add_max">
+                    <property name="title" translatable="yes">Maximum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-5000</property>
+                        <property name="upper">5000</property>
+                        <property name="step-increment">1</property>
+                        <property name="page-increment">10</property>
+                        <property name="value">5000</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwExpanderRow" id="custom_sub">
+                <property name="title" translatable="yes">Subtraction</property>
+                <property name="show-enable-switch">True</property>
+                <property name="enable-expansion">False</property>
+                <child type="suffix">
+                  <object class="GtkLabel">
+                    <property name="label">−</property>
+                    <style>
+                      <class name="title-4"/>
+                      <class name="dim-label"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_sub_min">
+                    <property name="title" translatable="yes">Minimum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-5000</property>
+                        <property name="upper">5000</property>
+                        <property name="step-increment">1</property>
+                        <property name="page-increment">10</property>
+                        <property name="value">-5000</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_sub_max">
+                    <property name="title" translatable="yes">Maximum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-5000</property>
+                        <property name="upper">5000</property>
+                        <property name="step-increment">1</property>
+                        <property name="page-increment">10</property>
+                        <property name="value">5000</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwExpanderRow" id="custom_mul">
+                <property name="title" translatable="yes">Multiplication</property>
+                <property name="show-enable-switch">True</property>
+                <property name="enable-expansion">False</property>
+                <child type="suffix">
+                  <object class="GtkLabel">
+                    <property name="label">×</property>
+                    <style>
+                      <class name="title-4"/>
+                      <class name="dim-label"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_mul_min">
+                    <property name="title" translatable="yes">Minimum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-100</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">-100</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_mul_max">
+                    <property name="title" translatable="yes">Maximum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-100</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">100</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwExpanderRow" id="custom_div">
+                <property name="title" translatable="yes">Division</property>
+                <property name="show-enable-switch">True</property>
+                <property name="enable-expansion">False</property>
+                <child type="suffix">
+                  <object class="GtkLabel">
+                    <property name="label">÷</property>
+                    <style>
+                      <class name="title-4"/>
+                      <class name="dim-label"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_div_min">
+                    <property name="title" translatable="yes">Minimum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-100</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">-100</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_div_max">
+                    <property name="title" translatable="yes">Maximum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">-100</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">100</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwExpanderRow" id="custom_floordiv">
+                <property name="title" translatable="yes">Integer Division</property>
+                <property name="show-enable-switch">True</property>
+                <property name="enable-expansion">False</property>
+                <child type="suffix">
+                  <object class="GtkLabel">
+                    <property name="label">div</property>
+                    <style>
+                      <class name="dim-label"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_floordiv_min">
+                    <property name="title" translatable="yes">Minimum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">1</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_floordiv_max">
+                    <property name="title" translatable="yes">Maximum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">100</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwExpanderRow" id="custom_mod">
+                <property name="title" translatable="yes">Modulo</property>
+                <property name="show-enable-switch">True</property>
+                <property name="enable-expansion">False</property>
+                <child type="suffix">
+                  <object class="GtkLabel">
+                    <property name="label">mod</property>
+                    <style>
+                      <class name="dim-label"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_mod_min">
+                    <property name="title" translatable="yes">Minimum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">1</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="custom_mod_max">
+                    <property name="title" translatable="yes">Maximum number</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">100</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">100</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="AdwButtonRow" id="custom_reset_row">
+                <property name="title" translatable="yes">Reset to default</property>
+                <property name="start-icon-name">edit-undo-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+
 
       </object>
     </child>
