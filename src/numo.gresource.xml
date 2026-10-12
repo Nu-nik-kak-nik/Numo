@@ -21,5 +21,7 @@
     <file preprocess="xml-stripblanks">icons/symbolic/apps/skull-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/symbolic/apps/tree-circle-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/symbolic/apps/view-list-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/edit-undo-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/sliders-symbolic.svg</file>
   </gresource>
 </gresources>
