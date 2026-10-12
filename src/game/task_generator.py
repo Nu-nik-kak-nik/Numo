@@ -37,15 +37,15 @@ class TaskGenerator:
     def _multiplication(self) -> Task:
         data = self._settings.multiplication
         return Task(
-            random.randint(data.min_first, data.max_first),
-            random.randint(data.min_second, data.max_second),
+            self._pick_non_zero(data.min_first, data.max_first),
+            self._pick_non_zero(data.min_second, data.max_second),
             Operation.MUL,
         )
 
     def _division(self) -> Task:
         data = self._settings.division
-        divisor = random.randint(data.min_divisor, data.max_divisor)
-        quotient = random.randint(data.min_quotient, data.max_quotient)
+        divisor = self._pick_non_zero(data.min_divisor, data.max_divisor)
+        quotient = self._pick_non_zero(data.min_quotient, data.max_quotient)
         return Task(quotient * divisor, divisor, Operation.DIV)
 
     def _div_mod(self, operation: Operation) -> Task:
@@ -56,3 +56,11 @@ class TaskGenerator:
         sign = random.choice((-1, 1))
         dividend = base * divisor + remainder * sign
         return Task(dividend, divisor, operation)
+
+    @staticmethod
+    def _pick_non_zero(min_val: int, max_val: int) -> int:
+        if min_val <= 0 <= max_val:
+            offset = random.randint(min_val, max_val - 1)
+            return offset + 1 if offset >= 0 else offset
+        else:
+            return random.randint(min_val, max_val)
