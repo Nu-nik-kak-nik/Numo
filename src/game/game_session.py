@@ -5,6 +5,7 @@ from numo.core.core_settings import GameMode, Difficulty, SessionOptions
 from numo.core.stats_schema import Session
 from numo.game.task import Task
 from numo.game.task_generator import TaskGenerator
+from numo.utils.formatting import format_duration
 
 
 
@@ -55,7 +56,7 @@ class GameSession:
                 return f"{self._options.target_tasks} / {self._options.target_tasks}"
             current = self._correct + self._wrong + 1
             return f"{current} / {self._options.target_tasks}"
-        return _format_time(self._time_left or 0)
+        return format_duration(self._time_left or 0)
 
     def submit(self, user_answer: int) -> bool:
         if self._finished:
@@ -115,7 +116,7 @@ class GameSession:
             "difficulty" : self._difficulty,
             "correct" : self._correct,
             "wrong" : self._wrong,
-            "duration" : _format_time(self.elapsed_sec),
+            "duration" : format_duration(self.elapsed_sec),
             "accuracy" : self._accuracy(),
         }
 
@@ -144,9 +145,3 @@ class GameSession:
         total = self._correct + self._wrong
         return round(self._correct / total * 100.0, 1) if total else 0.0
 
-
-
-def _format_time(seconds: float) -> str:
-    total = int(seconds)
-    minutes, secs = divmod(total, 60)
-    return f"{minutes}:{secs:02d}"

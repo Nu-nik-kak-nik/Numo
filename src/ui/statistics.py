@@ -11,7 +11,6 @@ from gi.repository import Adw, Gtk, Gio, GLib
 
 from numo.core.core_settings import GameMode, Difficulty, RESOURCE_PATH_PREFIX
 from numo.core.custom_errors import StatsError
-from numo.utils.stats_manager import StatsManager
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import (
     MODE_LABELS,
@@ -21,6 +20,8 @@ from numo.core.ui_constants import (
     ACC_PERCENTAGE_SUCCESS,
     ACC_PERCENTAGE_WARNING
 )
+from numo.utils.stats_manager import StatsManager
+from numo.utils.formatting import format_duration, format_duration_with_hours, format_timestamp
 
 
 @Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/statistics.ui")
@@ -83,8 +84,8 @@ class NumoStatsWindow(Adw.Dialog):
     def _populate_overview(self) -> None:
         overview = self._stats.overview()
         self.sessions_label.set_label(str(overview["sessions"]))
-        self.game_time_label.set_label(self._format_duration_with_hours(overview["total_time"]))
-        self.avg_solve_label.set_label(self._format_duration(overview["time_to_task"]))
+        self.game_time_label.set_label(format_duration_with_hours(overview["total_time"]))
+        self.avg_solve_label.set_label(format_duration(overview["time_to_task"]))
         self.solved_label.set_label(str(overview["correct"]))
         self.failed_label.set_label(str(overview["wrong"]))
 
@@ -180,7 +181,7 @@ class NumoStatsWindow(Adw.Dialog):
 
     def _format_recent_sessions(self, s) -> Adw.ActionRow:
         row = Adw.ActionRow(
-            title=self._format_timestamp(s.dt),
+            title=format_timestamp(s.dt),
             subtitle=f"{MODE_LABELS[s.mode]} · {DIFF_LABELS[s.difficulty]}",
         )
 
@@ -201,30 +202,10 @@ class NumoStatsWindow(Adw.Dialog):
         return self._format_session_summary(s)
 
     def _format_session_summary(self, s) -> str:
-        duration = self._format_duration(s.elapsed_sec)
+        duration = format_duration(s.elapsed_sec)
         if s.accuracy is None:
             return f"0 · 0% · {duration}"
         return f"{s.correct} · {s.accuracy}% · {duration}"
-
-    @staticmethod
-    def _format_duration(seconds: float) -> str:
-        total = int(seconds)
-        minutes, secs = divmod(total, 60)
-        return f"{minutes}:{secs:02d}"
-
-    @staticmethod
-    def _format_duration_with_hours(seconds: float) -> str:
-        total = int(seconds)
-        hours, remainder = divmod(total, 3600)
-        minutes, secs = divmod(remainder, 60)
-        return f"{hours}:{minutes:02d}:{secs:02d}"
-
-    @staticmethod
-    def _format_timestamp(dt: datetime) -> str:
-        now = datetime.now()
-        if dt.date() == now.date():
-            return dt.strftime(_("Today %H:%M"))
-        return dt.strftime("%Y-%m-%d %H:%M")
 
     def _on_delete_activated(self, _row):
         dialog = Adw.AlertDialog(

@@ -52,6 +52,7 @@ python_sources = {
   'utils' : [
     'utils/__init__.py',
     'utils/stats_manager.py',
+    'utils/formatting.py'
   ],
   'game' : [
     'game/__init__.py',
