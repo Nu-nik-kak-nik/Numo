@@ -47,5 +47,131 @@
       <summary>Number of recent sessions</summary>
       <description>Number of recent sessions displayed in session statistics.</description>
     </key>
+
+    <key name="custom-add-enabled" type="b">
+      <default>true</default>
+      <summary>Custom difficulty: addition enabled</summary>
+      <description>Whether addition is enabled in custom difficulty.</description>
+    </key>
+
+    <key name="custom-sub-enabled" type="b">
+      <default>true</default>
+      <summary>Custom difficulty: subtraction enabled</summary>
+      <description>Whether subtraction is enabled in custom difficulty.</description>
+    </key>
+
+    <key name="custom-mul-enabled" type="b">
+      <default>true</default>
+      <summary>Custom difficulty: multiplication enabled</summary>
+      <description>Whether multiplication is enabled in custom difficulty.</description>
+    </key>
+
+    <key name="custom-div-enabled" type="b">
+      <default>true</default>
+      <summary>Custom difficulty: division enabled</summary>
+      <description>Whether division is enabled in custom difficulty.</description>
+    </key>
+
+    <key name="custom-intdiv-enabled" type="b">
+      <default>false</default>
+      <summary>Custom difficulty: integer division enabled</summary>
+      <description>Whether integer division is enabled in custom difficulty.</description>
+    </key>
+
+    <key name="custom-mod-enabled" type="b">
+      <default>false</default>
+      <summary>Custom difficulty: modulo enabled</summary>
+      <description>Whether modulo is enabled in custom difficulty.</description>
+    </key>
+
+    <key name="custom-add-min" type="i">
+      <range min="-5000" max="5000"/>
+      <default>-100</default>
+      <summary>Custom difficulty: addition minimum</summary>
+      <description>Minimum operand for addition in custom difficulty.</description>
+    </key>
+
+    <key name="custom-add-max" type="i">
+      <range min="-5000" max="5000"/>
+      <default>100</default>
+      <summary>Custom difficulty: addition maximum</summary>
+      <description>Maximum operand for addition in custom difficulty.</description>
+    </key>
+
+    <key name="custom-sub-min" type="i">
+      <range min="-5000" max="5000"/>
+      <default>-100</default>
+      <summary>Custom difficulty: subtraction minimum</summary>
+      <description>Minimum operand for subtraction in custom difficulty.</description>
+    </key>
+
+    <key name="custom-sub-max" type="i">
+      <range min="-5000" max="5000"/>
+      <default>100</default>
+      <summary>Custom difficulty: subtraction maximum</summary>
+      <description>Maximum operand for subtraction in custom difficulty.</description>
+    </key>
+
+    <key name="custom-sub-non-negative" type="b">
+      <default>false</default>
+      <summary>Custom difficulty: subtraction result is not negative</summary>
+      <description>Whether subtraction results are always non-negative in custom difficulty. Only applies when the operand range is fully positive.</description>
+    </key>
+
+    <key name="custom-mul-min" type="i">
+      <range min="-100" max="100"/>
+      <default>-12</default>
+      <summary>Custom difficulty: multiplication minimum</summary>
+      <description>Minimum factor for multiplication in custom difficulty.</description>
+    </key>
+
+    <key name="custom-mul-max" type="i">
+      <range min="-100" max="100"/>
+      <default>12</default>
+      <summary>Custom difficulty: multiplication maximum</summary>
+      <description>Maximum factor for multiplication in custom difficulty.</description>
+    </key>
+
+    <key name="custom-div-min" type="i">
+      <range min="-100" max="100"/>
+      <default>-12</default>
+      <summary>Custom difficulty: division minimum</summary>
+      <description>Minimum divisor for division in custom difficulty.</description>
+    </key>
+
+    <key name="custom-div-max" type="i">
+      <range min="-100" max="100"/>
+      <default>12</default>
+      <summary>Custom difficulty: division maximum</summary>
+      <description>Maximum divisor for division in custom difficulty.</description>
+    </key>
+
+    <key name="custom-intdiv-min" type="i">
+      <range min="1" max="100"/>
+      <default>1</default>
+      <summary>Custom difficulty: integer division minimum</summary>
+      <description>Minimum divisor for integer division in custom difficulty.</description>
+    </key>
+
+    <key name="custom-intdiv-max" type="i">
+      <range min="1" max="100"/>
+      <default>12</default>
+      <summary>Custom difficulty: integer division maximum</summary>
+      <description>Maximum divisor for integer division in custom difficulty.</description>
+    </key>
+
+    <key name="custom-mod-min" type="i">
+      <range min="1" max="100"/>
+      <default>1</default>
+      <summary>Custom difficulty: modulo minimum</summary>
+      <description>Minimum divisor for modulo in custom difficulty.</description>
+    </key>
+
+    <key name="custom-mod-max" type="i">
+      <range min="1" max="100"/>
+      <default>12</default>
+      <summary>Custom difficulty: modulo maximum</summary>
+      <description>Maximum divisor for modulo in custom difficulty.</description>
+    </key>
   </schema>
 </schemalist>
