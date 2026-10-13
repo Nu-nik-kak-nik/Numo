@@ -61,3 +61,7 @@ image.results-meta-icon {
 image.large-game-mode-icon {
   -gtk-icon-size: 5em;
 }
+
+button.info-icon {
+  -gtk-icon-size: 1em;
+}
