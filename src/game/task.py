@@ -7,7 +7,7 @@ class Operation(str, Enum):
     SUB = "sub"
     MUL = "mul"
     DIV = "div_exact"
-    FLOOR_DIV = "floor_div"
+    INTEGER_DIV = "int_div"
     MOD = "mod"
 
     @property
@@ -17,7 +17,7 @@ class Operation(str, Enum):
             Operation.SUB: "-",
             Operation.MUL: "×",
             Operation.DIV: "÷",
-            Operation.FLOOR_DIV: "div",
+            Operation.INTEGER_DIV: "div",
             Operation.MOD: "mod",
         }[self]
 
@@ -31,7 +31,7 @@ class Operation(str, Enum):
                 return a * b
             case Operation.DIV:
                 return a // b
-            case Operation.FLOOR_DIV:
+            case Operation.INTEGER_DIV:
                 return a // b
             case Operation.MOD:
                 return a % b

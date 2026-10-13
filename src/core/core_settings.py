@@ -116,7 +116,7 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
         operations=(
             Operation.ADD, Operation.SUB,
             Operation.MUL, Operation.DIV,
-            Operation.FLOOR_DIV, Operation.MOD,
+            Operation.INTEGER_DIV, Operation.MOD,
         ),
         add_sub=AddSubRange(
             min_first=-200, max_first=200,

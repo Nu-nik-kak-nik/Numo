@@ -18,7 +18,7 @@ class TaskGenerator:
                 return self._multiplication()
             case Operation.DIV:
                 return self._division()
-            case Operation.FLOOR_DIV | Operation.MOD:
+            case Operation.INTEGER_DIV | Operation.MOD:
                 return self._div_mod(operation)
             case _:
                 raise ValueError(f"Unexpected operation: {operation}")
