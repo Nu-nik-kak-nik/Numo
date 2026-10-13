@@ -49,9 +49,15 @@ entry.answer-entry:focus-within {
 }
 
 button.submit-icon {
-  -gtk-icon-size: 24px;
+  -gtk-icon-size: 1.4em;
   min-height: 44px;
   padding: 0px 36px;
 }
 
+image.results-meta-icon {
+  -gtk-icon-size: 1.2em;
+}
 
+image.large-game-mode-icon {
+  -gtk-icon-size: 5em;
+}

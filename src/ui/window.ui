@@ -284,10 +284,12 @@
                                 <child>
                                   <object class="GtkImage" id="results_big_icon">
                                     <property name="icon-name">input-gaming-symbolic</property>
-                                    <property name="pixel-size">96</property>
                                     <property name="halign">center</property>
                                     <property name="margin-bottom">36</property>
-                                    <style><class name="dim-label"/></style>
+                                    <style>
+                                      <class name="dim-label"/>
+                                      <class name="large-game-mode-icon"/>
+                                    </style>
                                   </object>
                                 </child>
                                 <child>
@@ -419,8 +421,10 @@
                                         <child>
                                           <object class="GtkImage" id="results_icon_mode">
                                             <property name="icon-name">input-gaming-symbolic</property>
-                                            <property name="pixel-size">24</property>
-                                            <style><class name="dim-label"/></style>
+                                            <style>
+                                              <class name="dim-label"/>
+                                              <class name="results-meta-icon"/>
+                                            </style>
                                           </object>
                                         </child>
                                         <child>
@@ -440,8 +444,10 @@
                                         <child>
                                           <object class="GtkImage" id="results_icon_extra">
                                             <property name="icon-name">info-outline-symbolic</property>
-                                            <property name="pixel-size">24</property>
-                                            <style><class name="dim-label"/></style>
+                                            <style>
+                                              <class name="dim-label"/>
+                                              <class name="results-meta-icon"/>
+                                            </style>
                                           </object>
                                         </child>
                                         <child>
@@ -461,8 +467,10 @@
                                         <child>
                                           <object class="GtkImage" id="results_icon_difficulty">
                                             <property name="icon-name">tree-circle-symbolic"</property>
-                                            <property name="pixel-size">24</property>
-                                            <style><class name="dim-label"/></style>
+                                            <style>
+                                              <class name="dim-label"/>
+                                              <class name="results-meta-icon"/>
+                                            </style>
                                           </object>
                                         </child>
                                         <child>
