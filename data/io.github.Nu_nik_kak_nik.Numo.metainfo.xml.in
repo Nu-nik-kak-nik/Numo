@@ -10,7 +10,7 @@
     <p>
       Numo is a lightweight app for sharpening mental arithmetic.
       It generates tasks on the fly and checks your answers the moment
-      you press Enter — no menus, just numbers.
+      you press Enter.
     </p>
 
     <p>Pick one of four modes depending on what you want to train:</p>
@@ -33,12 +33,26 @@
       </li>
     </ul>
 
-    <p>
+      <p>
       Three difficulty levels let you start simple and work your way up.
-      Easy is just addition and subtraction. Medium adds multiplication
-      and exact division. Hard goes into negative numbers, integer div,
-      and mod.
     </p>
+        <p>Difficulty levels</p>
+
+      <ul>
+            <li>
+                <b>Easy</b>: addition, subtraction, and a bit of multiplication.
+        Simple operations using small numbers, with no negative numbers.
+      </li>
+            <li>
+                <b>Medium</b>: precise division is introduced. Numbers become larger,
+        problems more complex, and addition and subtraction operations may
+        involve negative values.
+      </li>
+            <li>
+                <b>Hard</b>: integer division and mod are introduced, and negative
+        numbers may now appear in multiplication and division operations.
+      </li>
+        </ul>
 
     <p>
       Every session is recorded: results, accuracy, and time spent.
