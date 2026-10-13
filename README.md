@@ -22,13 +22,13 @@ tasks on the fly and checks your answers instantly — no distraction, just numb
 ### Game modes
 - **Normal**: an endless run of tasks that ends the moment you make a mistake. A test of focus and consistency.
 - **Timer**: a fixed countdown. Solve as many tasks as you can before time runs out.
-- **Timer + Bonus**: start with a small amount of time and earn extra seconds for every correct answer. The pace accelerates as you go.
+- **Timer + Bonus**: start with a small amount of time and earn extra seconds for every correct answer.
 - **Task Count**: a set number of tasks to solve. A clear goal to reach at your own pace. 
 
 ### Difficulty levels
-- **Easy**: addition and subtraction.
-- **Medium**: adds multiplication and exact division.
-- **Hard**: negative numbers, floor div, and mod. 
+- **Easy**: addition, subtraction, and a bit of multiplication. Simple operations using small numbers, with no negative numbers.
+- **Medium**: precise division is introduced. Numbers become larger, problems more complex, and addition and subtraction operations may involve negative values.
+- **Hard**: integer division and mod are introduced, and negative numbers may now appear in multiplication and division operations. 
 
 ### Statistics
 Every session is recorded: result, accuracy, and time spent. The
@@ -39,7 +39,6 @@ as JSON at any time.
 ## My first project 🌟
 This is my first GNOME application built with GTK4 and libadwaita. I'm using it as an opportunity to learn modern GNOME development practices.
 
-Because of that, the codebase is deliberately kept and small readable.
 If you spot something that could be done better according to the GNOME way, I'd be glad to hear about it.
   
 ## Roadmap 🗺️
