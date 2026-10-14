@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
 
+from numo.core.custom_errors import InvalidRangeError
 from numo.game.task import Operation
 
 
@@ -37,12 +38,29 @@ class SessionOptions:
 
 
 @dataclass(frozen=True, slots=True)
-class AddSubRange:
+class AdditionRange:
     min_first: int
     max_first: int
     min_second: int
     max_second: int
     keep_non_negative: bool = False
+
+    def __post_init__(self) -> None:
+        validate_range(self.min_first, self.max_first, "AdditionRange first")
+        validate_range(self.min_second, self.max_second, "AdditionRange second")
+
+
+@dataclass(frozen=True, slots=True)
+class SubtractionRange:
+    min_first: int
+    max_first: int
+    min_second: int
+    max_second: int
+    keep_non_negative: bool = False
+
+    def __post_init__(self) -> None:
+        validate_range(self.min_first, self.max_first, "SubtractionRange first")
+        validate_range(self.min_second, self.max_second, "SubtractionRange second")
 
 
 @dataclass(frozen=True, slots=True)
@@ -52,6 +70,10 @@ class MultiplicationRange:
     min_second: int
     max_second: int
 
+    def __post_init__(self) -> None:
+        validate_range(self.min_first, self.max_first, "MultiplicationRange first")
+        validate_range(self.min_second, self.max_second, "MultiplicationRange second")
+
 
 @dataclass(frozen=True, slots=True)
 class DivisionRange:
@@ -60,29 +82,79 @@ class DivisionRange:
     min_quotient: int
     max_quotient: int
 
+    def __post_init__(self) -> None:
+        validate_range(self.min_divisor, self.max_divisor, "DivisionRange divisor")
+        validate_range(self.min_quotient, self.max_quotient, "DivisionRange quotient")
+
 
 @dataclass(frozen=True, slots=True)
-class DivModRange:
+class IntDivRange:
     min_divisor: int
     max_divisor: int
     min_base: int
     max_base: int
-    min_remainder: int = 1
+    min_remainder: int = 0
+
+    def __post_init__(self) -> None:
+        validate_range(self.min_divisor, self.max_divisor, "IntDivRange divisor")
+        validate_range(self.min_base, self.max_base, "IntDivRange base")
+        validate_remainder(self.min_divisor, self.min_remainder, "IntDivRange")
+
+
+@dataclass(frozen=True, slots=True)
+class ModRange:
+    min_divisor: int
+    max_divisor: int
+    min_base: int
+    max_base: int
+    min_remainder: int = 0
+
+    def __post_init__(self) -> None:
+        validate_range(self.min_divisor, self.max_divisor, "ModRange divisor")
+        validate_range(self.min_base, self.max_base, "ModRange base")
+        validate_remainder(self.min_divisor, self.min_remainder, "ModRange")
+
+
+def validate_range(minimum: int, maximum: int, field_name: str) -> None:
+    if minimum > maximum:
+        raise InvalidRangeError(
+            f"Invalid {field_name} range: "
+            f"minimum ({minimum}) is greater than maximum ({maximum})"
+        )
+
+def validate_remainder(min_divisor: int, min_remainder: int, range_name: str) -> None:
+    if min_divisor <= min_remainder:
+        raise InvalidRangeError(
+            f"{range_name}: minimum divisor ({min_divisor}) "
+            f"must be greater than minimum remainder ({min_remainder})"
+        )
 
 
 @dataclass(frozen=True, slots=True)
 class DifficultySettings:
     operations: tuple[Operation, ...]
-    add_sub: AddSubRange | None = None
+    addition: AdditionRange | None = None
+    subtraction: SubtractionRange | None = None
     multiplication: MultiplicationRange | None = None
     division: DivisionRange | None = None
-    div_mod: DivModRange | None = None
+    integer_division: IntDivRange | None = None
+    mod: ModRange | None = None
+
+    def __post_init__(self) -> None:
+        if not self.operations:
+            raise ValueError("At least one operation must be enabled")
+
 
 
 DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
     Difficulty.EASY: DifficultySettings(
         operations=(Operation.ADD, Operation.SUB, Operation.MUL,),
-        add_sub=AddSubRange(
+
+        addition = AdditionRange(
+            min_first=1, max_first=50,
+            min_second=1, max_second=50,
+        ),
+        subtraction = SubtractionRange(
             min_first=1, max_first=50,
             min_second=1, max_second=50,
             keep_non_negative=True,
@@ -98,7 +170,12 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
             Operation.ADD, Operation.SUB,
             Operation.MUL, Operation.DIV,
         ),
-        add_sub=AddSubRange(
+
+        addition=AdditionRange(
+            min_first=-100, max_first=100,
+            min_second=-100, max_second=100,
+        ),
+        subtraction=SubtractionRange(
             min_first=-100, max_first=100,
             min_second=-100, max_second=100,
         ),
@@ -118,7 +195,12 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
             Operation.MUL, Operation.DIV,
             Operation.INTEGER_DIV, Operation.MOD,
         ),
-        add_sub=AddSubRange(
+
+        addition=AdditionRange(
+            min_first=-200, max_first=200,
+            min_second=-200, max_second=200,
+        ),
+        subtraction=SubtractionRange(
             min_first=-200, max_first=200,
             min_second=-200, max_second=200,
         ),
@@ -130,7 +212,12 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
             min_divisor=-20, max_divisor=20,
             min_quotient=-20, max_quotient=20,
         ),
-        div_mod=DivModRange(
+        integer_division=IntDivRange(
+            min_divisor=3, max_divisor=20,
+            min_base=3, max_base=20,
+            min_remainder=1,
+        ),
+        mod=ModRange(
             min_divisor=3, max_divisor=20,
             min_base=3, max_base=20,
             min_remainder=1,
