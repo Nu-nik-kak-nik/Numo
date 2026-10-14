@@ -68,7 +68,8 @@ class TaskGenerator:
         data = self._settings.mod
         return self._div_mod(data, operation)
 
-    def _div_mod(self, data: IntDivRange | ModRange, operation: Operation) -> Task:
+    @staticmethod
+    def _div_mod(data: IntDivRange | ModRange, operation: Operation) -> Task:
         divisor = random.randint(data.min_divisor, data.max_divisor)
         base = random.randint(data.min_base, data.max_base)
         remainder = random.randint(data.min_remainder, divisor - 1)
