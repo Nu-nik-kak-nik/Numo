@@ -150,11 +150,11 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
     Difficulty.EASY: DifficultySettings(
         operations=(Operation.ADD, Operation.SUB, Operation.MUL,),
 
-        addition = AdditionRange(
+        addition=AdditionRange(
             min_first=1, max_first=50,
             min_second=1, max_second=50,
         ),
-        subtraction = SubtractionRange(
+        subtraction=SubtractionRange(
             min_first=1, max_first=50,
             min_second=1, max_second=50,
             keep_non_negative=True,

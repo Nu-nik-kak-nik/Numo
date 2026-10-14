@@ -36,8 +36,8 @@ FEEDBACK_DURATION_MS,
 BONUS_FADE_MS,
 MODE_ICONS,
 MODE_COLORS,
-MODE_LABELS,
-DIFFICULTY_LABELS,
+mode_label,
+diff_label,
 DIFFICULTY_ICONS,
 MAX_LENGHT_ANSWER
 )
@@ -304,9 +304,9 @@ class NumoWindow(Adw.ApplicationWindow):
         self.results_value_time.set_label(str(data["duration"]))
 
         self.results_icon_mode.set_from_icon_name(MODE_ICONS[s.mode])
-        self.results_label_mode.set_label(MODE_LABELS[s.mode])
+        self.results_label_mode.set_label(mode_label(s.mode))
         self.results_icon_difficulty.set_from_icon_name(DIFFICULTY_ICONS[data["difficulty"]])
-        self.results_label_difficulty.set_label(DIFFICULTY_LABELS[data["difficulty"]])
+        self.results_label_difficulty.set_label(diff_label(data["difficulty"]))
 
         self._populate_end(data)
 

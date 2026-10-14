@@ -13,8 +13,8 @@ from numo.core.core_settings import GameMode, Difficulty, RESOURCE_PATH_PREFIX
 from numo.core.custom_errors import StatsError
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import (
-    MODE_LABELS,
-    DIFF_LABELS,
+    mode_label,
+    diff_label,
     MODE_ICONS,
     MODE_COLORS,
     ACC_PERCENTAGE_SUCCESS,
@@ -182,7 +182,7 @@ class NumoStatsWindow(Adw.Dialog):
     def _format_recent_sessions(self, s) -> Adw.ActionRow:
         row = Adw.ActionRow(
             title=format_timestamp(s.dt),
-            subtitle=f"{MODE_LABELS[s.mode]} · {DIFF_LABELS[s.difficulty]}",
+            subtitle=f"{mode_label(s.mode)} · {diff_label(s.difficulty)}",
         )
 
         icon = Gtk.Image.new_from_icon_name(MODE_ICONS[s.mode])

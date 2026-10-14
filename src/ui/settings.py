@@ -27,9 +27,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._gio = settings.settings
 
         self._sync_difficulty_from_settings()
-
         self.difficulty_row.connect("notify::selected", self._on_difficulty_changed)
-
         self._gio.connect("changed::difficulty", self._on_difficulty_settings_changed)
 
         self._gio.bind("timer-duration-min", self.timer_minutes_row, "value", Gio.SettingsBindFlags.DEFAULT)
