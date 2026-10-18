@@ -5,10 +5,18 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Gio, GObject
 
 from numo.core.core_settings import (
+    AdditionRange,
+    SubtractionRange,
+    MultiplicationRange,
+    DivisionRange,
+    IntDivRange,
+    ModRange,
+    DifficultySettings,
+    DIFFICULTY_SETTINGS,
     Difficulty,
     GameMode,
     SessionOptions,
-    SCHEMA_ID
+    SCHEMA_ID,
 )
 from numo.game.task import Operation
 
@@ -16,6 +24,7 @@ from numo.game.task import Operation
 class SettingsManager:
     def __init__(self):
         self._settings = Gio.Settings.new(SCHEMA_ID)
+        self.update_custom_difficulty()
 
     @property
     def settings(self) -> Gio.Settings:
@@ -80,31 +89,31 @@ class SettingsManager:
         self._settings.set_boolean("custom-add-enabled", value)
 
     def get_custom_sub_enabled(self) -> bool:
-        return self._settings.get_boolen("custom-sub-enabled")
+        return self._settings.get_boolean("custom-sub-enabled")
 
     def set_custom_sub_enabled(self, value: bool) -> None:
         self._settings.set_boolean("custom-sub-enabled", value)
 
     def get_custom_mul_enabled(self) -> bool:
-        return self._settings.get_boolen("custom-mul-enabled")
+        return self._settings.get_boolean("custom-mul-enabled")
 
     def set_custom_mul_enabled(self, value: bool) -> None:
         self._settings.set_boolean("custom-mul-enabled", value)
 
     def get_custom_div_enabled(self) -> bool:
-        return self._settings.get_boolen("custom-div-enabled")
+        return self._settings.get_boolean("custom-div-enabled")
 
     def set_custom_div_enabled(self, value: bool) -> None:
         self._settings.set_boolean("custom-div-enabled", value)
 
     def get_custom_intdiv_enabled(self) -> bool:
-        return self._settings.get_boolen("custom-intdiv-enabled")
+        return self._settings.get_boolean("custom-intdiv-enabled")
 
     def set_custom_intdiv_enabled(self, value: bool) -> None:
         self._settings.set_boolean("custom-intdiv-enabled", value)
 
     def get_custom_mod_enabled(self) -> bool:
-        return self._settings.get_boolen("custom-mod-enabled")
+        return self._settings.get_boolean("custom-mod-enabled")
 
     def set_custom_mod_enabled(self, value: bool) -> None:
         self._settings.set_boolean("custom-mod-enabled", value)
@@ -191,10 +200,10 @@ class SettingsManager:
         self.set_custom_div_range(-12, 12)
 
         self.set_custom_intdiv_range(1, 12)
-        self.set_custom_mod_range(1, 121)
+        self.set_custom_mod_range(1, 12)
 
     def get_custom_difficulty(self):
-        operattions: lest[Operation] = []
+        operations: list[Operation] = []
 
         addition: AdditionRange | None = None
         subtraction: SubtractionRange | None = None
@@ -261,3 +270,6 @@ class SettingsManager:
             integer_division=integer_division,
             mod=mod,
         )
+
+    def update_custom_difficulty(self) -> None:
+        DIFFICULTY_SETTINGS[Difficulty.CUSTOM] = self.get_custom_difficulty()
