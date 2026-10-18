@@ -160,7 +160,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         if key.startswith("custom-"):
             self._settings.update_custom_difficulty()
 
-    # def show_toast(self, message: str, timeout: int = 5) -> None:
-    #     toast = Adw.Toast(title=message)
-    #     toast.set_timeout(timeout)
-    #     self.toast_overlay.add_toast(toast)
+    def show_toast(self, message: str, timeout: int = 3) -> None:
+        toast = Adw.Toast(title=message)
+        toast.set_timeout(timeout)
+        self.add_toast(toast)

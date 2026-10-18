@@ -127,7 +127,7 @@ class NumoWindow(Adw.ApplicationWindow):
 
         return False
 
-    def show_toast(self, message: str, timeout: int = 5) -> None:
+    def show_toast(self, message: str, timeout: int = 3) -> None:
         toast = Adw.Toast(title=message)
         toast.set_timeout(timeout)
         self.toast_overlay.add_toast(toast)

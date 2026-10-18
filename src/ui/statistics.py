@@ -41,18 +41,22 @@ class NumoStatsWindow(Adw.Dialog):
     best_normal_easy = Gtk.Template.Child()
     best_normal_medium = Gtk.Template.Child()
     best_normal_hard = Gtk.Template.Child()
+    best_normal_custom = Gtk.Template.Child()
 
     best_timer_easy = Gtk.Template.Child()
     best_timer_medium = Gtk.Template.Child()
     best_timer_hard = Gtk.Template.Child()
+    best_timer_custom = Gtk.Template.Child()
 
     best_bonus_easy = Gtk.Template.Child()
     best_bonus_medium = Gtk.Template.Child()
     best_bonus_hard = Gtk.Template.Child()
+    best_bonus_custom = Gtk.Template.Child()
 
     best_tasks_easy = Gtk.Template.Child()
     best_tasks_medium = Gtk.Template.Child()
     best_tasks_hard = Gtk.Template.Child()
+    best_tasks_custom = Gtk.Template.Child()
 
     recent_list = Gtk.Template.Child()
 
@@ -72,8 +76,9 @@ class NumoStatsWindow(Adw.Dialog):
 
         self._populate()
 
-    def show_toast(self, message: str) -> None:
+    def show_toast(self, message: str, timeout: int = 3) -> None:
         toast = Adw.Toast(title=message)
+        toast.set_timeout(timeout)
         self.toast_overlay.add_toast(toast)
 
     def _populate(self) -> None:
@@ -123,24 +128,28 @@ class NumoStatsWindow(Adw.Dialog):
             self.best_normal_easy,
             self.best_normal_medium,
             self.best_normal_hard,
+            self.best_normal_custom,
         )
         self._fill_best_group(
             best[GameMode.TIMER],
             self.best_timer_easy,
             self.best_timer_medium,
             self.best_timer_hard,
+            self.best_timer_custom,
         )
         self._fill_best_group(
             best[GameMode.TIMER_BONUS],
             self.best_bonus_easy,
             self.best_bonus_medium,
             self.best_bonus_hard,
+            self.best_bonus_custom,
         )
         self._fill_best_group(
             best[GameMode.TASKS],
             self.best_tasks_easy,
             self.best_tasks_medium,
             self.best_tasks_hard,
+            self.best_tasks_custom,
         )
 
     def _best_sessions(self) -> dict:
@@ -151,10 +160,14 @@ class NumoStatsWindow(Adw.Dialog):
                 result[s.mode][s.difficulty] = s
         return result
 
-    def _fill_best_group(self, mode_best, easy_lbl, medium_lbl, hard_lbl) -> None:
+    def _fill_best_group(
+        self, mode_best, easy_lbl,
+        medium_lbl, hard_lbl, custom_lbl
+    ) -> None:
         easy_lbl.set_label(self._format_best_session(mode_best[Difficulty.EASY]))
         medium_lbl.set_label(self._format_best_session(mode_best[Difficulty.MEDIUM]))
         hard_lbl.set_label(self._format_best_session(mode_best[Difficulty.HARD]))
+        custom_lbl.set_label(self._format_best_session(mode_best[Difficulty.CUSTOM]))
 
     def _populate_recent(self) -> None:
         limit = self._settings.get_recent_sessions()
@@ -227,7 +240,7 @@ class NumoStatsWindow(Adw.Dialog):
         try:
             self._stats.clear()
         except StatsError as e:
-            self.show_toast(str(e))
+            self.show_toast(str(e), 5)
             return
         self._populate()
 
@@ -246,7 +259,7 @@ class NumoStatsWindow(Adw.Dialog):
             self._stats.export_to(file)
             self.show_toast(_("Statistics exported"))
         except StatsError as e:
-            self.show_toast(str(e))
+            self.show_toast(str(e), 5)
 
     def _on_import_activated(self, _row):
         dialog = self._create_json_file_dialog(
@@ -262,7 +275,7 @@ class NumoStatsWindow(Adw.Dialog):
             self._stats.import_from(file)
             self.show_toast(_("Statistics imported"))
         except StatsError as e:
-            self.show_toast(str(e))
+            self.show_toast(str(e), 5)
             return
         self._populate()
 

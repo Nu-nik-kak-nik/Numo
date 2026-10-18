@@ -196,6 +196,17 @@
                             </child>
                           </object>
                         </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Custom</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_normal_custom">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
                       </object>
                     </child>
 
@@ -235,6 +246,17 @@
                             <property name="title" translatable="yes">Hard</property>
                             <child type="suffix">
                               <object class="GtkLabel" id="best_timer_hard">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Custom</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_timer_custom">
                                 <property name="label">—</property>
                                 <style><class name="numeric"/></style>
                               </object>
@@ -286,6 +308,17 @@
                             </child>
                           </object>
                         </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Custom</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_bonus_custom">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
                       </object>
                     </child>
 
@@ -331,9 +364,19 @@
                             </child>
                           </object>
                         </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">Custom</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="best_tasks_custom">
+                                <property name="label">—</property>
+                                <style><class name="numeric"/></style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
                       </object>
                     </child>
-
                   </object>
                 </child>
 
