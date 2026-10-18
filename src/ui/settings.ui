@@ -21,6 +21,7 @@
                       <item translatable="yes">Easy</item>
                       <item translatable="yes">Medium</item>
                       <item translatable="yes">Hard</item>
+                      <item translatable="yes">Custom</item>
                     </items>
                   </object>
                 </property>

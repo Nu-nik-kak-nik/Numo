@@ -4,6 +4,7 @@
     <value nick="easy" value="0"/>
     <value nick="medium" value="1"/>
     <value nick="hard" value="2"/>
+    <value nick="custom" value="3"/>
   </enum>
 
   <schema id="io.github.Nu_nik_kak_nik.Numo" path="/io/github/Nu_nik_kak_nik/Numo/">

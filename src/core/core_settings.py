@@ -20,6 +20,7 @@ class Difficulty(str, Enum):
     EASY = "easy"
     MEDIUM = "medium"
     HARD = "hard"
+    CUSTOM = "custom"
 
 
 class GameMode(str, Enum):
@@ -221,6 +222,28 @@ DIFFICULTY_SETTINGS: dict[Difficulty, DifficultySettings] = {
             min_divisor=3, max_divisor=20,
             min_base=3, max_base=20,
             min_remainder=1,
+        ),
+    ),
+    Difficulty.CUSTOM: DifficultySettings(
+        operations=(
+            Operation.ADD, Operation.SUB,
+            Operation.MUL, Operation.DIV,
+        ),
+        addition=AdditionRange(
+            min_first=-100, max_first=100,
+            min_second=-100, max_second=100,
+        ),
+        subtraction=SubtractionRange(
+            min_first=-100, max_first=100,
+            min_second=-100, max_second=100,
+        ),
+        multiplication=MultiplicationRange(
+            min_first=2, max_first=12,
+            min_second=2, max_second=12,
+        ),
+        division=DivisionRange(
+            min_divisor=-12, max_divisor=12,
+            min_quotient=-12, max_quotient=12,
         ),
     ),
 }

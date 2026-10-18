@@ -24,6 +24,7 @@ DIFF_LABELS = {
     Difficulty.EASY: "Easy",
     Difficulty.MEDIUM: "Medium",
     Difficulty.HARD: "Hard",
+    Difficulty.CUSTOM: "Custom"
 }
 
 def mode_label(mode: GameMode) -> str:
@@ -50,5 +51,6 @@ DIFFICULTY_ICONS = {
     Difficulty.EASY: "leaves-symbolic",
     Difficulty.MEDIUM: "tree-circle-symbolic",
     Difficulty.HARD: "skull-symbolic",
+    Difficulty.CUSTOM: "sliders-symbolic",
 }
 
