@@ -2,11 +2,13 @@ import gi
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
+gi.require_version("Gio", "2.0")
 
-from gi.repository import Adw, Gtk, Gio
+from gi.repository import Adw, Gtk, Gio, GLib
 from gettext import gettext as _
 
 from numo.core.core_settings import RESOURCE_PATH_PREFIX
+from numo.core.custom_errors import InvalidTupleOperationsError
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import DIFF_ORDER
 
@@ -98,6 +100,20 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
 
         self._gio.connect("changed", self._on_custom_settings_changed)
 
+        self._expand_operation = {
+            self.custom_add: "custom-add-enabled",
+            self.custom_sub: "custom-sub-enabled",
+            self.custom_mul: "custom-mul-enabled",
+            self.custom_div: "custom-div-enabled",
+            self.custom_intdiv: "custom-intdiv-enabled",
+            self.custom_mod: "custom-mod-enabled",
+        }
+
+        self._reverting_toggle = False
+        self._updating_ranges = False
+        self._connect_range_pairs()
+        self._connect_operation_switches()
+
     def _sync_difficulty_from_settings(self):
         nick = self._gio.get_string("difficulty")
         index = DIFF_ORDER.index(nick) if nick in DIFF_ORDER else 0
@@ -111,16 +127,63 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
     def _on_difficulty_settings_changed(self, _settings, _key):
         self._sync_difficulty_from_settings()
 
+    def _connect_range_pairs(self) -> None:
+        pairs = (
+            (self.custom_add_min, self.custom_add_max),
+            (self.custom_sub_min, self.custom_sub_max),
+            (self.custom_mul_min, self.custom_mul_max),
+            (self.custom_div_min, self.custom_div_max),
+            (self.custom_intdiv_min, self.custom_intdiv_max),
+            (self.custom_mod_min, self.custom_mod_max),
+        )
+        for min_row, max_row in pairs:
+            min_row.connect("notify::value", self._on_min_changed, max_row)
+            max_row.connect("notify::value", self._on_max_changed, min_row)
+            self._on_min_changed(min_row, None, max_row)
+
+    def _on_min_changed(self, min_row: Adw.SpinRow, _pspec, max_row: Adw.SpinRow) -> None:
+        max_row.set_range(min_row.get_value() + 4, max_row.get_adjustment().get_upper())
+
+    def _on_max_changed(self, max_row: Adw.SpinRow, _pspec, min_row: Adw.SpinRow) -> None:
+        min_row.set_range(min_row.get_adjustment().get_lower(), max_row.get_value() - 4)
+
+    def _connect_operation_switches(self) -> None:
+        for expander in self._expand_operation:
+            expander.connect("notify::enable-expansion", self._on_operation_toggled)
+
+    def _on_operation_toggled(self, row: Adw.ExpanderRow, _pspec) -> None:
+        if self._reverting_toggle:
+            return
+        if row.get_enable_expansion():
+            return
+
+        if not any(
+            e.get_enable_expansion()
+            for e in self._expand_operation
+            if e is not row
+        ):
+            self._reverting_toggle = True
+            GLib.idle_add(self._revert_operation, row)
+            self.show_toast(_("At least one operation must be enabled"))
+
+    def _revert_operation(self, row: Adw.ExpanderRow) -> bool:
+        key = self._expand_operation[row]
+        row.set_enable_expansion(True)
+        self._gio.set_boolean(key, True)
+        self._reverting_toggle = False
+        return GLib.SOURCE_REMOVE
+
     def _on_custom_help_clicked(self, _button) -> None:
         dialog = Adw.AlertDialog(heading=_("About custom difficulty"))
 
         label = Gtk.Label(
             label=_(
-                "• Division is always performed exactly\n"
-                "• Zero is not used as factors or divisors\n"
-                "• Integer division and modulo only work with positive divisors\n"
-                "• The minimum range of values is five (for example, 0...5)\n"
-                "• At least one operation must be enabled"
+                "- These settings apply only to the custom difficulty.\n"
+                "- Division is always performed exactly.\n"
+                "- Zero is not used as factors or divisors.\n"
+                "- Integer division and modulo only work with positive divisors.\n"
+                "- The minimum range of values is five (for example, 1...5).\n"
+                "- At least one operation must be enabled."
             ),
             xalign=0,
             wrap=True,
@@ -157,8 +220,17 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self.show_toast(_("Custom difficulty reset to Medium"))
 
     def _on_custom_settings_changed(self, _settings, key: str) -> None:
-        if key.startswith("custom-"):
+        if not key.startswith("custom-"):
+            return
+        if self._reverting_toggle:
+            return
+
+        try:
             self._settings.update_custom_difficulty()
+        except InvalidTupleOperationsError:
+            pass
+        except InvalidRangeError as exc:
+            self.show_toast(str(exc))
 
     def show_toast(self, message: str, timeout: int = 3) -> None:
         toast = Adw.Toast(title=message)
