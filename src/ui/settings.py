@@ -137,15 +137,42 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
             (self.custom_mod_min, self.custom_mod_max),
         )
         for min_row, max_row in pairs:
+            min_lower = min_row.get_adjustment().get_lower()
+            max_upper = max_row.get_adjustment().get_upper()
+
+            min_row.set_range(min_lower, max_upper - 4)
+            max_row.set_range(min_lower + 4, max_upper)
+
             min_row.connect("notify::value", self._on_min_changed, max_row)
             max_row.connect("notify::value", self._on_max_changed, min_row)
-            self._on_min_changed(min_row, None, max_row)
 
     def _on_min_changed(self, min_row: Adw.SpinRow, _pspec, max_row: Adw.SpinRow) -> None:
-        max_row.set_range(min_row.get_value() + 4, max_row.get_adjustment().get_upper())
+        if self._updating_ranges:
+            return
+        self._updating_ranges = True
+
+        try:
+            min_allowed_for_max = min_row.get_value() + 4
+            original_upper = max_row.get_adjustment().get_upper()
+            if max_row.get_value() < min_allowed_for_max:
+                max_row.set_value(min_allowed_for_max)
+            max_row.set_range(min_allowed_for_max, original_upper)
+        finally:
+            self._updating_ranges = False
 
     def _on_max_changed(self, max_row: Adw.SpinRow, _pspec, min_row: Adw.SpinRow) -> None:
-        min_row.set_range(min_row.get_adjustment().get_lower(), max_row.get_value() - 4)
+        if self._updating_ranges:
+            return
+        self._updating_ranges = True
+
+        try:
+            max_allowed_for_min = max_row.get_value() - 4
+            original_lower = min_row.get_adjustment().get_lower()
+            if min_row.get_value() > max_allowed_for_min:
+                min_row.set_value(max_allowed_for_min)
+            min_row.set_range(original_lower, max_allowed_for_min)
+        finally:
+            self._updating_ranges = False
 
     def _connect_operation_switches(self) -> None:
         for expander in self._expand_operation:
