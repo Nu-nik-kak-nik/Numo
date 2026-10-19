@@ -4,3 +4,6 @@ class StatsError(Exception):
 
 class InvalidRangeError(ValueError):
     pass
+
+class InvalidTupleOperationsError(ValueError):
+    pass

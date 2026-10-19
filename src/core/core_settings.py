@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
 
-from numo.core.custom_errors import InvalidRangeError
+from numo.core.custom_errors import InvalidRangeError, InvalidTupleOperationsError
 from numo.game.task import Operation
 
 
@@ -143,7 +143,7 @@ class DifficultySettings:
 
     def __post_init__(self) -> None:
         if not self.operations:
-            raise ValueError("At least one operation must be enabled")
+            raise InvalidTupleOperationsError("At least one operation must be enabled")
 
 
 
