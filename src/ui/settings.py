@@ -7,8 +7,8 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Adw, Gtk, Gio, GLib
 from gettext import gettext as _
 
-from numo.core.core_settings import RESOURCE_PATH_PREFIX
-from numo.core.custom_errors import InvalidTupleOperationsError
+from numo.core.core_settings import RESOURCE_PATH_PREFIX, MIN_RANGE_GAP
+from numo.core.custom_errors import InvalidRangeError, InvalidTupleOperationsError
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import DIFF_ORDER
 
@@ -58,47 +58,17 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._settings = settings
         self._gio = settings.settings
 
-        self._sync_difficulty_from_settings()
-        self.difficulty_row.connect("notify::selected", self._on_difficulty_changed)
-        self._gio.connect("changed::difficulty", self._on_difficulty_settings_changed)
+        self._reverting_toggle = False
+        self._updating_ranges = False
 
-        self._gio.bind("timer-duration-min", self.timer_minutes_row, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("bonus-initial-sec", self.bonus_start_row, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("bonus-per-correct-sec", self.bonus_seconds_row, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("tasks-count", self.tasks_count_row, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("recent-sessions", self.recent_sessions_row, "value", Gio.SettingsBindFlags.DEFAULT)
-
-        self.custom_help_button.connect("clicked", self._on_custom_help_clicked)
-        self.custom_reset_row.connect("activated", self._on_custom_reset_activated)
-
-        self._gio.bind("custom-add-enabled", self.custom_add, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-sub-enabled", self.custom_sub, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-mul-enabled", self.custom_mul, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-div-enabled", self.custom_div, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-intdiv-enabled", self.custom_intdiv, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-mod-enabled", self.custom_mod, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.bind("custom-sub-non-negative", self.custom_sub_non_negative, "active", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.bind("custom-add-min", self.custom_add_min, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-add-max", self.custom_add_max, "value", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.bind("custom-sub-min", self.custom_sub_min, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-sub-max", self.custom_sub_max, "value", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.bind("custom-mul-min", self.custom_mul_min, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-mul-max", self.custom_mul_max, "value", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.bind("custom-div-min", self.custom_div_min, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-div-max", self.custom_div_max, "value", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.bind("custom-intdiv-min", self.custom_intdiv_min, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-intdiv-max", self.custom_intdiv_max, "value", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.bind("custom-mod-min", self.custom_mod_min, "value", Gio.SettingsBindFlags.DEFAULT)
-        self._gio.bind("custom-mod-max", self.custom_mod_max, "value", Gio.SettingsBindFlags.DEFAULT)
-
-        self._gio.connect("changed", self._on_custom_settings_changed)
+        self._range_pairs = (
+            (self.custom_add_min, self.custom_add_max, "add"),
+            (self.custom_sub_min, self.custom_sub_max, "sub"),
+            (self.custom_mul_min, self.custom_mul_max, "mul"),
+            (self.custom_div_min, self.custom_div_max, "div"),
+            (self.custom_intdiv_min, self.custom_intdiv_max, "intdiv"),
+            (self.custom_mod_min, self.custom_mod_max, "mod"),
+        )
 
         self._expand_operation = {
             self.custom_add: "custom-add-enabled",
@@ -109,10 +79,51 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
             self.custom_mod: "custom-mod-enabled",
         }
 
-        self._reverting_toggle = False
-        self._updating_ranges = False
+        self._connect_signals()
+
+    def _connect_signals(self) -> None:
+        self._connect_difficulty()
+        self._bind_mode_settings()
+        self._bind_custom_operations()
+        self._bind_custom_ranges()
         self._connect_range_pairs()
         self._connect_operation_switches()
+        self._connect_buttons()
+
+        self._gio.connect("changed", self._on_custom_settings_changed)
+
+    def _connect_difficulty(self) -> None:
+        self._sync_difficulty_from_settings()
+        self.difficulty_row.connect("notify::selected", self._on_difficulty_changed)
+        self._gio.connect("changed::difficulty", self._on_difficulty_settings_changed)
+
+    def _bind_mode_settings(self) -> None:
+        self._gio.bind("timer-duration-min", self.timer_minutes_row, "value", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("bonus-initial-sec", self.bonus_start_row, "value", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("bonus-per-correct-sec", self.bonus_seconds_row, "value", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("tasks-count", self.tasks_count_row, "value", Gio.SettingsBindFlags.DEFAULT)
+
+    def _bind_custom_operations(self) -> None:
+        self._gio.bind("custom-add-enabled", self.custom_add, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("custom-sub-enabled", self.custom_sub, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("custom-mul-enabled", self.custom_mul, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("custom-div-enabled", self.custom_div, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("custom-intdiv-enabled", self.custom_intdiv, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
+        self._gio.bind("custom-mod-enabled", self.custom_mod, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
+
+        self._gio.bind("custom-sub-non-negative", self.custom_sub_non_negative, "active", Gio.SettingsBindFlags.DEFAULT)
+
+    def _bind_custom_ranges(self) -> None:
+        for min_row, max_row, key in self._range_pairs:
+            self._gio.bind(f"custom-{key}-min", min_row, "value", Gio.SettingsBindFlags.DEFAULT)
+            self._gio.bind(f"custom-{key}-max", max_row, "value", Gio.SettingsBindFlags.DEFAULT)
+
+    def _bind_stats_settings(self) -> None:
+        self._gio.bind("recent-sessions", self.recent_sessions_row, "value", Gio.SettingsBindFlags.DEFAULT)
+
+    def _connect_buttons(self) -> None:
+        self.custom_help_button.connect("clicked", self._on_custom_help_clicked)
+        self.custom_reset_row.connect("activated", self._on_custom_reset_activated)
 
     def _sync_difficulty_from_settings(self):
         nick = self._gio.get_string("difficulty")
@@ -127,22 +138,15 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
     def _on_difficulty_settings_changed(self, _settings, _key):
         self._sync_difficulty_from_settings()
 
+    def _apply_range_constraints(self, min_row: Adw.SpinRow, max_row: Adw.SpinRow) -> None:
+        min_lower = min_row.get_adjustment().get_lower()
+        max_upper = max_row.get_adjustment().get_upper()
+        min_row.set_range(min_lower, max_row.get_value() - MIN_RANGE_GAP)
+        max_row.set_range(min_row.get_value() + MIN_RANGE_GAP, max_upper)
+
     def _connect_range_pairs(self) -> None:
-        pairs = (
-            (self.custom_add_min, self.custom_add_max),
-            (self.custom_sub_min, self.custom_sub_max),
-            (self.custom_mul_min, self.custom_mul_max),
-            (self.custom_div_min, self.custom_div_max),
-            (self.custom_intdiv_min, self.custom_intdiv_max),
-            (self.custom_mod_min, self.custom_mod_max),
-        )
-        for min_row, max_row in pairs:
-            min_lower = min_row.get_adjustment().get_lower()
-            max_upper = max_row.get_adjustment().get_upper()
-
-            min_row.set_range(min_lower, max_upper - 4)
-            max_row.set_range(min_lower + 4, max_upper)
-
+        for min_row, max_row, _ in self._range_pairs:
+            self._apply_range_constraints(min_row, max_row)
             min_row.connect("notify::value", self._on_min_changed, max_row)
             max_row.connect("notify::value", self._on_max_changed, min_row)
 
@@ -152,7 +156,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._updating_ranges = True
 
         try:
-            min_allowed_for_max = min_row.get_value() + 4
+            min_allowed_for_max = min_row.get_value() + MIN_RANGE_GAP
             original_upper = max_row.get_adjustment().get_upper()
             if max_row.get_value() < min_allowed_for_max:
                 max_row.set_value(min_allowed_for_max)
@@ -166,7 +170,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._updating_ranges = True
 
         try:
-            max_allowed_for_min = max_row.get_value() - 4
+            max_allowed_for_min = max_row.get_value() - MIN_RANGE_GAP
             original_lower = min_row.get_adjustment().get_lower()
             if min_row.get_value() > max_allowed_for_min:
                 min_row.set_value(max_allowed_for_min)
@@ -177,6 +181,11 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
     def _connect_operation_switches(self) -> None:
         for expander in self._expand_operation:
             expander.connect("notify::enable-expansion", self._on_operation_toggled)
+
+    def show_toast(self, message: str, timeout: int = 3) -> None:
+        toast = Adw.Toast(title=message)
+        toast.set_timeout(timeout)
+        self.add_toast(toast)
 
     def _on_operation_toggled(self, row: Adw.ExpanderRow, _pspec) -> None:
         if self._reverting_toggle:
@@ -249,7 +258,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
     def _on_custom_settings_changed(self, _settings, key: str) -> None:
         if not key.startswith("custom-"):
             return
-        if self._reverting_toggle:
+        if self._reverting_toggle or self._updating_ranges:
             return
 
         try:
@@ -258,8 +267,3 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
             pass
         except InvalidRangeError as exc:
             self.show_toast(str(exc))
-
-    def show_toast(self, message: str, timeout: int = 3) -> None:
-        toast = Adw.Toast(title=message)
-        toast.set_timeout(timeout)
-        self.add_toast(toast)
