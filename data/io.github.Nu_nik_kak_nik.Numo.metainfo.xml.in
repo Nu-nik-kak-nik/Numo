@@ -8,67 +8,71 @@
   <summary>Mental math training</summary>
   <description>
     <p>
-      Numo is a lightweight app for sharpening mental arithmetic.
-      It generates tasks on the fly and checks your answers the moment
-      you press Enter.
+      Numo is an app designed to train mental arithmetic skills.
+      Tasks appear one after another, answers are checked immediately, and nothing distracts you.
+      Choose from four game modes, select a preset difficulty level, or create a custom configuration.
     </p>
 
     <p>Pick one of four modes depending on what you want to train:</p>
     <ul>
       <li>
-        <b>Normal</b>: an endless run of tasks that ends the moment
+        <em>Normal</em>: an endless run of tasks that ends the moment
         you make a mistake. A test of focus and consistency.
       </li>
       <li>
-        <b>Timer</b>: a fixed countdown. Solve as many tasks as you can
+        <em>Timer</em>: a fixed countdown. Solve as many tasks as you can
         before time runs out.
       </li>
       <li>
-        <b>Timer + Bonus</b>: start with a small amount of time and
+        <em>Timer + Bonus</em>: start with a small amount of time and
         earn extra seconds for every correct answer.
       </li>
       <li>
-        <b>Task Count</b>: a set number of tasks to solve. A clear goal to
+        <em>Task Count</em>: a set number of tasks to solve. A clear goal to
         reach at your own pace.
       </li>
     </ul>
 
-      <p>
-      Three difficulty levels let you start simple and work your way up.
+    <p>
+      Three difficulty levels allow you to start with something simple and
+      gradually move on to greater challenges.
+      In addition, in custom mode, you can adjust the difficulty as you see fit.
     </p>
-        <p>Difficulty levels</p>
-
-      <ul>
-            <li>
-                <b>Easy</b>: addition, subtraction, and a bit of multiplication.
+    <ul>
+      <li>
+        <em>Easy</em>: addition, subtraction, and a bit of multiplication.
         Simple operations using small numbers, with no negative numbers.
       </li>
-            <li>
-                <b>Medium</b>: precise division is introduced. Numbers become larger,
+      <li>
+        <em>Medium</em>: precise division is introduced. Numbers become larger,
         problems more complex, and addition and subtraction operations may
         involve negative values.
       </li>
-            <li>
-                <b>Hard</b>: integer division and mod are introduced, and negative
+      <li>
+        <em>Hard</em>: integer division and mod are introduced, and negative
         numbers may now appear in multiplication and division operations.
       </li>
-        </ul>
+      <li>
+        <em>Custom</em>: Complete control over the task.
+        Choose any combination of operations, set custom number ranges for each.
+      </li>
+    </ul>
 
     <p>
-      Every session is recorded: results, accuracy, and time spent.
-      The statistics screen shows your best results per mode and
-      difficulty, recent games, and overall progress, and you can export
-      or import your data at any time.
+      Every session is recorded: result, accuracy, and time spent.
+      The statistics screen shows your best results per mode and difficulty, recent games.
+      The number of recent sessions shown is adjustable.
+      Data can be exported and imported as JSON at any time.
     </p>
 
     <p>
-      Numo is designed to stay out of your way. Big readable tasks,
-      an unobtrusive interface, and a focus on the numbers themselves.
+      Numo stays out of your way: large readable tasks, a clean interface,
+      and nothing between you and the numbers.
     </p>
   </description>
 
-  <developer id="io.github.Nu_nik_kak_nik">
-    <name>Nu-nik-kak-nik</name>
+  <developer id="io.github.nu_nik_kak_nik">
+    <name>Nu_nik_kak_nik</name>
   </developer>
 
 
@@ -118,12 +122,45 @@
       <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/6-settings.png</image>
       <caption>Game modes and difficulty settings screen</caption>
     </screenshot>
+    <screenshot>
+      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/6-settings-2.png</image>
+      <caption>Custom difficulty settings</caption>
+    </screenshot>
   </screenshots>
 
   <releases>
+    <release version="0.5" date="2026-10-20">
+      <description translate="no">
+        <p>Custom difficulty and settings improvements:</p>
+        <ul>
+          <li>
+            Custom difficulty: choose which operations to include
+            (addition, subtraction, multiplication, division, integer
+            division, modulo), set custom number ranges for each, and
+            decide whether subtraction results may be negative. Defaults
+            match the Medium preset.
+          </li>
+          <li>
+            Custom difficulty is now available in the game mode selector
+            and appears in statistics alongside the preset difficulties.
+          </li>
+          <li>
+            Difficulty levels have been rebalanced:
+            the parameters for the "Medium" and "Hard" modes have been adjusted.
+          </li>
+          <li>
+            Easy difficulty now includes simple multiplication.
+          </li>
+          <li>
+            Various internal improvements and bug fixes.
+          </li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.4" date="2026-10-07">
       <description translate="no">
-        <p>Project refinement.</p>
+        <p>Adding a custom difficulty level:</p>
         <ul>
           <li>Added a setting for the number of recent matches displayed</li>
           <li>Icons are now installed in the project</li>

@@ -6,7 +6,7 @@ from numo.game.task import Operation
 
 
 SCHEMA_VERSION = 1
-APP_VERSION = '0.4'
+APP_VERSION = '0.5'
 MAX_SESSIONS = 5000
 STATS_FILENAME = "stats.json"
 APP_DATA_SUBDIR = "numo"

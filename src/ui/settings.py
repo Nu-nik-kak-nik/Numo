@@ -89,6 +89,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._connect_range_pairs()
         self._connect_operation_switches()
         self._connect_buttons()
+        self._bind_stats_settings()
 
         self._gio.connect("changed", self._on_custom_settings_changed)
 

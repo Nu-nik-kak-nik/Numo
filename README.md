@@ -14,9 +14,8 @@
 
 </div>
 
-## About project 🖩
-Numo is a small GNOME app for training mental arithmetic. It generates
-tasks on the fly and checks your answers instantly — no distraction, just numbers.
+## About project 🧠
+Numo is GNOME app for mental arithmetic practice. Tasks appear one after another, answers are checked on the spot, and nothing gets in the way — just you and the numbers. Pick one of four game modes, choose a preset difficulty, or build your own with Custom: pick the operations and set the ranges.
 
 
 ### Game modes
@@ -28,13 +27,11 @@ tasks on the fly and checks your answers instantly — no distraction, just numb
 ### Difficulty levels
 - **Easy**: addition, subtraction, and a bit of multiplication. Simple operations using small numbers, with no negative numbers.
 - **Medium**: precise division is introduced. Numbers become larger, problems more complex, and addition and subtraction operations may involve negative values.
-- **Hard**: integer division and mod are introduced, and negative numbers may now appear in multiplication and division operations. 
+- **Hard**: integer division and mod are introduced, and negative numbers may now appear in multiplication and division operations.
+- **Custom**: Complete control over the task. Choose any combination of operations, set custom number ranges for each, and specify whether subtraction results are allowed to be negative. There are, however, a few constraints: at least one operation must remain enabled, and each range must span a minimum of five values.
 
 ### Statistics
-Every session is recorded: result, accuracy, and time spent. The
-statistics screen shows your best results per mode and difficulty,
-recent games. Data can be exported and imported
-as JSON at any time.
+Every session is recorded: result, accuracy, and time spent. The statistics screen shows your best results per mode and difficulty, recent games. The number of recent sessions shown is adjustable in settings. Data can be exported and imported as JSON at any time.
   
 ## My first project 🌟
 This is my first GNOME application built with GTK4 and libadwaita. I'm using it as an opportunity to learn modern GNOME development practices.
@@ -44,9 +41,6 @@ If you spot something that could be done better according to the GNOME way, I'd 
 ## Roadmap 🗺️
   
 The list below is not a rigid schedule, but merely an outline of the directions in which I would like to move.
-
-### Difficulty
-  - **Flexible difficulty settings**: allow customizing what each level does: which operations are included, number ranges, whether negative results are allowed. Right now the rules are hardcoded.
   
 ### Modes
   - **New game modes**: no concrete ideas yet. Candidate: "Reverse" (given the result, find the expression). Open to suggestions.
