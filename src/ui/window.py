@@ -110,6 +110,10 @@ class NumoWindow(Adw.ApplicationWindow):
         self._key_controller.connect("key-pressed", self._on_key_pressed)
         self.add_controller(self._key_controller)
 
+    def show_toast(self, message: str, timeout: int = 3) -> None:
+        toast = Adw.Toast(title=message)
+        toast.set_timeout(timeout)
+        self.toast_overlay.add_toast(toast)
 
     def _on_key_pressed(self, controller, keyval, keycode, state):
         page = self.nav_view.get_visible_page()
@@ -126,11 +130,6 @@ class NumoWindow(Adw.ApplicationWindow):
             return True
 
         return False
-
-    def show_toast(self, message: str, timeout: int = 3) -> None:
-        toast = Adw.Toast(title=message)
-        toast.set_timeout(timeout)
-        self.toast_overlay.add_toast(toast)
 
     def _start_game(self, mode: GameMode) -> None:
         difficulty = self._settings.get_difficulty()

@@ -15,6 +15,8 @@ RECENT_GAMES = 10
 SCHEMA_ID = "io.github.Nu_nik_kak_nik.Numo"
 RESOURCE_PATH_PREFIX = "/io/github/Nu_nik_kak_nik/Numo"
 
+MIN_RANGE_GAP = 4
+
 
 class Difficulty(str, Enum):
     EASY = "easy"

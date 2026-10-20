@@ -70,11 +70,14 @@ class NumoStatsWindow(Adw.Dialog):
         self._stats = stats_manager
         self._settings = settings
 
+        self._connect_signals()
+
+        self._populate()
+
+    def _connect_signals(self) -> None:
         self.delete_stats_row.connect("activated", self._on_delete_activated)
         self.export_stats_row.connect("activated", self._on_export_activated)
         self.import_stats_row.connect("activated", self._on_import_activated)
-
-        self._populate()
 
     def show_toast(self, message: str, timeout: int = 3) -> None:
         toast = Adw.Toast(title=message)

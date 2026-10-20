@@ -24,7 +24,11 @@ from numo.game.task import Operation
 class SettingsManager:
     def __init__(self):
         self._settings = Gio.Settings.new(SCHEMA_ID)
-        self.update_custom_difficulty()
+        try:
+            self.update_custom_difficulty()
+        except (InvalidRangeError, InvalidTupleOperationsError):
+            self.reset_custom_to_medium()
+            self.update_custom_difficulty()
 
     @property
     def settings(self) -> Gio.Settings:
