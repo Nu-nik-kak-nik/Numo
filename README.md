@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="data/icons/hicolor/scalable/apps/io.github.Nu_nik_kak_nik.Numo.svg" width="128" height="128" alt="Numo icon">
+<img src="data/screenshots/README-icon.png" width="128" height="128" alt="Numo icon">
 
 
 # Numo
