@@ -4,7 +4,6 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 gi.require_version("Gio", "2.0")
 
-from datetime import datetime
 from gettext import gettext as _
 
 from gi.repository import Adw, Gtk, Gio, GLib
@@ -38,10 +37,10 @@ class NumoStatsWindow(Adw.Dialog):
     accuracy_label = Gtk.Template.Child()
     accuracy_icon = Gtk.Template.Child()
 
-    best_normal_easy = Gtk.Template.Child()
-    best_normal_medium = Gtk.Template.Child()
-    best_normal_hard = Gtk.Template.Child()
-    best_normal_custom = Gtk.Template.Child()
+    best_survival_easy = Gtk.Template.Child()
+    best_survival_medium = Gtk.Template.Child()
+    best_survival_hard = Gtk.Template.Child()
+    best_survival_custom = Gtk.Template.Child()
 
     best_timer_easy = Gtk.Template.Child()
     best_timer_medium = Gtk.Template.Child()
@@ -127,11 +126,11 @@ class NumoStatsWindow(Adw.Dialog):
         best = self._best_sessions()
 
         self._fill_best_group(
-            best[GameMode.NORMAL],
-            self.best_normal_easy,
-            self.best_normal_medium,
-            self.best_normal_hard,
-            self.best_normal_custom,
+            best[GameMode.SURVIVAL],
+            self.best_survival_easy,
+            self.best_survival_medium,
+            self.best_survival_hard,
+            self.best_survival_custom,
         )
         self._fill_best_group(
             best[GameMode.TIMER],

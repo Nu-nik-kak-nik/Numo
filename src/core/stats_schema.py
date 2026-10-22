@@ -37,7 +37,7 @@ class Session:
     def from_dict(cls, d: dict) -> "Session":
         return cls(
             timestamp=d["timestamp"],
-            mode=GameMode(d["mode"]),
+            mode=GameMode("survival" if d["mode"] == "normal" else  d["mode"]),
             difficulty=Difficulty(d["difficulty"]),
             correct=d["correct"],
             wrong=d["wrong"],

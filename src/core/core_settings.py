@@ -26,7 +26,7 @@ class Difficulty(str, Enum):
 
 
 class GameMode(str, Enum):
-    NORMAL = "normal"
+    SURVIVAL = "survival"
     TIMER = "timer"
     TIMER_BONUS = "timer_bonus"
     TASKS = "tasks"

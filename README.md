@@ -19,7 +19,7 @@ Numo is GNOME app for mental arithmetic practice. Tasks appear one after another
 
 
 ### Game modes
-- **Normal**: an endless run of tasks that ends the moment you make a mistake. A test of focus and consistency.
+- **Survival**: an endless run of tasks that ends the moment you make a mistake. A test of focus and consistency.
 - **Timer**: a fixed countdown. Solve as many tasks as you can before time runs out.
 - **Timer + Bonus**: start with a small amount of time and earn extra seconds for every correct answer.
 - **Task Count**: a set number of tasks to solve. A clear goal to reach at your own pace. 
@@ -52,3 +52,4 @@ The list below is not a rigid schedule, but merely an outline of the directions 
 
 Numo is distributed under the terms of the GNU General Public License,
 version 3 or later. See [COPYING](COPYING) for details.
+

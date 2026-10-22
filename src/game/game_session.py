@@ -49,7 +49,7 @@ class GameSession:
     def time_left(self) -> float | None: return self._time_left
 
     def status_text(self) -> str:
-        if self._mode == GameMode.NORMAL:
+        if self._mode == GameMode.SURVIVAL:
             return str(self._correct + self._wrong + 1)
         if self._mode == GameMode.TASKS:
             if self._finished:
@@ -91,7 +91,7 @@ class GameSession:
         return False
 
     def _should_finish(self) -> bool:
-        if self._mode == GameMode.NORMAL:
+        if self._mode == GameMode.SURVIVAL:
             return self._wrong > 0
         if self._mode == GameMode.TASKS:
             return self._correct + self._wrong >= self._options.target_tasks
@@ -121,7 +121,7 @@ class GameSession:
         }
 
         match self._mode:
-            case GameMode.NORMAL:
+            case GameMode.SURVIVAL:
                 dict_data["mode_data"] = self._correct
 
             case GameMode.TIMER:

@@ -56,7 +56,7 @@ class NumoWindow(Adw.ApplicationWindow):
     status_label = Gtk.Template.Child()
     bonus_label = Gtk.Template.Child()
 
-    mode_normal = Gtk.Template.Child()
+    mode_survival = Gtk.Template.Child()
     mode_timer = Gtk.Template.Child()
     mode_timer_bonus = Gtk.Template.Child()
     mode_tasks = Gtk.Template.Child()
@@ -94,7 +94,7 @@ class NumoWindow(Adw.ApplicationWindow):
         self._connect_signals()
 
     def _connect_signals(self) -> None:
-        self.mode_normal.connect("activated", lambda *_: self._start_game(GameMode.NORMAL))
+        self.mode_survival.connect("activated", lambda *_: self._start_game(GameMode.SURVIVAL))
         self.mode_timer.connect("activated", lambda *_: self._start_game(GameMode.TIMER))
         self.mode_timer_bonus.connect("activated", lambda *_: self._start_game(GameMode.TIMER_BONUS))
         self.mode_tasks.connect("activated", lambda *_: self._start_game(GameMode.TASKS))
@@ -316,7 +316,7 @@ class NumoWindow(Adw.ApplicationWindow):
         options = self._session._options
 
         match data["mode"]:
-            case GameMode.NORMAL:
+            case GameMode.SURVIVAL:
                 self.results_label_extra.set_label(
                     _("%(count)d tasks solved") % {"count": data["mode_data"] or 0}
                 )

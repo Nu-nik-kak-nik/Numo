@@ -156,7 +156,7 @@
 
                     <child>
                       <object class="AdwExpanderRow">
-                        <property name="title" translatable="yes">Normal</property>
+                        <property name="title" translatable="yes">Survival</property>
                         <child type="prefix">
                           <object class="GtkImage">
                             <property name="icon-name">input-gaming-symbolic</property>
@@ -167,7 +167,7 @@
                           <object class="AdwActionRow">
                             <property name="title" translatable="yes">Easy</property>
                             <child type="suffix">
-                              <object class="GtkLabel" id="best_normal_easy">
+                              <object class="GtkLabel" id="best_survival_easy">
                                 <property name="label">—</property>
                                 <style><class name="numeric"/></style>
                               </object>
@@ -178,7 +178,7 @@
                           <object class="AdwActionRow">
                             <property name="title" translatable="yes">Medium</property>
                             <child type="suffix">
-                              <object class="GtkLabel" id="best_normal_medium">
+                              <object class="GtkLabel" id="best_survival_medium">
                                 <property name="label">—</property>
                                 <style><class name="numeric"/></style>
                               </object>
@@ -189,7 +189,7 @@
                           <object class="AdwActionRow">
                             <property name="title" translatable="yes">Hard</property>
                             <child type="suffix">
-                              <object class="GtkLabel" id="best_normal_hard">
+                              <object class="GtkLabel" id="best_survival_hard">
                                 <property name="label">—</property>
                                 <style><class name="numeric"/></style>
                               </object>
@@ -200,7 +200,7 @@
                           <object class="AdwActionRow">
                             <property name="title" translatable="yes">Custom</property>
                             <child type="suffix">
-                              <object class="GtkLabel" id="best_normal_custom">
+                              <object class="GtkLabel" id="best_survival_custom">
                                 <property name="label">—</property>
                                 <style><class name="numeric"/></style>
                               </object>

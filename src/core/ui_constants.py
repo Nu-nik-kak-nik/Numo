@@ -14,7 +14,7 @@ BONUS_FADE_MS = 400
 MAX_LENGHT_ANSWER = 6
 
 MODE_LABELS = {
-    GameMode.NORMAL: "Normal",
+    GameMode.SURVIVAL: "Survival",
     GameMode.TIMER: "Timer",
     GameMode.TIMER_BONUS: "Timer + Bonus",
     GameMode.TASKS: "Task Count",
@@ -34,14 +34,14 @@ def diff_label(d: Difficulty) -> str:
     return _(DIFF_LABELS[d])
 
 MODE_ICONS = {
-    GameMode.NORMAL: "input-gaming-symbolic",
+    GameMode.SURVIVAL: "input-gaming-symbolic",
     GameMode.TIMER: "document-open-recent-symbolic",
     GameMode.TIMER_BONUS: "alarm-symbolic",
     GameMode.TASKS: "view-list-symbolic",
 }
 
 MODE_COLORS = {
-    GameMode.NORMAL: "accent",
+    GameMode.SURVIVAL: "accent",
     GameMode.TIMER: "warning",
     GameMode.TIMER_BONUS: "success",
     GameMode.TASKS: "error",
