@@ -14,7 +14,7 @@
             <property name="title" translatable="yes">General</property>
             <child>
               <object class="AdwComboRow" id="difficulty_row">
-                <property name="title" translatable="yes">Default Difficulty</property>
+                <property name="title" translatable="yes">Difficulty</property>
                 <property name="model">
                   <object class="GtkStringList">
                     <items>
@@ -29,6 +29,28 @@
             </child>
           </object>
         </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Survival</property>
+            <child>
+              <object class="AdwSpinRow" id="survival_lives_row">
+                <property name="title" translatable="yes">Lives</property>
+                <property name="subtitle" translatable="yes">Mistakes allowed</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">1</property>
+                    <property name="upper">10</property>
+                    <property name="step-increment">1</property>
+                    <property name="page-increment">1</property>
+                    <property name="value">3</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+
         <child>
           <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">Timer Mode</property>
@@ -118,9 +140,6 @@
             </child>
           </object>
         </child>
-
-
-
         <child>
           <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">Custom difficulty</property>
@@ -181,7 +200,6 @@
                 </child>
               </object>
             </child>
-
             <child>
               <object class="AdwExpanderRow" id="custom_sub">
                 <property name="title" translatable="yes">Subtraction</property>
@@ -233,7 +251,6 @@
                 </child>
               </object>
             </child>
-
             <child>
               <object class="AdwExpanderRow" id="custom_mul">
                 <property name="title" translatable="yes">Multiplication</property>
@@ -278,7 +295,6 @@
                 </child>
               </object>
             </child>
-
             <child>
               <object class="AdwExpanderRow" id="custom_div">
                 <property name="title" translatable="yes">Division</property>
@@ -323,7 +339,6 @@
                 </child>
               </object>
             </child>
-
             <child>
               <object class="AdwExpanderRow" id="custom_intdiv">
                 <property name="title" translatable="yes">Integer Division</property>
@@ -367,7 +382,6 @@
                 </child>
               </object>
             </child>
-
             <child>
               <object class="AdwExpanderRow" id="custom_mod">
                 <property name="title" translatable="yes">Modulo</property>
@@ -423,9 +437,6 @@
             </child>
           </object>
         </child>
-
-
-
       </object>
     </child>
   </template>

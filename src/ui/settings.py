@@ -18,6 +18,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
     __gtype_name__ = "NumoSettingsWindow"
 
     difficulty_row = Gtk.Template.Child()
+    survival_lives_row = Gtk.Template.Child()
     timer_minutes_row = Gtk.Template.Child()
     bonus_start_row = Gtk.Template.Child()
     bonus_seconds_row = Gtk.Template.Child()
@@ -99,6 +100,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._gio.connect("changed::difficulty", self._on_difficulty_settings_changed)
 
     def _bind_mode_settings(self) -> None:
+        self._gio.bind("survival-lives", self.survival_lives_row, "value", Gio.SettingsBindFlags.DEFAULT)
         self._gio.bind("timer-duration-min", self.timer_minutes_row, "value", Gio.SettingsBindFlags.DEFAULT)
         self._gio.bind("bonus-initial-sec", self.bonus_start_row, "value", Gio.SettingsBindFlags.DEFAULT)
         self._gio.bind("bonus-per-correct-sec", self.bonus_seconds_row, "value", Gio.SettingsBindFlags.DEFAULT)

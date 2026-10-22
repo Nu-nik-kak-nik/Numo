@@ -42,7 +42,7 @@
                             <child>
                               <object class="AdwActionRow" id="mode_survival">
                                 <property name="title" translatable="yes">Survival</property>
-                                <property name="subtitle" translatable="yes">Solve until you make a mistake</property>
+                                <property name="subtitle" translatable="yes">Solve until your lives run out</property>
                                 <property name="activatable">True</property>
                                 <child type="prefix">
                                   <object class="GtkImage">

@@ -14,6 +14,13 @@
       <description>Difficulty applied to all game modes by default.</description>
     </key>
 
+    <key name="survival-lives" type="i">
+      <range min="1" max="10"/>
+      <default>3</default>
+      <summary>Lives</summary>
+      <description>Number of mistakes allowed per session in Survival mode.</description>
+    </key>
+
     <key name="timer-duration-min" type="i">
       <range min="1" max="10"/>
       <default>3</default>

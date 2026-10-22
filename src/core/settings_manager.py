@@ -40,6 +40,12 @@ class SettingsManager:
     def set_difficulty(self, difficulty: Difficulty) -> None:
         self._settings.set_string("difficulty", difficulty.value)
 
+    def get_survival_lives(self) -> int:
+        return self._settings.get_int("survival-lives")
+
+    def set_survival_lives(self, value: int) -> None:
+        self._settings.set_int("survival-lives", value)
+
     def get_timer_duration_min(self) -> int:
         return self._settings.get_int("timer-duration-min")
 
