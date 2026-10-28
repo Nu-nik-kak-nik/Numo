@@ -32,7 +32,7 @@ from .ui.window import NumoWindow
 from .ui.settings import NumoSettingsWindow
 from .ui.statistics import NumoStatsWindow
 
-from numo.core.core_settings import APP_VERSION
+from numo.core.core_settings import APP_VERSION, RESOURCE_PATH_PREFIX
 from numo.core.settings_manager import SettingsManager
 from numo.utils.stats_manager import StatsManager
 
@@ -43,7 +43,7 @@ class NumoApplication(Adw.Application):
     def __init__(self):
         super().__init__(application_id='io.github.Nu_nik_kak_nik.Numo',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
-                         resource_base_path='/io/github/Nu_nik_kak_nik/Numo')
+                         resource_base_path=RESOURCE_PATH_PREFIX)
         self.settings = SettingsManager()
         self.stats_manager = StatsManager(
             app_version=APP_VERSION,
@@ -62,7 +62,7 @@ class NumoApplication(Adw.Application):
 
     def _load_css(self):
         provider = Gtk.CssProvider()
-        provider.load_from_resource("/io/github/Nu_nik_kak_nik/Numo/ui/style.css")
+        provider.load_from_resource(f"{RESOURCE_PATH_PREFIX}/ui/style.css")
         display = Gdk.Display.get_default()
         if display is not None:
             Gtk.StyleContext.add_provider_for_display(
@@ -74,7 +74,7 @@ class NumoApplication(Adw.Application):
     def _load_icons(self):
         display = Gdk.Display.get_default()
         theme = Gtk.IconTheme.get_for_display(display)
-        theme.add_resource_path("/io/github/Nu_nik_kak_nik/Numo/icons")
+        theme.add_resource_path(f"{RESOURCE_PATH_PREFIX}/icons")
 
     def do_activate(self):
         """Called when the application is activated.
