@@ -3,6 +3,7 @@ from enum import Enum
 
 from numo.core.custom_errors import InvalidRangeError, InvalidTupleOperationsError
 from numo.game.task import Operation
+from numo.utils.stats_migrations import migrate_v1_to_v2
 
 
 SCHEMA_VERSION = 1
@@ -34,6 +35,7 @@ class GameMode(str, Enum):
 
 @dataclass(frozen=True, slots=True)
 class SessionOptions:
+    max_mistakes: int | None = None
     duration_sec: int | None = None
     target_tasks: int | None = None
     initial_time_sec: int | None = None

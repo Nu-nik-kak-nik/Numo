@@ -1,6 +1,5 @@
 from dataclasses import dataclass, asdict, field
 from datetime import datetime
-from numo.core.core_settings import Difficulty, GameMode, SCHEMA_VERSION
 
 
 @dataclass
@@ -15,6 +14,7 @@ class Session:
     target_tasks: int | None = None
     initial_time_sec: int | None = None
     bonus_sec: int | None = None
+    max_mistakes: int | None = None
 
     @property
     def total(self) -> int:
@@ -37,7 +37,7 @@ class Session:
     def from_dict(cls, d: dict) -> "Session":
         return cls(
             timestamp=d["timestamp"],
-            mode=GameMode("survival" if d["mode"] == "normal" else  d["mode"]),
+            mode=GameMode(d["mode"]),
             difficulty=Difficulty(d["difficulty"]),
             correct=d["correct"],
             wrong=d["wrong"],
@@ -46,6 +46,7 @@ class Session:
             target_tasks=d.get("target_tasks"),
             initial_time_sec=d.get("initial_time_sec"),
             bonus_sec=d.get("bonus_sec"),
+            max_mistakes=d.get("max_mistakes"),
         )
 
     @classmethod
@@ -60,7 +61,8 @@ class Session:
         target_tasks: int | None = None,
         initial_time_sec: int | None = None,
         bonus_sec: int | None = None,
-    ) -> "Session":
+        max_mistakes: int | None = None,
+    ) -> "Session": # Self
         return cls(
             timestamp=datetime.now().isoformat(timespec="seconds"),
             mode=GameMode(mode),
@@ -72,6 +74,7 @@ class Session:
             target_tasks=target_tasks,
             initial_time_sec=initial_time_sec,
             bonus_sec=bonus_sec,
+            max_mistakes=max_mistakes,
         )
 
 

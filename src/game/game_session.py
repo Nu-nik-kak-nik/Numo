@@ -50,7 +50,7 @@ class GameSession:
 
     def status_text(self) -> str:
         if self._mode == GameMode.SURVIVAL:
-            return str(self._correct + self._wrong + 1)
+            return f"{self._options.max_mistakes - self._wrong} / {self._options.max_mistakes}♥"
         if self._mode == GameMode.TASKS:
             if self._finished:
                 return f"{self._options.target_tasks} / {self._options.target_tasks}"
@@ -92,7 +92,7 @@ class GameSession:
 
     def _should_finish(self) -> bool:
         if self._mode == GameMode.SURVIVAL:
-            return self._wrong > 0
+            return self._wrong >= self._options.max_mistakes
         if self._mode == GameMode.TASKS:
             return self._correct + self._wrong >= self._options.target_tasks
         return False
@@ -108,6 +108,7 @@ class GameSession:
             target_tasks=self._options.target_tasks,
             initial_time_sec=self._options.initial_time_sec,
             bonus_sec=self._options.bonus_sec,
+            max_mistakes=self._options.max_mistakes
         )
 
     def result_data(self) -> dict[str, int | float | list[int]]:
@@ -122,7 +123,7 @@ class GameSession:
 
         match self._mode:
             case GameMode.SURVIVAL:
-                dict_data["mode_data"] = self._correct
+                dict_data["mode_data"] = self._options.max_mistakes
 
             case GameMode.TIMER:
                 dict_data["mode_data"] = self._options.duration_sec // 60

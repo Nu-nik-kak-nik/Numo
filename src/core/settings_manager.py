@@ -71,6 +71,10 @@ class SettingsManager:
         self._settings.set_int("tasks-count", value)
 
     def session_options_for(self, mode: GameMode) -> SessionOptions:
+        if mode == GameMode.SURVIVAL:
+            return SessionOptions(
+                max_mistakes=self.get_survival_lives(),
+            )
         if mode == GameMode.TIMER:
             return SessionOptions(
                 duration_sec=self.get_timer_duration_min() * 60,

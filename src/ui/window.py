@@ -212,7 +212,7 @@ class NumoWindow(Adw.ApplicationWindow):
         if show_bonus:
             bonus = self._session._options.bonus_sec or 0
             self.bonus_label.set_opacity(1.0)
-            self.bonus_label.set_label(f"+{bonus} s")
+            self.bonus_label.set_label(_("%(bonus)d s") % {"bonus": bonus})
 
         def restore():
             self.expression_label.remove_css_class(css_class)
@@ -318,7 +318,7 @@ class NumoWindow(Adw.ApplicationWindow):
         match data["mode"]:
             case GameMode.SURVIVAL:
                 self.results_label_extra.set_label(
-                    _("%(count)d tasks solved") % {"count": data["mode_data"] or 0}
+                    _("%(count)d lives") % {"count": data["mode_data"] or 0}
                 )
             case GameMode.TIMER:
                 self.results_label_extra.set_label(
