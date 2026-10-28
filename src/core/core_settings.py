@@ -6,7 +6,7 @@ from numo.game.task import Operation
 from numo.utils.stats_migrations import migrate_v1_to_v2
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 APP_VERSION = '0.5'
 MAX_SESSIONS = 5000
 STATS_FILENAME = "stats.json"
@@ -17,6 +17,8 @@ SCHEMA_ID = "io.github.Nu_nik_kak_nik.Numo"
 RESOURCE_PATH_PREFIX = "/io/github/Nu_nik_kak_nik/Numo"
 
 MIN_RANGE_GAP = 4
+
+MIGRATIONS = {1: migrate_v1_to_v2,}
 
 
 class Difficulty(str, Enum):

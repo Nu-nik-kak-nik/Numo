@@ -19,7 +19,7 @@ from numo.core.core_settings import (
     APP_VERSION,
 )
 from numo.core.stats_schema import Session, StatsFile
-from numo.core.custom_errors import StatsError
+from numo.core.custom_errors import StatsError, MigrationError
 
 
 class StatsManager:
@@ -88,7 +88,7 @@ class StatsManager:
         try:
             self._stats = StatsFile.from_dict(data)
             self._stats.app_version = self._app_version
-        except (KeyError, ValueError, TypeError):
+        except (KeyError, ValueError, TypeError, MigrationError):
             self._recreate(
                 "Incorrect structure of the statistics file. The statistics were dropped."
             )
@@ -173,7 +173,7 @@ class StatsManager:
 
         try:
             new_stats = StatsFile.from_dict(data)
-        except (KeyError, ValueError, TypeError) as e:
+        except (KeyError, ValueError, TypeError, MigrationError) as e:
             raise StatsError(f"Incorrect file structure: {e}")
 
         new_stats.app_version = self._app_version

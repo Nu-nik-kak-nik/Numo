@@ -5,5 +5,10 @@ class StatsError(Exception):
 class InvalidRangeError(ValueError):
     pass
 
+
 class InvalidTupleOperationsError(ValueError):
+    pass
+
+
+class MigrationError(ValueError):
     pass

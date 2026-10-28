@@ -1,5 +1,9 @@
 from dataclasses import dataclass, asdict, field
 from datetime import datetime
+from typing import Self
+from numo.core.core_settings import Difficulty, GameMode, SCHEMA_VERSION, MIGRATIONS
+from numo.core.custom_errors import MigrationError
+from numo.utils.formatting import datetime_from_iso, date_with_seconds
 
 
 @dataclass
@@ -28,13 +32,13 @@ class Session:
 
     @property
     def dt(self) -> datetime:
-        return datetime.fromisoformat(self.timestamp)
+        return datetime_from_iso(self.timestamp)
 
     def to_dict(self) -> dict:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, d: dict) -> "Session":
+    def from_dict(cls, d: dict) -> "Session": # Self
         return cls(
             timestamp=d["timestamp"],
             mode=GameMode(d["mode"]),
@@ -64,7 +68,7 @@ class Session:
         max_mistakes: int | None = None,
     ) -> "Session": # Self
         return cls(
-            timestamp=datetime.now().isoformat(timespec="seconds"),
+            timestamp=date_with_seconds(),
             mode=GameMode(mode),
             difficulty=Difficulty(difficulty),
             correct=correct,
@@ -92,9 +96,23 @@ class StatsFile:
         }
 
     @classmethod
-    def from_dict(cls, d: dict) -> "StatsFile":
+    def from_dict(cls, d: dict) -> "StatsFile": # Self
+        current_version = d.get("version", 1)
+
+        if current_version > SCHEMA_VERSION:
+            raise MigrationError(f"Unsupported stats version {current_version}.")
+
+        while current_version < SCHEMA_VERSION:
+            migration = MIGRATIONS.get(current_version)
+            if migration is None:
+                raise MigrationError(f"No migration from version {current_version}")
+            d = migration(d)
+            current_version += 1
+            d["version"] = current_version
+
         return cls(
-            version=d.get("version", SCHEMA_VERSION),
+            version=SCHEMA_VERSION,
             app_version=d.get("app_version", ""),
             sessions=[Session.from_dict(s) for s in d.get("sessions", [])],
         )
+
