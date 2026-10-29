@@ -17,6 +17,7 @@ from numo.core.core_settings import (
     APP_DATA_SUBDIR,
     RECENT_GAMES,
     APP_VERSION,
+    LAPLACE_ALPHA,
 )
 from numo.core.stats_schema import Session, StatsFile
 from numo.core.custom_errors import StatsError, MigrationError
@@ -221,15 +222,30 @@ class StatsManager:
             "time_to_task": time_to_task,
         }
 
+    def recent(self, n: int = RECENT_GAMES) -> list[Session]:
+        self.load()
+        return list(reversed(self._stats.sessions[-n:]))
+
     def best_sessions(self) -> dict[GameMode, dict[Difficulty, Session | None]]:
         self.load()
         result = {mode: {diff: None for diff in Difficulty} for mode in GameMode}
         for s in self._stats.sessions:
             current = result[s.mode][s.difficulty]
-            if current is None or s.correct > current.correct:
+            if current is None or self._is_better_session(s, current):
                 result[s.mode][s.difficulty] = s
         return result
 
-    def recent(self, n: int = RECENT_GAMES) -> list[Session]:
-        self.load()
-        return list(reversed(self._stats.sessions[-n:]))
+    def _is_better_session(self, session: Session, current: Session) -> bool:
+        session_correct = session.correct + LAPLACE_ALPHA
+        session_total = session.total + 2 * LAPLACE_ALPHA
+        current_correct = current.correct + LAPLACE_ALPHA
+        current_total = current.total + 2 * LAPLACE_ALPHA
+
+        left, right = session_correct * current_total, current_correct * session_total
+        if left != right:
+            return left > right
+
+        if session.correct != current.correct:
+            return session.correct > current.correct
+
+        return session.elapsed_sec < current.elapsed_sec

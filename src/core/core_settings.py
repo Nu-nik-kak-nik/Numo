@@ -12,11 +12,11 @@ MAX_SESSIONS = 5000
 STATS_FILENAME = "stats.json"
 APP_DATA_SUBDIR = "numo"
 RECENT_GAMES = 10
+LAPLACE_ALPHA = 2
+MIN_RANGE_GAP = 4
 
 SCHEMA_ID = "io.github.Nu_nik_kak_nik.Numo"
 RESOURCE_PATH_PREFIX = "/io/github/Nu_nik_kak_nik/Numo"
-
-MIN_RANGE_GAP = 4
 
 MIGRATIONS = {1: migrate_v1_to_v2,}
 
