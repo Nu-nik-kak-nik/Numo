@@ -89,6 +89,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         self._bind_custom_ranges()
         self._connect_range_pairs()
         self._connect_operation_switches()
+        self._connect_non_negative_switch()
         self._connect_buttons()
         self._bind_stats_settings()
 
@@ -124,6 +125,19 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
     def _bind_stats_settings(self) -> None:
         self._gio.bind("recent-sessions", self.recent_sessions_row, "value", Gio.SettingsBindFlags.DEFAULT)
 
+    def _connect_non_negative_switch(self) -> None:
+        self.custom_sub_min.connect("notify::value", self._on_sub_min_changed_for_switch)
+        self._sync_non_negative_switch()
+
+    def _sync_non_negative_switch(self) -> None:
+        valid = self.custom_sub_min.get_value() >= 0
+        self.custom_sub_non_negative.set_sensitive(valid)
+        if not valid and self.custom_sub_non_negative.get_active():
+            self.custom_sub_non_negative.set_active(False)
+
+    def _on_sub_min_changed_for_switch(self, _row, _pspec) -> None:
+        self._sync_non_negative_switch()
+
     def _connect_buttons(self) -> None:
         self.custom_help_button.connect("clicked", self._on_custom_help_clicked)
         self.custom_reset_row.connect("activated", self._on_custom_reset_activated)
@@ -153,6 +167,15 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
             min_row.connect("notify::value", self._on_min_changed, max_row)
             max_row.connect("notify::value", self._on_max_changed, min_row)
 
+    def _connect_operation_switches(self) -> None:
+        for expander in self._expand_operation:
+            expander.connect("notify::enable-expansion", self._on_operation_toggled)
+
+    def show_toast(self, message: str, timeout: int = 3) -> None:
+        toast = Adw.Toast(title=message)
+        toast.set_timeout(timeout)
+        self.add_toast(toast)
+
     def _on_min_changed(self, min_row: Adw.SpinRow, _pspec, max_row: Adw.SpinRow) -> None:
         if self._updating_ranges:
             return
@@ -180,15 +203,6 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
             min_row.set_range(original_lower, max_allowed_for_min)
         finally:
             self._updating_ranges = False
-
-    def _connect_operation_switches(self) -> None:
-        for expander in self._expand_operation:
-            expander.connect("notify::enable-expansion", self._on_operation_toggled)
-
-    def show_toast(self, message: str, timeout: int = 3) -> None:
-        toast = Adw.Toast(title=message)
-        toast.set_timeout(timeout)
-        self.add_toast(toast)
 
     def _on_operation_toggled(self, row: Adw.ExpanderRow, _pspec) -> None:
         if self._reverting_toggle:
