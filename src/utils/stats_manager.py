@@ -221,26 +221,14 @@ class StatsManager:
             "time_to_task": time_to_task,
         }
 
-    def best_results(self) -> dict:
+    def best_sessions(self) -> dict[GameMode, dict[Difficulty, Session | None]]:
         self.load()
-        result = {mode: {diff: 0 for diff in Difficulty} for mode in GameMode}
+        result = {mode: {diff: None for diff in Difficulty} for mode in GameMode}
         for s in self._stats.sessions:
-            result[s.mode][s.difficulty] = max(
-                result[s.mode][s.difficulty], s.correct
-            )
+            current = result[s.mode][s.difficulty]
+            if current is None or s.correct > current.correct:
+                result[s.mode][s.difficulty] = s
         return result
-
-    def best_overall_for_mode(self, mode: GameMode) -> tuple[int, Difficulty | None]:
-        self.load()
-        best_value = 0
-        best_diff: Difficulty | None = None
-        for s in self._stats.sessions:
-            if s.mode != mode:
-                continue
-            if s.correct > best_value:
-                best_value = s.correct
-                best_diff = s.difficulty
-        return best_value, best_diff
 
     def recent(self, n: int = RECENT_GAMES) -> list[Session]:
         self.load()

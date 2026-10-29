@@ -123,7 +123,7 @@ class NumoStatsWindow(Adw.Dialog):
 
 
     def _populate_best(self) -> None:
-        best = self._best_sessions()
+        best = self._stats.best_sessions()
 
         self._fill_best_group(
             best[GameMode.SURVIVAL],
@@ -153,14 +153,6 @@ class NumoStatsWindow(Adw.Dialog):
             self.best_tasks_hard,
             self.best_tasks_custom,
         )
-
-    def _best_sessions(self) -> dict:
-        result = {mode: {diff: None for diff in Difficulty} for mode in GameMode}
-        for s in self._stats.get_sessions():
-            current = result[s.mode][s.difficulty]
-            if current is None or s.correct > current.correct:
-                result[s.mode][s.difficulty] = s
-        return result
 
     def _fill_best_group(
         self, mode_best, easy_lbl,
