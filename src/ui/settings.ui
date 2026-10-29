@@ -147,6 +147,7 @@
             <child type="header-suffix">
               <object class="GtkButton" id="custom_help_button">
                 <property name="icon-name">info-outline-symbolic</property>
+                <property name="tooltip-text" translatable="yes">About Custom Difficulty</property>
                 <property name="valign">center</property>
                 <style>
                   <class name="flat"/>
