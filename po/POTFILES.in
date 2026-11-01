@@ -1,8 +1,15 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 data/io.github.Nu_nik_kak_nik.Numo.desktop.in
-data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in
 data/io.github.Nu_nik_kak_nik.Numo.gschema.xml
+data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in
+src/core/ui_constants.py
 src/main.py
-src/window.py
-src/window.ui
+src/ui/settings.py
+src/ui/settings.ui
+src/ui/shortcuts-dialog.ui
+src/ui/statistics.py
+src/ui/statistics.ui
+src/ui/window.py
+src/ui/window.ui
+src/utils/formatting.py

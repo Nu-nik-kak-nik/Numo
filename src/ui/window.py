@@ -21,7 +21,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 
-from gettext import gettext as _
+from gettext import gettext as _, ngettext
 
 from gi.repository import Adw, Gtk, GLib, Gdk
 
@@ -317,8 +317,9 @@ class NumoWindow(Adw.ApplicationWindow):
 
         match data["mode"]:
             case GameMode.SURVIVAL:
+                count = data["mode_data"] or 0
                 self.results_label_extra.set_label(
-                    _("%(count)d lives") % {"count": data["mode_data"] or 0}
+                    ngettext("%(count)d life", "%(count)d lives", count) % {"count": count}
                 )
             case GameMode.TIMER:
                 self.results_label_extra.set_label(
@@ -332,8 +333,9 @@ class NumoWindow(Adw.ApplicationWindow):
                     }
                 )
             case GameMode.TASKS:
+                count = data["mode_data"] or 0
                 self.results_label_extra.set_label(
-                    _("%(count)d tasks") % {"count": data["mode_data"] or 0}
+                    ngettext("%(count)d task", "%(count)d tasks", count) % {"count": count}
                 )
 
             case _:
@@ -353,7 +355,7 @@ class NumoWindow(Adw.ApplicationWindow):
 
         dialog = Adw.AlertDialog(
             heading=_("Interrupt the game?"),
-            body=_("Your progress will not be saved."),
+            body=_("Your progress will not be saved!"),
         )
         dialog.add_response("cancel", _("Cancel"))
         dialog.add_response("interrupt", _("Interrupt"))
