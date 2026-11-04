@@ -23,5 +23,6 @@
     <file preprocess="xml-stripblanks">icons/symbolic/apps/view-list-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/symbolic/apps/edit-undo-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/symbolic/apps/sliders-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/edit-copy-symbolic.svg</file>
   </gresource>
 </gresources>
