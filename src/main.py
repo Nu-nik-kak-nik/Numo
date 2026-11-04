@@ -33,6 +33,8 @@ from .ui.settings import NumoSettingsWindow
 from .ui.statistics import NumoStatsWindow
 
 from numo.core.core_settings import APP_VERSION, RESOURCE_PATH_PREFIX
+from numo.core.custom_errors import StatsError
+from numo.core.ui_constants import stats_error_message
 from numo.core.settings_manager import SettingsManager
 from numo.utils.stats_manager import StatsManager
 
@@ -91,11 +93,6 @@ class NumoApplication(Adw.Application):
         )
         self.window.present()
 
-        try:
-            self.stats_manager.load()
-        except StatsError:
-            pass
-
     def on_preferences_action(self, _action, _param):
         for win in self.get_windows():
             if isinstance(win, NumoSettingsWindow):
@@ -130,7 +127,7 @@ class NumoApplication(Adw.Application):
     def on_about_action(self, *args):
         """Callback for the app.about action."""
         about = Adw.AboutDialog.new_from_appdata(
-        "/io/github/Nu_nik_kak_nik/Numo/io.github.Nu_nik_kak_nik.Numo.metainfo.xml",
+        f"{RESOURCE_PATH_PREFIX}/io.github.Nu_nik_kak_nik.Numo.metainfo.xml",
         APP_VERSION,
         )
         about.set_copyright("© 2026 Nu-nik-kak-nik")
@@ -143,12 +140,13 @@ class NumoApplication(Adw.Application):
 
     def on_shortcuts_action(self, *args):
         builder = Gtk.Builder.new_from_resource(
-            '/io/github/Nu_nik_kak_nik/Numo/ui/shortcuts-dialog.ui'
+            f'{RESOURCE_PATH_PREFIX}/ui/shortcuts-dialog.ui'
         )
         dialog = builder.get_object('shortcuts_dialog')
         dialog.present(self.window)
 
-    def _on_stats_warning(self, message: str) -> None:
+    def _on_stats_warning(self, error: StatsError) -> None:
+        message = stats_error_message(error)
         for win in self.get_windows():
             if isinstance(win, NumoStatsWindow) and win.get_visible():
                 win.show_toast(message)

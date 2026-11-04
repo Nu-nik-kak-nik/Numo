@@ -31,15 +31,16 @@ from numo.core.settings_manager import SettingsManager
 from numo.game.game_session import GameSession
 from numo.utils.stats_manager import StatsManager
 from numo.core.ui_constants import (
+mode_label,
+diff_label,
+stats_error_message,
 TICK_INTERVAL_MS,
 FEEDBACK_DURATION_MS,
 BONUS_FADE_MS,
 MODE_ICONS,
 MODE_COLORS,
-mode_label,
-diff_label,
 DIFFICULTY_ICONS,
-MAX_LENGHT_ANSWER
+MAX_LENGHT_ANSWER,
 )
 
 
@@ -172,21 +173,21 @@ class NumoWindow(Adw.ApplicationWindow):
 
     def _submit_current(self) -> None:
         if self._session is None:
-            self.show_toast(_("No active game."), 1)
+            self.show_toast(_("No active game"), 1)
             return
         if  self._finished:
-            self.show_toast(_("The game is already over."), 1)
+            self.show_toast(_("The game is already over"), 1)
             return
 
         text = self.answer_entry.get_text().strip()
         if not text:
-            self.show_toast(_("Please enter an answer."), 1)
+            self.show_toast(_("Please enter an answer"), 1)
             return
 
         try:
             value = int(text)
         except ValueError:
-            self.show_toast(_("Please enter a integer."), 1)
+            self.show_toast(_("Please enter a integer"), 1)
             return
         self._submit_answer(value)
 
@@ -287,7 +288,7 @@ class NumoWindow(Adw.ApplicationWindow):
         try:
             self._stats.add_session(self._session.to_record())
         except StatsError as e:
-            self.show_toast(str(e))
+            self.show_toast(stats_error_message(e))
 
         self._show_results()
 

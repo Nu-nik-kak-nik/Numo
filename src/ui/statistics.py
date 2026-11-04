@@ -14,10 +14,11 @@ from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import (
     mode_label,
     diff_label,
+    stats_error_message,
     MODE_ICONS,
     MODE_COLORS,
     ACC_PERCENTAGE_SUCCESS,
-    ACC_PERCENTAGE_WARNING
+    ACC_PERCENTAGE_WARNING,
 )
 from numo.utils.stats_manager import StatsManager
 from numo.utils.formatting import format_duration, format_duration_with_hours, format_timestamp
@@ -234,7 +235,7 @@ class NumoStatsWindow(Adw.Dialog):
         try:
             self._stats.clear()
         except StatsError as e:
-            self.show_toast(str(e), 5)
+            self.show_toast(stats_error_message(e), 5)
             return
         self._populate()
 
@@ -253,7 +254,7 @@ class NumoStatsWindow(Adw.Dialog):
             self._stats.export_to(file)
             self.show_toast(_("Statistics exported"))
         except StatsError as e:
-            self.show_toast(str(e), 5)
+            self.show_toast(stats_error_message(e), 5)
 
     def _on_import_activated(self, _row):
         dialog = self._create_json_file_dialog(
@@ -269,7 +270,7 @@ class NumoStatsWindow(Adw.Dialog):
             self._stats.import_from(file)
             self.show_toast(_("Statistics imported"))
         except StatsError as e:
-            self.show_toast(str(e), 5)
+            self.show_toast(stats_error_message(e), 5)
             return
         self._populate()
 

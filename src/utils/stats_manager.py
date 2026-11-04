@@ -66,43 +66,38 @@ class StatsManager:
         if not self._file.query_exists(None):
             self._stats = StatsFile(version=SCHEMA_VERSION, app_version=self._app_version)
             try:
-                self._save_internal()
+                self.save()
             except StatsError:
                 pass
             return
 
         try:
-            ok, contents, _etag = self._file.load_contents(None)
+            _ok, contents, _etag = self._file.load_contents(None)
         except GLib.Error as e:
-            self._recreate(f"failed to read the statistics file: {e.message}")
-            return
-        if not ok:
-            self._recreate("failed to read the statistics file.")
+            self._recreate(StatsError("stats_read_error", e.message))
             return
 
         try:
             data = json.loads(contents.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError):
-            self._recreate("The statistics file is corrupted. The statistics were dropped.")
+        except (UnicodeDecodeError, json.JSONDecodeError) as e:
+            self._recreate(StatsError("stats_invalid_json", str(e)))
             return
 
         try:
             self._stats = StatsFile.from_dict(data)
             self._stats.app_version = self._app_version
-        except (KeyError, ValueError, TypeError, MigrationError):
-            self._recreate(
-                "Incorrect structure of the statistics file. The statistics were dropped."
-            )
+        except (KeyError, ValueError, TypeError, MigrationError) as e:
+            self._recreate(StatsError("stats_invalid_structure", str(e)))
             return
 
-    def _recreate(self, message: str) -> None:
+    def _recreate(self, error: StatsError) -> None:
         self._stats = StatsFile(version=SCHEMA_VERSION, app_version=self._app_version)
         try:
             self._save_internal()
         except StatsError:
             pass
         if self._on_warning is not None:
-            self._on_warning(message)
+            self._on_warning(error)
 
     def save(self) -> None:
         parent = self._file.get_parent()
@@ -111,7 +106,7 @@ class StatsManager:
                 parent.make_directory_with_parents(None)
             except GLib.Error as e:
                 if not e.matches(Gio.io_error_quark(), Gio.IOErrorEnum.EXISTS):
-                    raise StatsError(f"Failed to create a directory: {e.message}")
+                    raise StatsError("stats_directory_error", e.message)
         self._save_internal()
 
     def _save_internal(self) -> None:
@@ -126,7 +121,7 @@ class StatsManager:
                 None,
             )
         except GLib.Error as e:
-            raise StatsError(f"The statistics were not kept: {e.message}")
+            raise StatsError("stats_write_error", e.message)
         self._mtime = self._current_mtime()
 
     def add_session(self, session: Session) -> None:
@@ -157,25 +152,23 @@ class StatsManager:
                 None,
             )
         except GLib.Error as e:
-            raise StatsError(f"Failed to export: {e.message}")
+            raise StatsError("export_write_error", e.message)
 
     def import_from(self, file: Gio.File) -> None:
         try:
-            ok, contents, _etag = file.load_contents(None)
+            _ok, contents, _etag = file.load_contents(None)
         except GLib.Error as e:
-            raise StatsError(f"File reading error: {e.message}")
-        if not ok:
-            raise StatsError("File reading error.")
+            raise StatsError("import_read_error", e.message)
 
         try:
             data = json.loads(contents.decode("utf-8"))
         except (UnicodeDecodeError, json.JSONDecodeError) as e:
-            raise StatsError(f"The file is not correct JSON: {e}")
+            raise StatsError("import_invalid_json", str(e))
 
         try:
             new_stats = StatsFile.from_dict(data)
         except (KeyError, ValueError, TypeError, MigrationError) as e:
-            raise StatsError(f"Incorrect file structure: {e}")
+            raise StatsError("import_invalid_structure", str(e))
 
         new_stats.app_version = self._app_version
         self._stats = new_stats

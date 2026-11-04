@@ -1,5 +1,6 @@
 from numo.core.core_settings import Difficulty, GameMode
 from gettext import gettext as _
+from numo.core.custom_errors import StatsError
 
 
 DIFF_ORDER = tuple(d.value for d in Difficulty)
@@ -54,3 +55,17 @@ DIFFICULTY_ICONS = {
     Difficulty.CUSTOM: "sliders-symbolic",
 }
 
+
+def stats_error_message(error: StatsError) -> str:
+    messages = {
+        "stats_read_error": _("Could not read statistics"),
+        "stats_invalid_json": _("Statistics reset — file corrupted"),
+        "stats_invalid_structure": _("Statistics reset — invalid structure"),
+        "stats_directory_error": _("Could not create the statistics folder"),
+        "stats_write_error": _("Could not save statistics"),
+        "export_write_error": _("Could not export statistics"),
+        "import_read_error": _("Could not read the import file"),
+        "import_invalid_json": _("The import file is not valid JSON"),
+        "import_invalid_structure": _("The import file has an invalid structure"),
+    }
+    return messages.get(error.code, _("An unknown statistics error occurred"))
