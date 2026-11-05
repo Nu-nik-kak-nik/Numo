@@ -8,9 +8,10 @@ from gi.repository import Adw, Gtk, Gio, GLib
 from gettext import gettext as _
 
 from numo.core.core_settings import RESOURCE_PATH_PREFIX, MIN_RANGE_GAP
-from numo.core.custom_errors import InvalidRangeError, InvalidTupleOperationsError
+from numo.core.custom_errors import InvalidRangeError, InvalidTupleOperationsError, StatsError
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import DIFF_ORDER
+from numo.ui.error_dialog import NumoErrorDialog
 
 
 @Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/settings.ui")
@@ -171,10 +172,21 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         for expander in self._expand_operation:
             expander.connect("notify::enable-expansion", self._on_operation_toggled)
 
-    def show_toast(self, message: str, timeout: int = 3) -> None:
+    def show_toast(self, message: str, timeout: int = 3, error: StatsError | None = None) -> None:
         toast = Adw.Toast(title=message)
         toast.set_timeout(timeout)
+        if error is not None:
+            toast.set_button_label(_("Details"))
+            toast.connect("button-clicked", self._on_error_details_clicked, error)
         self.add_toast(toast)
+
+    def _on_error_details_clicked(self, _toast: Adw.Toast, error: StatsError) -> None:
+        details = f"{error.code}: {error.details}" if error.details else error.code
+        dialog = NumoErrorDialog(
+            short_message=stats_error_message(error),
+            details=details,
+        )
+        dialog.present(self)
 
     def _on_min_changed(self, min_row: Adw.SpinRow, _pspec, max_row: Adw.SpinRow) -> None:
         if self._updating_ranges:
