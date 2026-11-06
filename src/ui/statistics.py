@@ -21,12 +21,13 @@ from numo.core.ui_constants import (
     ACC_PERCENTAGE_WARNING,
 )
 from numo.ui.error_dialog import NumoErrorDialog
-from numo.utils.stats_manager import StatsManager
 from numo.utils.formatting import format_duration, format_duration_with_hours, format_timestamp
+from numo.utils.stats_manager import StatsManager
+from numo.utils.toast_builder import ToastMixin
 
 
 @Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/statistics.ui")
-class NumoStatsWindow(Adw.Dialog):
+class NumoStatsWindow(Adw.Dialog, ToastMixin):
     __gtype_name__ = "NumoStatsWindow"
 
     toast_overlay = Gtk.Template.Child()
@@ -80,21 +81,8 @@ class NumoStatsWindow(Adw.Dialog):
         self.export_stats_row.connect("activated", self._on_export_activated)
         self.import_stats_row.connect("activated", self._on_import_activated)
 
-    def show_toast(self, message: str, timeout: int = 3, error: StatsError | None = None) -> None:
-        toast = Adw.Toast(title=message)
-        toast.set_timeout(timeout)
-        if error is not None:
-            toast.set_button_label(_("Details"))
-            toast.connect("button-clicked", self._on_error_details_clicked, error)
+    def _add_toast(self, toast: Adw.Toast) -> None:
         self.toast_overlay.add_toast(toast)
-
-    def _on_error_details_clicked(self, _toast: Adw.Toast, error: StatsError) -> None:
-        details = f"{error.code}: {error.details}" if error.details else error.code
-        dialog = NumoErrorDialog(
-            short_message=stats_error_message(error),
-            details=details,
-        )
-        dialog.present(self)
 
     def _populate(self) -> None:
         self._populate_overview()
@@ -133,7 +121,6 @@ class NumoStatsWindow(Adw.Dialog):
 
         self.accuracy_label.add_css_class(color)
         self.accuracy_icon.add_css_class(color)
-
 
     def _populate_best(self) -> None:
         best = self._stats.best_sessions()
@@ -247,7 +234,7 @@ class NumoStatsWindow(Adw.Dialog):
         try:
             self._stats.clear()
         except StatsError as e:
-            self.show_toast(stats_error_message(e), 5, error=e)
+            self.show_stats_error(e)
             return
         self._populate()
 
@@ -266,7 +253,7 @@ class NumoStatsWindow(Adw.Dialog):
             self._stats.export_to(file)
             self.show_toast(_("Statistics exported"))
         except StatsError as e:
-            self.show_toast(stats_error_message(e), 5, error=e)
+            self.show_stats_error(e)
 
     def _on_import_activated(self, _row):
         dialog = self._create_json_file_dialog(
@@ -282,7 +269,7 @@ class NumoStatsWindow(Adw.Dialog):
             self._stats.import_from(file)
             self.show_toast(_("Statistics imported"))
         except StatsError as e:
-            self.show_toast(stats_error_message(e), 5, error=e)
+            self.show_stats_error(e)
             return
         self._populate()
 

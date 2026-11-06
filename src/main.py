@@ -146,13 +146,12 @@ class NumoApplication(Adw.Application):
         dialog.present(self.window)
 
     def _on_stats_warning(self, error: StatsError) -> None:
-        message = stats_error_message(error)
         for win in self.get_windows():
             if isinstance(win, NumoStatsWindow) and win.get_visible():
-                win.show_toast(message)
+                win.show_stats_error(error)
                 return
-        if self.window is not None and hasattr(self.window, "show_toast"):
-            self.window.show_toast(message)
+        if self.window is not None:
+            self.window.show_stats_error(error)
 
 
 def main(version):

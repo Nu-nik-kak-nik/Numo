@@ -30,6 +30,7 @@ from numo.core.custom_errors import StatsError
 from numo.core.settings_manager import SettingsManager
 from numo.game.game_session import GameSession
 from numo.utils.stats_manager import StatsManager
+from numo.utils.toast_builder import ToastMixin
 from numo.core.ui_constants import (
 mode_label,
 diff_label,
@@ -46,7 +47,7 @@ from numo.ui.error_dialog import NumoErrorDialog
 
 
 @Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/window.ui")
-class NumoWindow(Adw.ApplicationWindow):
+class NumoWindow(Adw.ApplicationWindow, ToastMixin):
     __gtype_name__ = 'NumoWindow'
 
     toast_overlay = Gtk.Template.Child()
@@ -112,21 +113,8 @@ class NumoWindow(Adw.ApplicationWindow):
         self._key_controller.connect("key-pressed", self._on_key_pressed)
         self.add_controller(self._key_controller)
 
-    def show_toast(self, message: str, timeout: int = 3, error: StatsError | None = None) -> None:
-        toast = Adw.Toast(title=message)
-        toast.set_timeout(timeout)
-        if error is not None:
-            toast.set_button_label(_("Details"))
-            toast.connect("button-clicked", self._on_error_details_clicked, error)
+    def _add_toast(self, toast: Adw.Toast) -> None:
         self.toast_overlay.add_toast(toast)
-
-    def _on_error_details_clicked(self, _toast: Adw.Toast, error: StatsError) -> None:
-        details = f"{error.code}: {error.details}" if error.details else error.code
-        dialog = NumoErrorDialog(
-            short_message=stats_error_message(error),
-            details=details,
-        )
-        dialog.present(self)
 
     def _on_key_pressed(self, controller, keyval, keycode, state):
         page = self.nav_view.get_visible_page()
@@ -300,7 +288,7 @@ class NumoWindow(Adw.ApplicationWindow):
         try:
             self._stats.add_session(self._session.to_record())
         except StatsError as e:
-            self.show_toast(stats_error_message(e), error=e)
+            self.show_stats_error(e)
 
         self._show_results()
 

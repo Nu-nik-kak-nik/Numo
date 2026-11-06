@@ -12,10 +12,11 @@ from numo.core.custom_errors import InvalidRangeError, InvalidTupleOperationsErr
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import DIFF_ORDER
 from numo.ui.error_dialog import NumoErrorDialog
+from numo.utils.toast_builder import ToastMixin
 
 
 @Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/settings.ui")
-class NumoSettingsWindow(Adw.PreferencesDialog):
+class NumoSettingsWindow(Adw.PreferencesDialog, ToastMixin):
     __gtype_name__ = "NumoSettingsWindow"
 
     difficulty_row = Gtk.Template.Child()
@@ -172,21 +173,8 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         for expander in self._expand_operation:
             expander.connect("notify::enable-expansion", self._on_operation_toggled)
 
-    def show_toast(self, message: str, timeout: int = 3, error: StatsError | None = None) -> None:
-        toast = Adw.Toast(title=message)
-        toast.set_timeout(timeout)
-        if error is not None:
-            toast.set_button_label(_("Details"))
-            toast.connect("button-clicked", self._on_error_details_clicked, error)
+    def _add_toast(self, toast: Adw.Toast) -> None:
         self.add_toast(toast)
-
-    def _on_error_details_clicked(self, _toast: Adw.Toast, error: StatsError) -> None:
-        details = f"{error.code}: {error.details}" if error.details else error.code
-        dialog = NumoErrorDialog(
-            short_message=stats_error_message(error),
-            details=details,
-        )
-        dialog.present(self)
 
     def _on_min_changed(self, min_row: Adw.SpinRow, _pspec, max_row: Adw.SpinRow) -> None:
         if self._updating_ranges:
@@ -282,7 +270,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         if response != "reset":
             return
         self._settings.reset_custom_to_medium()
-        self.show_toast(_("Custom difficulty reset to Medium"))
+        self.show_toast(_("Custom difficulty reset to Medium"), 1)
 
     def _on_custom_settings_changed(self, _settings, key: str) -> None:
         if not key.startswith("custom-"):
@@ -295,4 +283,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog):
         except InvalidTupleOperationsError:
             pass
         except InvalidRangeError as exc:
-            self.show_toast(str(exc))
+            self.show_detailed_toast(
+            _("Invalid range"),
+            str(exc),
+        )
