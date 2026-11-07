@@ -43,7 +43,6 @@ MODE_COLORS,
 DIFFICULTY_ICONS,
 MAX_LENGHT_ANSWER,
 )
-from numo.ui.error_dialog import NumoErrorDialog
 
 
 @Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/window.ui")

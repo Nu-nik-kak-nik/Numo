@@ -4,7 +4,7 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 gi.require_version("Gio", "2.0")
 
-from gettext import gettext as _
+from gettext import gettext as _, ngettext
 
 from gi.repository import Adw, Gtk, Gio, GLib
 
@@ -20,7 +20,6 @@ from numo.core.ui_constants import (
     ACC_PERCENTAGE_SUCCESS,
     ACC_PERCENTAGE_WARNING,
 )
-from numo.ui.error_dialog import NumoErrorDialog
 from numo.utils.formatting import format_duration, format_duration_with_hours, format_timestamp
 from numo.utils.stats_manager import StatsManager
 from numo.utils.toast_builder import ToastMixin
@@ -182,7 +181,11 @@ class NumoStatsWindow(Adw.Dialog, ToastMixin):
         if len(sessions) < limit:
             row = Adw.ActionRow(
                 title=_("No more sessions"),
-                subtitle=_("You have fewer than %(limit)d recorded sessions") % {"limit": limit},
+                subtitle=ngettext(
+                    "You have fewer than %(limit)d recorded session",
+                    "You have fewer than %(limit)d recorded sessions",
+                    limit,
+                ) % {"limit": limit},
             )
             self.recent_list.append(row)
 

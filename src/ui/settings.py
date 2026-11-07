@@ -11,7 +11,6 @@ from numo.core.core_settings import RESOURCE_PATH_PREFIX, MIN_RANGE_GAP
 from numo.core.custom_errors import InvalidRangeError, InvalidTupleOperationsError, StatsError
 from numo.core.settings_manager import SettingsManager
 from numo.core.ui_constants import DIFF_ORDER
-from numo.ui.error_dialog import NumoErrorDialog
 from numo.utils.toast_builder import ToastMixin
 
 
