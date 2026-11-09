@@ -253,7 +253,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog, ToastMixin):
     def _on_custom_reset_activated(self, _row) -> None:
         dialog = Adw.AlertDialog(
             heading=_("Reset custom difficulty?"),
-            body=_("All ranges and operations will be reset to the Medium preset!"),
+            body=_("All ranges and operations will be reset to the Medium preset."),
         )
         dialog.add_response("cancel", _("Cancel"))
         dialog.add_response("reset", _("Reset"))

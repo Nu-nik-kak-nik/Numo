@@ -58,13 +58,13 @@ DIFFICULTY_ICONS = {
 
 def stats_error_message(error: StatsError) -> str:
     messages = {
-        "stats_read_error": _("Could not read statistics"),
-        "stats_invalid_json": _("Statistics reset — file corrupted"),
+        "stats_read_error": _("Unable to read statistics"),
+        "stats_invalid_json": _("Reset statistics — file is corrupted"),
         "stats_invalid_structure": _("Statistics reset — invalid structure"),
-        "stats_directory_error": _("Could not create the statistics folder"),
-        "stats_write_error": _("Could not save statistics"),
-        "export_write_error": _("Could not export statistics"),
-        "import_read_error": _("Could not read the import file"),
+        "stats_directory_error": _("Failed to create the statistics folder"),
+        "stats_write_error": _("Unable to save statistics"),
+        "export_write_error": _("Unable to export statistics"),
+        "import_read_error": _("Failed to read the import file"),
         "import_invalid_json": _("The import file is not valid JSON"),
         "import_invalid_structure": _("The import file has an invalid structure"),
     }

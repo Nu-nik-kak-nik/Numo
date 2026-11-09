@@ -355,7 +355,7 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
 
         dialog = Adw.AlertDialog(
             heading=_("Interrupt the game?"),
-            body=_("Your progress will not be saved!"),
+            body=_("Your progress will not be saved."),
         )
         dialog.add_response("cancel", _("Cancel"))
         dialog.add_response("interrupt", _("Interrupt"))

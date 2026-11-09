@@ -32,7 +32,7 @@
 
         <child>
           <object class="AdwPreferencesGroup">
-            <property name="title" translatable="yes">Survival</property>
+            <property name="title" translatable="yes">Survival Mode</property>
             <child>
               <object class="AdwSpinRow" id="survival_lives_row">
                 <property name="title" translatable="yes">Lives</property>

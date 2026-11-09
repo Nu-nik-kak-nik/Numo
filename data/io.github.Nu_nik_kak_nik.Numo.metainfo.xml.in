@@ -13,11 +13,11 @@
       Choose from four game modes, select a preset difficulty level, or create a custom configuration.
     </p>
 
-    <p>Pick one of four modes depending on what you want to train:</p>
+    <p>Four ways to practice mental math:</p>
     <ul>
       <li>
-        <em>Survival</em>: an endless run of tasks that ends the moment
-        you make a mistake. A test of focus and consistency.
+        <em>Survival</em>: solve the task until you run out of lives.
+        A test of your focus and consistency.
       </li>
       <li>
         <em>Timer</em>: a fixed countdown. Solve as many tasks as you can
@@ -34,9 +34,9 @@
     </ul>
 
     <p>
-      Three difficulty levels allow you to start with something simple and
-      gradually move on to greater challenges.
-      In addition, in custom mode, you can adjust the difficulty as you see fit.
+      The game has three difficulty levels, and the default is medium.
+      Each level changes the number ranges in the tasks. In custom mode,
+      you can set the ranges and operations yourself:
     </p>
     <ul>
       <li>

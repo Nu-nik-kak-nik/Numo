@@ -5,6 +5,7 @@ data/io.github.Nu_nik_kak_nik.Numo.gschema.xml
 data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in
 src/core/ui_constants.py
 src/main.py
+src/ui/error_dialog.ui
 src/ui/settings.py
 src/ui/settings.ui
 src/ui/shortcuts-dialog.ui
