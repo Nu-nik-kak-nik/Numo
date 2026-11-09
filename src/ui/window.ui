@@ -4,8 +4,8 @@
   <requires lib="Adw" version="1.0"/>
   <template class="NumoWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes">Numo</property>
-    <property name="default-width">600</property>
-    <property name="default-height">700</property>
+    <property name="default-width">800</property>
+    <property name="default-height">650</property>
     <property name="content">
       <object class="AdwToastOverlay" id="toast_overlay">
         <property name="child">

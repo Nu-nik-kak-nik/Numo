@@ -4,9 +4,8 @@
   <requires lib="Adw" version="1.0"/>
   <template class="NumoSettingsWindow" parent="AdwPreferencesDialog">
     <property name="title" translatable="yes">Settings</property>
-    <property name="content-width">650</property>
+    <property name="content-width">700</property>
     <property name="content-height">750</property>
-    <property name="search-enabled">False</property>
     <child>
       <object class="AdwPreferencesPage">
         <child>

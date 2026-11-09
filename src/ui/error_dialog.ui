@@ -5,7 +5,7 @@
   <template class="NumoErrorDialog" parent="AdwDialog">
     <property name="title" translatable="yes">Error details</property>
     <property name="content-width">500</property>
-    <property name="content-height">350</property>
+    <property name="content-height">360</property>
     <property name="child">
       <object class="AdwToastOverlay" id="toast_overlay">
         <property name="child">
@@ -78,3 +78,4 @@
     </property>
   </template>
 </interface>
+

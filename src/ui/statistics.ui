@@ -2,10 +2,9 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
-
   <template class="NumoStatsWindow" parent="AdwDialog">
     <property name="title" translatable="yes">Statistics</property>
-    <property name="content-width">650</property>
+    <property name="content-width">700</property>
     <property name="content-height">750</property>
 
     <property name="child">
