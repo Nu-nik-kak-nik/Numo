@@ -16,19 +16,19 @@
     <p>Four ways to practice mental math:</p>
     <ul>
       <li>
-        <em>Survival</em>: solve the task until you run out of lives.
+        Survival: solve the task until you run out of lives.
         A test of your focus and consistency.
       </li>
       <li>
-        <em>Timer</em>: a fixed countdown. Solve as many tasks as you can
+        Timer: a fixed countdown. Solve as many tasks as you can
         before time runs out.
       </li>
       <li>
-        <em>Timer + Bonus</em>: start with a small amount of time and
+        Timer + Bonus: start with a small amount of time and
         earn extra seconds for every correct answer.
       </li>
       <li>
-        <em>Task Count</em>: a set number of tasks to solve. A clear goal to
+        Task Count: a set number of tasks to solve. A clear goal to
         reach at your own pace.
       </li>
     </ul>
@@ -40,20 +40,20 @@
     </p>
     <ul>
       <li>
-        <em>Easy</em>: addition, subtraction, and a bit of multiplication.
+        Easy: addition, subtraction, and a bit of multiplication.
         Simple operations using small numbers, with no negative numbers.
       </li>
       <li>
-        <em>Medium</em>: precise division is introduced. Numbers become larger,
+        Medium: precise division is introduced. Numbers become larger,
         problems more complex, and addition and subtraction operations may
         involve negative values.
       </li>
       <li>
-        <em>Hard</em>: integer division and mod are introduced, and negative
+        Hard: integer division and mod are introduced, and negative
         numbers may now appear in multiplication and division operations.
       </li>
       <li>
-        <em>Custom</em>: Complete control over the task.
+        Custom: Complete control over the task.
         Choose any combination of operations, set custom number ranges for each.
       </li>
     </ul>

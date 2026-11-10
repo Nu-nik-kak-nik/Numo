@@ -1,0 +1,894 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-10 22:16+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: data/io.github.Nu_nik_kak_nik.Numo.desktop.in:2
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:7 src/ui/window.ui:6
+#: src/ui/window.ui:15
+msgid "Numo"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.desktop.in:8
+msgid "math;game;arithmetic;"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:13
+msgid "Default difficulty"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:14
+msgid "Difficulty applied to all game modes by default."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:20 src/ui/settings.ui:37
+msgid "Lives"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:21
+msgid "Number of mistakes allowed per session in Survival mode."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:27
+msgid "Timer duration"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:28
+msgid "Duration of the Timer mode in minutes."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:34
+msgid "Initial time for Timer + Bonus"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:35
+msgid "Starting time of the Timer + Bonus mode in seconds."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:41 src/ui/settings.ui:92
+msgid "Bonus per correct answer"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:42
+msgid "Extra seconds added for each correct answer in Timer + Bonus mode."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:48
+msgid "Task count"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:49
+msgid "Number of tasks in the Task Count mode."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:55 src/ui/settings.ui:129
+msgid "Number of recent sessions"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:56
+msgid "Number of recent sessions displayed in session statistics."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:61
+msgid "Custom difficulty: addition enabled"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:62
+msgid "Whether addition is enabled in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:67
+msgid "Custom difficulty: subtraction enabled"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:68
+msgid "Whether subtraction is enabled in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:73
+msgid "Custom difficulty: multiplication enabled"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:74
+msgid "Whether multiplication is enabled in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:79
+msgid "Custom difficulty: division enabled"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:80
+msgid "Whether division is enabled in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:85
+msgid "Custom difficulty: integer division enabled"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:86
+msgid "Whether integer division is enabled in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:91
+msgid "Custom difficulty: modulo enabled"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:92
+msgid "Whether modulo is enabled in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:98
+msgid "Custom difficulty: addition minimum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:99
+msgid "Minimum operand for addition in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:105
+msgid "Custom difficulty: addition maximum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:106
+msgid "Maximum operand for addition in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:112
+msgid "Custom difficulty: subtraction minimum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:113
+msgid "Minimum operand for subtraction in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:119
+msgid "Custom difficulty: subtraction maximum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:120
+msgid "Maximum operand for subtraction in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:125
+msgid "Custom difficulty: subtraction result is not negative"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:126
+msgid ""
+"Whether subtraction results are always non-negative in custom difficulty. "
+"Only applies when the operand range is fully positive."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:132
+msgid "Custom difficulty: multiplication minimum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:133
+msgid "Minimum factor for multiplication in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:139
+msgid "Custom difficulty: multiplication maximum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:140
+msgid "Maximum factor for multiplication in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:146
+msgid "Custom difficulty: division minimum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:147
+msgid "Minimum divisor for division in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:153
+msgid "Custom difficulty: division maximum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:154
+msgid "Maximum divisor for division in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:160
+msgid "Custom difficulty: integer division minimum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:161
+msgid "Minimum divisor for integer division in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:167
+msgid "Custom difficulty: integer division maximum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:168
+msgid "Maximum divisor for integer division in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:174
+msgid "Custom difficulty: modulo minimum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:175
+msgid "Minimum divisor for modulo in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:181
+msgid "Custom difficulty: modulo maximum"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:182
+msgid "Maximum divisor for modulo in custom difficulty."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:8
+msgid "Mental math training"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:10
+msgid ""
+"Numo is an app designed to train mental arithmetic skills. Tasks appear one "
+"after another, answers are checked immediately, and nothing distracts you. "
+"Choose from four game modes, select a preset difficulty level, or create a "
+"custom configuration."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:16
+msgid "Four ways to practice mental math:"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:18
+msgid ""
+"Survival: solve the task until you run out of lives. A test of your focus "
+"and consistency."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:22
+msgid ""
+"Timer: a fixed countdown. Solve as many tasks as you can before time runs "
+"out."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:26
+msgid ""
+"Timer + Bonus: start with a small amount of time and earn extra seconds for "
+"every correct answer."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:30
+msgid ""
+"Task Count: a set number of tasks to solve. A clear goal to reach at your "
+"own pace."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:36
+msgid ""
+"The game has three difficulty levels, and the default is medium. Each level "
+"changes the number ranges in the tasks. In custom mode, you can set the "
+"ranges and operations yourself:"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:42
+msgid ""
+"Easy: addition, subtraction, and a bit of multiplication. Simple operations "
+"using small numbers, with no negative numbers."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:46
+msgid ""
+"Medium: precise division is introduced. Numbers become larger, problems more "
+"complex, and addition and subtraction operations may involve negative values."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:51
+msgid ""
+"Hard: integer division and mod are introduced, and negative numbers may now "
+"appear in multiplication and division operations."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:55
+msgid ""
+"Custom: Complete control over the task. Choose any combination of "
+"operations, set custom number ranges for each."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:61
+msgid ""
+"Every session is recorded: result, accuracy, and time spent. The statistics "
+"screen shows your best results per mode and difficulty, recent games. The "
+"number of recent sessions shown is adjustable. Data can be exported and "
+"imported as JSON at any time."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:68
+msgid ""
+"Numo stays out of your way: large readable tasks, a clean interface, and "
+"nothing between you and the numbers."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:75
+msgid "Nu_nik_kak_nik"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:103
+msgid "Main screen with game mode selection"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:107
+msgid "Game screen in \"Task Count\" mode"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:111
+msgid "Game screen in \"Task Count\" mode (light mode)"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:115
+msgid "Game session result screen with statistics"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:119
+msgid "User statistics screen"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:123
+msgid "Game modes and difficulty settings screen"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:127
+msgid "Custom difficulty settings"
+msgstr ""
+
+#: src/core/ui_constants.py:61
+msgid "Unable to read statistics"
+msgstr ""
+
+#: src/core/ui_constants.py:62
+msgid "Reset statistics — file is corrupted"
+msgstr ""
+
+#: src/core/ui_constants.py:63
+msgid "Statistics reset — invalid structure"
+msgstr ""
+
+#: src/core/ui_constants.py:64
+msgid "Failed to create the statistics folder"
+msgstr ""
+
+#: src/core/ui_constants.py:65
+msgid "Unable to save statistics"
+msgstr ""
+
+#: src/core/ui_constants.py:66
+msgid "Unable to export statistics"
+msgstr ""
+
+#: src/core/ui_constants.py:67
+msgid "Failed to read the import file"
+msgstr ""
+
+#: src/core/ui_constants.py:68
+msgid "The import file is not valid JSON"
+msgstr ""
+
+#: src/core/ui_constants.py:69
+msgid "The import file has an invalid structure"
+msgstr ""
+
+#: src/core/ui_constants.py:71
+msgid "An unknown statistics error occurred"
+msgstr ""
+
+#: src/main.py:134
+msgid "translator-credits"
+msgstr ""
+
+#: src/main.py:136
+msgid "Code author"
+msgstr ""
+
+#: src/ui/error_dialog.ui:6 src/ui/error_dialog.ui:33 src/ui/error_dialog.ui:67
+msgid "Error details"
+msgstr ""
+
+#: src/ui/error_dialog.ui:39
+msgid "Copy"
+msgstr ""
+
+#: src/ui/settings.py:219
+msgid "At least one operation must be enabled"
+msgstr ""
+
+#: src/ui/settings.py:229
+msgid "About custom difficulty"
+msgstr ""
+
+#: src/ui/settings.py:233
+msgid ""
+"- These settings apply only to the custom difficulty.\n"
+"- Division is always performed exactly.\n"
+"- Zero is not used as factors or divisors.\n"
+"- Integer division and modulo only work with positive divisors.\n"
+"- The minimum range of values is five (for example, 1...5).\n"
+"- At least one operation must be enabled."
+msgstr ""
+
+#: src/ui/settings.py:248
+msgid "Close"
+msgstr ""
+
+#: src/ui/settings.py:255
+msgid "Reset custom difficulty?"
+msgstr ""
+
+#: src/ui/settings.py:256
+msgid "All ranges and operations will be reset to the Medium preset."
+msgstr ""
+
+#: src/ui/settings.py:258 src/ui/statistics.py:225 src/ui/window.py:360
+msgid "Cancel"
+msgstr ""
+
+#: src/ui/settings.py:259
+msgid "Reset"
+msgstr ""
+
+#: src/ui/settings.py:272
+msgid "Custom difficulty reset to Medium"
+msgstr ""
+
+#: src/ui/settings.py:286
+msgid "Invalid range"
+msgstr ""
+
+#: src/ui/settings.ui:6
+msgid "Settings"
+msgstr ""
+
+#: src/ui/settings.ui:13
+msgid "General"
+msgstr ""
+
+#: src/ui/settings.ui:16
+msgid "Difficulty"
+msgstr ""
+
+#: src/ui/settings.ui:20 src/ui/statistics.ui:167 src/ui/statistics.ui:223
+#: src/ui/statistics.ui:279 src/ui/statistics.ui:335
+msgid "Easy"
+msgstr ""
+
+#: src/ui/settings.ui:21 src/ui/statistics.ui:178 src/ui/statistics.ui:234
+#: src/ui/statistics.ui:290 src/ui/statistics.ui:346 src/ui/window.ui:479
+msgid "Medium"
+msgstr ""
+
+#: src/ui/settings.ui:22 src/ui/statistics.ui:189 src/ui/statistics.ui:245
+#: src/ui/statistics.ui:301 src/ui/statistics.ui:357
+msgid "Hard"
+msgstr ""
+
+#: src/ui/settings.ui:23 src/ui/statistics.ui:200 src/ui/statistics.ui:256
+#: src/ui/statistics.ui:312 src/ui/statistics.ui:368
+msgid "Custom"
+msgstr ""
+
+#: src/ui/settings.ui:34
+msgid "Survival Mode"
+msgstr ""
+
+#: src/ui/settings.ui:38
+msgid "Mistakes allowed"
+msgstr ""
+
+#: src/ui/settings.ui:55
+msgid "Timer Mode"
+msgstr ""
+
+#: src/ui/settings.ui:58
+msgid "Duration"
+msgstr ""
+
+#: src/ui/settings.ui:59
+msgid "Minutes"
+msgstr ""
+
+#: src/ui/settings.ui:75
+msgid "Timer + Bonus Mode"
+msgstr ""
+
+#: src/ui/settings.ui:78
+msgid "Initial time"
+msgstr ""
+
+#: src/ui/settings.ui:79 src/ui/settings.ui:93
+msgid "Seconds"
+msgstr ""
+
+#: src/ui/settings.ui:108
+msgid "Task Count Mode"
+msgstr ""
+
+#: src/ui/settings.ui:111
+msgid "Number of tasks"
+msgstr ""
+
+#: src/ui/settings.ui:126 src/ui/statistics.ui:6 src/ui/window.ui:511
+msgid "Statistics"
+msgstr ""
+
+#: src/ui/settings.ui:144
+msgid "Custom difficulty"
+msgstr ""
+
+#: src/ui/settings.ui:145
+msgid ""
+"Choose operations and set number ranges to create your own math challenge"
+msgstr ""
+
+#: src/ui/settings.ui:149
+msgid "About Custom Difficulty"
+msgstr ""
+
+#: src/ui/settings.ui:161
+msgid "Addition"
+msgstr ""
+
+#: src/ui/settings.ui:175 src/ui/settings.ui:219 src/ui/settings.ui:270
+#: src/ui/settings.ui:314 src/ui/settings.ui:357 src/ui/settings.ui:400
+msgid "Minimum number"
+msgstr ""
+
+#: src/ui/settings.ui:189 src/ui/settings.ui:233 src/ui/settings.ui:284
+#: src/ui/settings.ui:328 src/ui/settings.ui:371 src/ui/settings.ui:414
+msgid "Maximum number"
+msgstr ""
+
+#: src/ui/settings.ui:205
+msgid "Subtraction"
+msgstr ""
+
+#: src/ui/settings.ui:247
+msgid "Result is not negative"
+msgstr ""
+
+#: src/ui/settings.ui:248
+msgid "Only for fully positive ranges"
+msgstr ""
+
+#: src/ui/settings.ui:256
+msgid "Multiplication"
+msgstr ""
+
+#: src/ui/settings.ui:300
+msgid "Division"
+msgstr ""
+
+#: src/ui/settings.ui:344
+msgid "Integer Division"
+msgstr ""
+
+#: src/ui/settings.ui:387
+msgid "Modulo"
+msgstr ""
+
+#: src/ui/settings.ui:434
+msgid "Reset to default"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:8
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:11
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:17
+msgctxt "shortcut window"
+msgid "Statistics"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:23
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:29
+msgctxt "shortcut window"
+msgid "About Numo"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:35
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:43
+msgctxt "shortcut window"
+msgid "During game"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Submit answer"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Quit the game"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:60
+msgctxt "shortcut window"
+msgid "On results screen"
+msgstr ""
+
+#: src/ui/shortcuts-dialog.ui:63
+msgctxt "shortcut window"
+msgid "Return to home"
+msgstr ""
+
+#: src/ui/statistics.py:171
+msgid "No sessions yet"
+msgstr ""
+
+#: src/ui/statistics.py:172
+msgid "Play a game to see statistics here"
+msgstr ""
+
+#: src/ui/statistics.py:183
+msgid "No more sessions"
+msgstr ""
+
+#: src/ui/statistics.py:185
+#, python-format
+msgid "You have fewer than %(limit)d recorded session"
+msgid_plural "You have fewer than %(limit)d recorded sessions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/statistics.py:222
+msgid "Delete all statistics?"
+msgstr ""
+
+#: src/ui/statistics.py:223
+msgid "This action cannot be undone."
+msgstr ""
+
+#: src/ui/statistics.py:226
+msgid "Delete"
+msgstr ""
+
+#: src/ui/statistics.py:246 src/ui/statistics.ui:401
+msgid "Export statistics"
+msgstr ""
+
+#: src/ui/statistics.py:257
+msgid "Statistics exported"
+msgstr ""
+
+#: src/ui/statistics.py:263 src/ui/statistics.ui:408
+msgid "Import statistics"
+msgstr ""
+
+#: src/ui/statistics.py:273
+msgid "Statistics imported"
+msgstr ""
+
+#: src/ui/statistics.py:306
+msgid "JSON files"
+msgstr ""
+
+#: src/ui/statistics.ui:23
+msgid "Overview"
+msgstr ""
+
+#: src/ui/statistics.ui:27
+msgid "Sessions played"
+msgstr ""
+
+#: src/ui/statistics.ui:48
+msgid "Tasks solved"
+msgstr ""
+
+#: src/ui/statistics.ui:69
+msgid "Tasks failed"
+msgstr ""
+
+#: src/ui/statistics.ui:90
+msgid "Time played"
+msgstr ""
+
+#: src/ui/statistics.ui:111
+msgid "Avg solve time"
+msgstr ""
+
+#: src/ui/statistics.ui:132
+msgid "Overall accuracy"
+msgstr ""
+
+#: src/ui/statistics.ui:154
+msgid "Best results"
+msgstr ""
+
+#: src/ui/statistics.ui:158 src/ui/window.ui:45 src/ui/window.ui:433
+msgid "Survival"
+msgstr ""
+
+#: src/ui/statistics.ui:214 src/ui/window.ui:64
+msgid "Timer"
+msgstr ""
+
+#: src/ui/statistics.ui:270 src/ui/window.ui:83
+msgid "Timer + Bonus"
+msgstr ""
+
+#: src/ui/statistics.ui:326 src/ui/window.ui:102
+msgid "Task Count"
+msgstr ""
+
+#: src/ui/statistics.ui:384
+msgid "Recent sessions"
+msgstr ""
+
+#: src/ui/statistics.ui:397
+msgid "Data"
+msgstr ""
+
+#: src/ui/statistics.ui:415
+msgid "Delete all statistics"
+msgstr ""
+
+#: src/ui/window.py:175
+msgid "No active game"
+msgstr ""
+
+#: src/ui/window.py:178
+msgid "The game is already over"
+msgstr ""
+
+#: src/ui/window.py:183
+msgid "Please enter an answer"
+msgstr ""
+
+#: src/ui/window.py:189
+msgid "Please enter a integer"
+msgstr ""
+
+#: src/ui/window.py:215
+#, python-format
+msgid "%(bonus)d s"
+msgstr ""
+
+#: src/ui/window.py:322
+#, python-format
+msgid "%(count)d life"
+msgid_plural "%(count)d lives"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/window.py:326
+#, python-format
+msgid "%(minutes)d min"
+msgstr ""
+
+#: src/ui/window.py:330
+#, python-format
+msgid "%(initial)d s + %(bonus)d s"
+msgstr ""
+
+#: src/ui/window.py:338
+#, python-format
+msgid "%(count)d task"
+msgid_plural "%(count)d tasks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/window.py:357
+msgid "Interrupt the game?"
+msgstr ""
+
+#: src/ui/window.py:358
+msgid "Your progress will not be saved."
+msgstr ""
+
+#: src/ui/window.py:361
+msgid "Interrupt"
+msgstr ""
+
+#: src/ui/window.ui:25
+msgid "Main Menu"
+msgstr ""
+
+#: src/ui/window.ui:46
+msgid "Solve until your lives run out"
+msgstr ""
+
+#: src/ui/window.ui:65
+msgid "Solve as many as possible in a fixed time"
+msgstr ""
+
+#: src/ui/window.ui:84
+msgid "Earn extra seconds for every correct answer"
+msgstr ""
+
+#: src/ui/window.ui:103
+msgid "Complete a set number of tasks"
+msgstr ""
+
+#: src/ui/window.ui:130
+msgid "Game"
+msgstr ""
+
+#: src/ui/window.ui:141
+msgid "Back"
+msgstr ""
+
+#: src/ui/window.ui:218
+msgid "Submit"
+msgstr ""
+
+#: src/ui/window.ui:240
+msgid "Game Over"
+msgstr ""
+
+#: src/ui/window.ui:257
+msgid "Continue"
+msgstr ""
+
+#: src/ui/window.ui:321
+msgid "Correct"
+msgstr ""
+
+#: src/ui/window.ui:347
+msgid "Wrong"
+msgstr ""
+
+#: src/ui/window.ui:373
+msgid "Accuracy (%)"
+msgstr ""
+
+#: src/ui/window.ui:399
+msgid "Time"
+msgstr ""
+
+#: src/ui/window.ui:507
+msgid "Preferences"
+msgstr ""
+
+#: src/ui/window.ui:515
+msgid "About Numo"
+msgstr ""
+
+#: src/ui/window.ui:519
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/utils/formatting.py:29
+#, python-format
+msgid "Today %s"
+msgstr ""
+
+#: src/utils/formatting.py:32
+#, python-format
+msgid "Yesterday %s"
+msgstr ""
