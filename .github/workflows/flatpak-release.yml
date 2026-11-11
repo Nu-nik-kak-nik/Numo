@@ -23,7 +23,7 @@ jobs:
       options: --privileged
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Build Flatpak
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
@@ -33,7 +33,7 @@ jobs:
           arch: ${{ matrix.arch }}
 
       - name: Upload Flatpak to Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: numo-${{ github.event.release.tag_name }}-${{ matrix.arch }}.flatpak
           draft: true
