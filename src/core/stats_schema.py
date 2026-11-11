@@ -38,7 +38,7 @@ class Session:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, d: dict) -> "Session": # Self
+    def from_dict(cls, d: dict) -> Self:
         return cls(
             timestamp=d["timestamp"],
             mode=GameMode(d["mode"]),
@@ -66,7 +66,7 @@ class Session:
         initial_time_sec: int | None = None,
         bonus_sec: int | None = None,
         max_mistakes: int | None = None,
-    ) -> "Session": # Self
+    ) -> Self:
         return cls(
             timestamp=date_with_seconds(),
             mode=GameMode(mode),
@@ -96,7 +96,7 @@ class StatsFile:
         }
 
     @classmethod
-    def from_dict(cls, d: dict) -> "StatsFile": # Self
+    def from_dict(cls, d: dict) -> Self:
         current_version = d.get("version", 1)
 
         if current_version > SCHEMA_VERSION:
