@@ -122,11 +122,34 @@
       <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/6-settings.png</image>
       <caption>Game modes and difficulty settings screen</caption>
     </screenshot>
-    <screenshot>
-      <image>https://github.com/Nu-nik-kak-nik/Numo/raw/main/data/screenshots/6-settings-2.png</image>
-      <caption>Custom difficulty settings</caption>
-    </screenshot>
   </screenshots>
+
+  <release version="0.6" date="2026-11-11">
+    <description translate="no">
+      <p>:</p>
+      <ul>
+        <li>
+          A new name for the game mode and new rules.
+          Now, in Survival mode, you can set the number of lives
+          (how many mistakes you can make).
+        </li>
+        <li>
+          Errors in toast notifications can now include buttons
+          that display more detailed error information in a separate dialog box.
+        </li>
+        <li>
+          Created a template for translating the interface into other languages
+          and implemented the first translation.
+        </li>
+        <li>Better calculation of the best result.</li>
+        <li>Migration to GNOME 51.</li>
+        <li>
+          And other minor improvements to the project
+          and the text documentation.
+        </li>
+      </ul>
+    </description>
+  </release>
 
   <releases>
     <release version="0.5" date="2026-10-20">

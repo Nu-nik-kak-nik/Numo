@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-10 22:16+0700\n"
+"POT-Creation-Date: 2026-11-11 19:20+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -351,10 +351,6 @@ msgstr ""
 msgid "Game modes and difficulty settings screen"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:127
-msgid "Custom difficulty settings"
-msgstr ""
-
 #: src/core/ui_constants.py:61
 msgid "Unable to read statistics"
 msgstr ""
@@ -441,7 +437,7 @@ msgstr ""
 msgid "All ranges and operations will be reset to the Medium preset."
 msgstr ""
 
-#: src/ui/settings.py:258 src/ui/statistics.py:225 src/ui/window.py:360
+#: src/ui/settings.py:258 src/ui/statistics.py:225 src/ui/window.py:363
 msgid "Cancel"
 msgstr ""
 
@@ -774,44 +770,44 @@ msgstr ""
 msgid "Please enter a integer"
 msgstr ""
 
-#: src/ui/window.py:215
+#: src/ui/window.py:218
 #, python-format
 msgid "%(bonus)d s"
 msgstr ""
 
-#: src/ui/window.py:322
+#: src/ui/window.py:325
 #, python-format
 msgid "%(count)d life"
 msgid_plural "%(count)d lives"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/ui/window.py:326
+#: src/ui/window.py:329
 #, python-format
 msgid "%(minutes)d min"
 msgstr ""
 
-#: src/ui/window.py:330
+#: src/ui/window.py:333
 #, python-format
 msgid "%(initial)d s + %(bonus)d s"
 msgstr ""
 
-#: src/ui/window.py:338
+#: src/ui/window.py:341
 #, python-format
 msgid "%(count)d task"
 msgid_plural "%(count)d tasks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/ui/window.py:357
+#: src/ui/window.py:360
 msgid "Interrupt the game?"
 msgstr ""
 
-#: src/ui/window.py:358
+#: src/ui/window.py:361
 msgid "Your progress will not be saved."
 msgstr ""
 
-#: src/ui/window.py:361
+#: src/ui/window.py:364
 msgid "Interrupt"
 msgstr ""
 

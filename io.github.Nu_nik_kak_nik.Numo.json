@@ -1,7 +1,7 @@
 {
     "id" : "io.github.Nu_nik_kak_nik.Numo",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "50",
+    "runtime-version" : "51",
     "sdk" : "org.gnome.Sdk",
     "command" : "numo",
     "finish-args" : [

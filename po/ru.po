@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: numo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-10 22:16+0700\n"
-"PO-Revision-Date: 2026-11-10 22:20+0700\n"
+"POT-Creation-Date: 2026-11-11 19:20+0700\n"
+"PO-Revision-Date: 2026-11-11 19:47+0700\n"
 "Last-Translator: Nu_nik_kak_nik <\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -387,10 +387,6 @@ msgstr "Экран статистики пользователя"
 msgid "Game modes and difficulty settings screen"
 msgstr "Экран настроек режимов игры и сложности"
 
-#: data/io.github.Nu_nik_kak_nik.Numo.metainfo.xml.in:127
-msgid "Custom difficulty settings"
-msgstr "Настройки пользовательской сложности"
-
 #: src/core/ui_constants.py:61
 msgid "Unable to read statistics"
 msgstr "Не удалось прочитать статистику"
@@ -433,7 +429,7 @@ msgstr "Неизвестная ошибка статистики"
 
 #: src/main.py:134
 msgid "translator-credits"
-msgstr "Nu_nik_kak_nik https://github.com/Nu-nik-kak-nik"
+msgstr "Nu-nik-kak-nik https://github.com/Nu-nik-kak-nik"
 
 #: src/main.py:136
 msgid "Code author"
@@ -465,7 +461,7 @@ msgid ""
 "- At least one operation must be enabled."
 msgstr ""
 "- Эти настройки применяются только к пользовательской сложности.\n"
-"- Деление всегда выполняется точно.\n"
+"- Деление всегда выполняется без остатка.\n"
 "- Ноль не используется как множитель или делитель.\n"
 "- div и mod работают только с положительными делителями.\n"
 "- Минимальный диапазон значений пять чисел (например, 1…5).\n"
@@ -483,7 +479,7 @@ msgstr "Сбросить пользовательскую сложность?"
 msgid "All ranges and operations will be reset to the Medium preset."
 msgstr "Все диапазоны и операции сбросятся к среднему уровню."
 
-#: src/ui/settings.py:258 src/ui/statistics.py:225 src/ui/window.py:360
+#: src/ui/settings.py:258 src/ui/statistics.py:225 src/ui/window.py:363
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -817,12 +813,12 @@ msgstr "Пожалуйста, введите ответ"
 msgid "Please enter a integer"
 msgstr "Пожалуйста, введите целое число"
 
-#: src/ui/window.py:215
+#: src/ui/window.py:218
 #, python-format
 msgid "%(bonus)d s"
 msgstr "%(bonus)d сек"
 
-#: src/ui/window.py:322
+#: src/ui/window.py:325
 #, python-format
 msgid "%(count)d life"
 msgid_plural "%(count)d lives"
@@ -830,17 +826,17 @@ msgstr[0] "%(count)d жизнь"
 msgstr[1] "%(count)d жизни"
 msgstr[2] "%(count)d жизней"
 
-#: src/ui/window.py:326
+#: src/ui/window.py:329
 #, python-format
 msgid "%(minutes)d min"
 msgstr "%(minutes)d мин"
 
-#: src/ui/window.py:330
+#: src/ui/window.py:333
 #, python-format
 msgid "%(initial)d s + %(bonus)d s"
 msgstr "%(initial)d с + %(bonus)d с"
 
-#: src/ui/window.py:338
+#: src/ui/window.py:341
 #, python-format
 msgid "%(count)d task"
 msgid_plural "%(count)d tasks"
@@ -848,15 +844,15 @@ msgstr[0] "%(count)d задача"
 msgstr[1] "%(count)d задачи"
 msgstr[2] "%(count)d задач"
 
-#: src/ui/window.py:357
+#: src/ui/window.py:360
 msgid "Interrupt the game?"
 msgstr "Выйти из игры"
 
-#: src/ui/window.py:358
+#: src/ui/window.py:361
 msgid "Your progress will not be saved."
 msgstr "Текущий прогресс не будет сохранён."
 
-#: src/ui/window.py:361
+#: src/ui/window.py:364
 msgid "Interrupt"
 msgstr "Выйти"
 
@@ -937,3 +933,6 @@ msgstr "Сегодня %s"
 #, python-format
 msgid "Yesterday %s"
 msgstr "Вчера %s"
+
+#~ msgid "Custom difficulty settings"
+#~ msgstr "Настройки пользовательской сложности"

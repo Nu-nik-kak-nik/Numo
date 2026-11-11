@@ -192,6 +192,9 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
 
     def _deactivate_entry(self) -> bool:
         if self._session is not None:
+            root = self.answer_entry.get_root()
+            if root is not None:
+                root.set_focus(None)
             self.answer_entry.set_sensitive(False)
             self.submit_button.set_sensitive(False)
         return False
