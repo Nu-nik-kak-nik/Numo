@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: numo\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-11 19:20+0700\n"
-"PO-Revision-Date: 2026-11-11 19:47+0700\n"
+"PO-Revision-Date: 2026-11-11 20:20+0700\n"
 "Last-Translator: Nu_nik_kak_nik <\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -345,8 +345,8 @@ msgid ""
 "number of recent sessions shown is adjustable. Data can be exported and "
 "imported as JSON at any time."
 msgstr ""
-"Каждая сессия фиксируется: результат, точность и затраченное время. На "
-"экране статистики отображаются ваши лучшие результаты по каждому режиму и "
+"Каждая игровая сессия фиксируется: результат, точность и затраченное время. "
+"На экране статистики отображаются ваши лучшие результаты по каждому режиму и "
 "уровню сложности, а также последние игры. Количество отображаемых последних "
 "игровых сессий можно настроить. Данные можно в любой момент экспортировать и "
 "импортировать в формате JSON."
@@ -460,11 +460,11 @@ msgid ""
 "- The minimum range of values is five (for example, 1...5).\n"
 "- At least one operation must be enabled."
 msgstr ""
-"- Эти настройки применяются только к пользовательской сложности.\n"
+"- Эти настройки применяются только к пользовательскому уровню сложности.\n"
 "- Деление всегда выполняется без остатка.\n"
 "- Ноль не используется как множитель или делитель.\n"
-"- div и mod работают только с положительными делителями.\n"
-"- Минимальный диапазон значений пять чисел (например, 1…5).\n"
+"- div и mod работают только с положительными числами.\n"
+"- Минимальный диапазон значений пять чисел (например, 1–5).\n"
 "- Хотя бы одна операция должна быть включена."
 
 #: src/ui/settings.py:248
@@ -489,7 +489,7 @@ msgstr "Сбросить"
 
 #: src/ui/settings.py:272
 msgid "Custom difficulty reset to Medium"
-msgstr "Пользовательская сложность сброшена к средней"
+msgstr "Пользовательский уровень сложности сброшена к средней"
 
 #: src/ui/settings.py:286
 msgid "Invalid range"
@@ -573,12 +573,13 @@ msgstr "Статистика"
 
 #: src/ui/settings.ui:144
 msgid "Custom difficulty"
-msgstr "Пользовательская сложность"
+msgstr "Пользовательский уровень сложность"
 
 #: src/ui/settings.ui:145
 msgid ""
 "Choose operations and set number ranges to create your own math challenge"
-msgstr "Выберите операции и диапазоны чисел, чтобы создать своё испытание"
+msgstr ""
+"Выберите операции и диапазоны чисел, чтобы задать уровень сложности для себя"
 
 #: src/ui/settings.ui:149
 msgid "About Custom Difficulty"
