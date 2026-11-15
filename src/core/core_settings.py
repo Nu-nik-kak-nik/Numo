@@ -7,7 +7,7 @@ from numo.utils.stats_migrations import migrate_v1_to_v2
 
 
 SCHEMA_VERSION = 2
-APP_VERSION = '0.5'
+APP_VERSION = '0.6'
 MAX_SESSIONS = 5000
 STATS_FILENAME = "stats.json"
 APP_DATA_SUBDIR = "numo"
