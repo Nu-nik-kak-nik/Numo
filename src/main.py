@@ -140,7 +140,7 @@ class NumoApplication(Adw.Application):
 
     def on_shortcuts_action(self, *args):
         builder = Gtk.Builder.new_from_resource(
-            f'{RESOURCE_PATH_PREFIX}/ui/shortcuts-dialog.ui'
+            f'{RESOURCE_PATH_PREFIX}/ui/shortcuts_dialog.ui'
         )
         dialog = builder.get_object('shortcuts_dialog')
         dialog.present(self.window)

@@ -8,7 +8,7 @@ src/main.py
 src/ui/error_dialog.ui
 src/ui/settings.py
 src/ui/settings.ui
-src/ui/shortcuts-dialog.ui
+src/ui/shortcuts_dialog.ui
 src/ui/statistics.py
 src/ui/statistics.ui
 src/ui/window.py

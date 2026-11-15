@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 19:20+0700\n"
+"POT-Creation-Date: 2026-11-15 15:59+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -588,57 +588,57 @@ msgstr ""
 msgid "Reset to default"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:8
+#: src/ui/shortcuts_dialog.ui:8
 msgctxt "shortcut window"
 msgid "General"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:11
+#: src/ui/shortcuts_dialog.ui:11
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:17
+#: src/ui/shortcuts_dialog.ui:17
 msgctxt "shortcut window"
 msgid "Statistics"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:23
+#: src/ui/shortcuts_dialog.ui:23
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:29
+#: src/ui/shortcuts_dialog.ui:29
 msgctxt "shortcut window"
 msgid "About Numo"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:35
+#: src/ui/shortcuts_dialog.ui:35
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:43
+#: src/ui/shortcuts_dialog.ui:43
 msgctxt "shortcut window"
 msgid "During game"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:46
+#: src/ui/shortcuts_dialog.ui:46
 msgctxt "shortcut window"
 msgid "Submit answer"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:52
+#: src/ui/shortcuts_dialog.ui:52
 msgctxt "shortcut window"
 msgid "Quit the game"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:60
+#: src/ui/shortcuts_dialog.ui:60
 msgctxt "shortcut window"
 msgid "On results screen"
 msgstr ""
 
-#: src/ui/shortcuts-dialog.ui:63
+#: src/ui/shortcuts_dialog.ui:63
 msgctxt "shortcut window"
 msgid "Return to home"
 msgstr ""
