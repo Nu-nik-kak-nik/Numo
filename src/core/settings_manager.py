@@ -40,6 +40,12 @@ class SettingsManager:
     def set_difficulty(self, difficulty: Difficulty) -> None:
         self._settings.set_string("difficulty", difficulty.value)
 
+    def set_record_task_details_enabled(self, value: bool) -> None:
+        self._settings.set_boolean("record-task-details", value)
+
+    def get_record_task_details_enabled(self) -> bool:
+        return self._settings.get_boolean("record-task-details")
+
     def get_survival_lives(self) -> int:
         return self._settings.get_int("survival-lives")
 

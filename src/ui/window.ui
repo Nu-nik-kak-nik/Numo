@@ -482,7 +482,25 @@
                                         </child>
                                       </object>
                                     </child>
-
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="orientation">horizontal</property>
+                                        <property name="spacing">8</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                          <object class="GtkButton" id="task_stats_button">
+                                            <property name="icon-name">analyze-symbolic</property>
+                                            <property name="tooltip-text" translatable="yes">Statistics on Tasks</property>
+                                            <property name="valign">center</property>
+                                            <style>
+                                              <class name="flat"/>
+                                              <class name="circular"/>
+                                              <class name="dim-label"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
                                   </object>
                                 </child>
                               </object>

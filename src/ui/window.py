@@ -25,10 +25,16 @@ from gettext import gettext as _, ngettext
 
 from gi.repository import Adw, Gtk, GLib, Gdk
 
-from numo.core.core_settings import GameMode, Difficulty, RESOURCE_PATH_PREFIX
+from numo.core.core_settings import (
+GameMode,
+Difficulty,
+RESOURCE_PATH_PREFIX,
+TaskRecord,
+)
 from numo.core.custom_errors import StatsError
 from numo.core.settings_manager import SettingsManager
 from numo.game.game_session import GameSession
+from numo.ui.task_dialog import NumoTasksStatsDialog
 from numo.utils.stats_manager import StatsManager
 from numo.utils.toast_builder import ToastMixin
 from numo.core.ui_constants import (
@@ -78,6 +84,8 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
     results_label_extra = Gtk.Template.Child()
     results_big_icon = Gtk.Template.Child()
 
+    task_stats_button = Gtk.Template.Child()
+
     results_ok_button = Gtk.Template.Child()
 
     def __init__(self, settings: SettingsManager,
@@ -104,6 +112,7 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
         self.game_back_button.connect("clicked", self._on_game_back_clicked)
         self.submit_button.connect("clicked", self._on_submit_clicked)
         self.results_ok_button.connect("clicked", self._on_results_ok_clicked)
+        self.task_stats_button.connect("clicked", self._on_task_stats_clicked)
 
         self.answer_entry.connect("activate", self._on_answer_activated)
         self.answer_entry.set_max_length(MAX_LENGHT_ANSWER)
@@ -383,4 +392,22 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
         self._finished = False
         self._reset_status_label_style()
         self.nav_view.pop_to_tag("home")
+
+    def _on_task_stats_clicked(self, _button) -> None:
+        test_records = [
+            TaskRecord(1, "2 + 2", "4", "4", 5, True),
+            TaskRecord(2, "7 × 8", "54", "56", 12, False),
+            TaskRecord(3, "9 - 3", "6", "6", 4, True),
+            TaskRecord(4, "10 ÷ 2", "3", "5", 8, False),
+            TaskRecord(5, "9 - 4", "5", "5", 3, True),
+            TaskRecord(6, "9 - 1", "8", "8", 10, True),
+            TaskRecord(7, "9 - 4", "5", "5", 3, True),
+            TaskRecord(8, "9 - 2", "7", "7", 8, True),
+            TaskRecord(9, "9 - 4", "5", "5", 3, True),
+            TaskRecord(10, "9 - 1", "8", "8", 10, True),
+            TaskRecord(11, "9 - 4", "5", "5", 3, True),
+            TaskRecord(12, "9 - 2", "7", "7", 8, True),
+        ]
+        dialog = NumoTasksStatsDialog(records=test_records)
+        dialog.present(self)
 

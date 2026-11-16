@@ -19,6 +19,8 @@ class NumoSettingsWindow(Adw.PreferencesDialog, ToastMixin):
     __gtype_name__ = "NumoSettingsWindow"
 
     difficulty_row = Gtk.Template.Child()
+    record_task_details_row = Gtk.Template.Child()
+
     survival_lives_row = Gtk.Template.Child()
     timer_minutes_row = Gtk.Template.Child()
     bonus_start_row = Gtk.Template.Child()
@@ -85,6 +87,7 @@ class NumoSettingsWindow(Adw.PreferencesDialog, ToastMixin):
 
     def _connect_signals(self) -> None:
         self._connect_difficulty()
+        self._bind_result_settings()
         self._bind_mode_settings()
         self._bind_custom_operations()
         self._bind_custom_ranges()
@@ -115,7 +118,6 @@ class NumoSettingsWindow(Adw.PreferencesDialog, ToastMixin):
         self._gio.bind("custom-div-enabled", self.custom_div, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
         self._gio.bind("custom-intdiv-enabled", self.custom_intdiv, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
         self._gio.bind("custom-mod-enabled", self.custom_mod, "enable-expansion", Gio.SettingsBindFlags.DEFAULT)
-
         self._gio.bind("custom-sub-non-negative", self.custom_sub_non_negative, "active", Gio.SettingsBindFlags.DEFAULT)
 
     def _bind_custom_ranges(self) -> None:
@@ -125,6 +127,9 @@ class NumoSettingsWindow(Adw.PreferencesDialog, ToastMixin):
 
     def _bind_stats_settings(self) -> None:
         self._gio.bind("recent-sessions", self.recent_sessions_row, "value", Gio.SettingsBindFlags.DEFAULT)
+
+    def _bind_result_settings(self) -> None:
+        self._gio.bind("record-task-details", self.record_task_details_row, "active", Gio.SettingsBindFlags.DEFAULT)
 
     def _connect_non_negative_switch(self) -> None:
         self.custom_sub_min.connect("notify::value", self._on_sub_min_changed_for_switch)

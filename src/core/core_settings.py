@@ -14,6 +14,7 @@ APP_DATA_SUBDIR = "numo"
 RECENT_GAMES = 10
 LAPLACE_ALPHA = 2
 MIN_RANGE_GAP = 4
+MAX_TASK_RECORDS = 1000
 
 SCHEMA_ID = "io.github.Nu_nik_kak_nik.Numo"
 RESOURCE_PATH_PREFIX = "/io/github/Nu_nik_kak_nik/Numo"
@@ -42,6 +43,16 @@ class SessionOptions:
     target_tasks: int | None = None
     initial_time_sec: int | None = None
     bonus_sec: int | None = None
+
+
+@dataclass
+class TaskRecord:
+    number: int
+    expression: str
+    user_answer: str
+    correct_answer: str
+    time_seconds: int
+    is_correct: bool
 
 
 @dataclass(frozen=True, slots=True)

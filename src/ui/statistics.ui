@@ -69,7 +69,7 @@
                         <property name="title" translatable="yes">Tasks failed</property>
                         <child type="prefix">
                           <object class="GtkImage">
-                            <property name="icon-name">dialog-error-symbolic</property>
+                            <property name="icon-name">cross-symbolic</property>
                             <style><class name="error"/></style>
                           </object>
                         </child>

@@ -65,3 +65,25 @@ image.large-game-mode-icon {
 button.info-icon {
   -gtk-icon-size: 1em;
 }
+
+row.success-bg {
+  background-color: alpha(@success_color, 0.20);
+  color: @success_color;
+}
+row.error-bg   {
+  background-color: alpha(@error_color, 0.20);
+  color: @error_color;
+}
+
+button.toggle.success-toggle:checked {
+  background-color: alpha(@success_color, 0.20);
+  color: @success_color;
+}
+button.toggle.error-toggle:checked {
+  background-color: alpha(@error_color, 0.20);
+  color: @error_color;
+}
+
+list.boxed-list-separate row {
+  margin-bottom: 8px;
+}

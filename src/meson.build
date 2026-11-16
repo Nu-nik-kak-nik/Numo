@@ -41,6 +41,7 @@ python_sources = {
     'ui/settings.py',
     'ui/statistics.py',
     'ui/error_dialog.py',
+    'ui/task_dialog.py',
   ],
   'core' : [
     'core/__init__.py',

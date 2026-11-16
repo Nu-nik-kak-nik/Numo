@@ -11,6 +11,8 @@ src/ui/settings.ui
 src/ui/shortcuts_dialog.ui
 src/ui/statistics.py
 src/ui/statistics.ui
+src/ui/task_dialog.py
+src/ui/task_dialog.ui
 src/ui/window.py
 src/ui/window.ui
 src/utils/formatting.py

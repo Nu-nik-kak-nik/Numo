@@ -14,6 +14,15 @@
       <description>Difficulty applied to all game modes by default.</description>
     </key>
 
+    <key name="record-task-details" type="b">
+      <default>false</default>
+      <summary>Record task details</summary>
+      <description>
+        Collects per-task details during a session.
+        Kept in memory, deleted when the user return to the main screen.
+      </description>
+    </key>
+
     <key name="survival-lives" type="i">
       <range min="1" max="10"/>
       <default>3</default>

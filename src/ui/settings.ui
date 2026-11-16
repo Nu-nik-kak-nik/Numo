@@ -28,6 +28,17 @@
             </child>
           </object>
         </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="AdwSwitchRow" id="record_task_details_row">
+                <property name="title" translatable="yes">Record Task Details</property>
+                <property name="subtitle" translatable="yes">Review each task's answer after the session</property>
+                <property name="active">False</property>
+              </object>
+            </child>
+          </object>
+        </child>
 
         <child>
           <object class="AdwPreferencesGroup">

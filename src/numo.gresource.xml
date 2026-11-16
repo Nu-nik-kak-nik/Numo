@@ -8,6 +8,7 @@
     <file preprocess="xml-stripblanks">ui/statistics.ui</file>
     <file preprocess="xml-stripblanks">ui/shortcuts_dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/error_dialog.ui</file>
+    <file preprocess="xml-stripblanks">ui/task_dialog.ui</file>
 
     <file preprocess="xml-stripblanks">icons/symbolic/apps/alarm-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/symbolic/apps/dialog-error-symbolic.svg</file>
@@ -25,5 +26,8 @@
     <file preprocess="xml-stripblanks">icons/symbolic/apps/edit-undo-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/symbolic/apps/sliders-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/symbolic/apps/edit-copy-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/analyze-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/system-search-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/symbolic/apps/cross-symbolic.svg</file>
   </gresource>
 </gresources>
