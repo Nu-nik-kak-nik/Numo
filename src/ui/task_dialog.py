@@ -7,12 +7,16 @@ from dataclasses import dataclass
 
 from gi.repository import Adw, Gtk
 
-from numo.core.core_settings import RESOURCE_PATH_PREFIX, MAX_TASK_RECORDS, TaskRecord
+from numo.core.core_settings import RESOURCE_PATH_PREFIX, TaskRecord
+from numo.core.ui_constants import MAX_TASK_RECORDS
+from numo.utils.toast_builder import ToastMixin
 
 
 @Gtk.Template(resource_path=f"{RESOURCE_PATH_PREFIX}/ui/task_dialog.ui")
-class NumoTasksStatsDialog(Adw.Dialog):
+class NumoTasksStatsDialog(Adw.Dialog, ToastMixin):
     __gtype_name__ = "NumoTasksStatsDialog"
+
+    toast_overlay = Gtk.Template.Child()
 
     tasks_list = Gtk.Template.Child()
     content_stack = Gtk.Template.Child()
@@ -25,12 +29,18 @@ class NumoTasksStatsDialog(Adw.Dialog):
         super().__init__(**kwargs)
         self._records = records or []
 
+        if len(self._records) >= MAX_TASK_RECORDS:
+            self.show_toast(_("Record limit reached"))
+
         self.correct_toggle.connect("toggled", self._on_filter_changed)
         self.wrong_toggle.connect("toggled", self._on_filter_changed)
 
         self._populate_list()
         self.tasks_list.set_filter_func(self._filter_row)
         self._on_filter_changed()
+
+    def _add_toast(self, toast: Adw.Toast) -> None:
+        self.toast_overlay.add_toast(toast)
 
     def _populate_list(self):
         for record in self._records[:MAX_TASK_RECORDS]:
@@ -46,7 +56,6 @@ class NumoTasksStatsDialog(Adw.Dialog):
         row.add_prefix(number_label)
 
         suffix_box = Gtk.Box(spacing=8, valign=Gtk.Align.CENTER)
-        _("%(time_seconds)d s") % {"time_seconds": record.time_seconds}
         time_label = Gtk.Label(
             label=_("%(time_seconds)d s") % {"time_seconds": record.time_seconds}
         )

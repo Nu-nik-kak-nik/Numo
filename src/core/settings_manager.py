@@ -77,24 +77,30 @@ class SettingsManager:
         self._settings.set_int("tasks-count", value)
 
     def session_options_for(self, mode: GameMode) -> SessionOptions:
-        if mode == GameMode.SURVIVAL:
-            return SessionOptions(
-                max_mistakes=self.get_survival_lives(),
-            )
-        if mode == GameMode.TIMER:
-            return SessionOptions(
+        match mode:
+            case GameMode.SURVIVAL:
+                return SessionOptions(
+                    max_mistakes=self.get_survival_lives(),
+                )
+
+            case GameMode.TIMER:
+                return SessionOptions(
                 duration_sec=self.get_timer_duration_min() * 60,
-            )
-        if mode == GameMode.TIMER_BONUS:
-            return SessionOptions(
+                )
+
+            case GameMode.TIMER_BONUS:
+                return SessionOptions(
                 initial_time_sec=self.get_bonus_initial_sec(),
                 bonus_sec=self.get_bonus_per_correct_sec(),
-            )
-        if mode == GameMode.TASKS:
-            return SessionOptions(
+                )
+
+            case GameMode.TASKS:
+                return SessionOptions(
                 target_tasks=self.get_tasks_count(),
-            )
-        return SessionOptions()
+                )
+
+            case _:
+                return SessionOptions()
 
     def get_recent_sessions(self) -> int:
         return self._settings.get_int("recent-sessions")

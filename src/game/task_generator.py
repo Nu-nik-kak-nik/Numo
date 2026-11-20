@@ -1,5 +1,11 @@
 import random
-from numo.core.core_settings import Difficulty, DifficultySettings, DIFFICULTY_SETTINGS, IntDivRange, ModRange
+from numo.core.core_settings import (
+    Difficulty,
+    DifficultySettings,
+    DIFFICULTY_SETTINGS,
+    IntDivRange,
+    ModRange
+)
 from numo.game.task import Operation, Task
 
 class TaskGenerator:

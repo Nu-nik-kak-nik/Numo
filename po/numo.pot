@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 15:59+0700\n"
+"POT-Creation-Date: 2026-11-20 23:16+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,205 +36,215 @@ msgstr ""
 msgid "Difficulty applied to all game modes by default."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:20 src/ui/settings.ui:37
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:19
+msgid "Record task details"
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:20
+msgid ""
+"Collects per-task details during a session. Kept in memory, deleted when the "
+"user return to the main screen."
+msgstr ""
+
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:29 src/ui/settings.ui:48
 msgid "Lives"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:21
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:30
 msgid "Number of mistakes allowed per session in Survival mode."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:27
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:36
 msgid "Timer duration"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:28
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:37
 msgid "Duration of the Timer mode in minutes."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:34
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:43
 msgid "Initial time for Timer + Bonus"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:35
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:44
 msgid "Starting time of the Timer + Bonus mode in seconds."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:41 src/ui/settings.ui:92
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:50 src/ui/settings.ui:103
 msgid "Bonus per correct answer"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:42
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:51
 msgid "Extra seconds added for each correct answer in Timer + Bonus mode."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:48
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:57
 msgid "Task count"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:49
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:58
 msgid "Number of tasks in the Task Count mode."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:55 src/ui/settings.ui:129
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:64 src/ui/settings.ui:140
 msgid "Number of recent sessions"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:56
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:65
 msgid "Number of recent sessions displayed in session statistics."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:61
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:70
 msgid "Custom difficulty: addition enabled"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:62
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:71
 msgid "Whether addition is enabled in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:67
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:76
 msgid "Custom difficulty: subtraction enabled"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:68
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:77
 msgid "Whether subtraction is enabled in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:73
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:82
 msgid "Custom difficulty: multiplication enabled"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:74
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:83
 msgid "Whether multiplication is enabled in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:79
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:88
 msgid "Custom difficulty: division enabled"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:80
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:89
 msgid "Whether division is enabled in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:85
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:94
 msgid "Custom difficulty: integer division enabled"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:86
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:95
 msgid "Whether integer division is enabled in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:91
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:100
 msgid "Custom difficulty: modulo enabled"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:92
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:101
 msgid "Whether modulo is enabled in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:98
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:107
 msgid "Custom difficulty: addition minimum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:99
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:108
 msgid "Minimum operand for addition in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:105
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:114
 msgid "Custom difficulty: addition maximum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:106
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:115
 msgid "Maximum operand for addition in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:112
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:121
 msgid "Custom difficulty: subtraction minimum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:113
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:122
 msgid "Minimum operand for subtraction in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:119
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:128
 msgid "Custom difficulty: subtraction maximum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:120
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:129
 msgid "Maximum operand for subtraction in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:125
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:134
 msgid "Custom difficulty: subtraction result is not negative"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:126
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:135
 msgid ""
 "Whether subtraction results are always non-negative in custom difficulty. "
 "Only applies when the operand range is fully positive."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:132
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:141
 msgid "Custom difficulty: multiplication minimum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:133
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:142
 msgid "Minimum factor for multiplication in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:139
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:148
 msgid "Custom difficulty: multiplication maximum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:140
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:149
 msgid "Maximum factor for multiplication in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:146
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:155
 msgid "Custom difficulty: division minimum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:147
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:156
 msgid "Minimum divisor for division in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:153
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:162
 msgid "Custom difficulty: division maximum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:154
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:163
 msgid "Maximum divisor for division in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:160
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:169
 msgid "Custom difficulty: integer division minimum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:161
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:170
 msgid "Minimum divisor for integer division in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:167
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:176
 msgid "Custom difficulty: integer division maximum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:168
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:177
 msgid "Maximum divisor for integer division in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:174
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:183
 msgid "Custom difficulty: modulo minimum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:175
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:184
 msgid "Minimum divisor for modulo in custom difficulty."
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:181
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:190
 msgid "Custom difficulty: modulo maximum"
 msgstr ""
 
-#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:182
+#: data/io.github.Nu_nik_kak_nik.Numo.gschema.xml:191
 msgid "Maximum divisor for modulo in custom difficulty."
 msgstr ""
 
@@ -351,43 +361,43 @@ msgstr ""
 msgid "Game modes and difficulty settings screen"
 msgstr ""
 
-#: src/core/ui_constants.py:61
+#: src/core/ui_constants.py:60
 msgid "Unable to read statistics"
 msgstr ""
 
-#: src/core/ui_constants.py:62
+#: src/core/ui_constants.py:61
 msgid "Reset statistics — file is corrupted"
 msgstr ""
 
-#: src/core/ui_constants.py:63
+#: src/core/ui_constants.py:62
 msgid "Statistics reset — invalid structure"
 msgstr ""
 
-#: src/core/ui_constants.py:64
+#: src/core/ui_constants.py:63
 msgid "Failed to create the statistics folder"
 msgstr ""
 
-#: src/core/ui_constants.py:65
+#: src/core/ui_constants.py:64
 msgid "Unable to save statistics"
 msgstr ""
 
-#: src/core/ui_constants.py:66
+#: src/core/ui_constants.py:65
 msgid "Unable to export statistics"
 msgstr ""
 
-#: src/core/ui_constants.py:67
+#: src/core/ui_constants.py:66
 msgid "Failed to read the import file"
 msgstr ""
 
-#: src/core/ui_constants.py:68
+#: src/core/ui_constants.py:67
 msgid "The import file is not valid JSON"
 msgstr ""
 
-#: src/core/ui_constants.py:69
+#: src/core/ui_constants.py:68
 msgid "The import file has an invalid structure"
 msgstr ""
 
-#: src/core/ui_constants.py:71
+#: src/core/ui_constants.py:70
 msgid "An unknown statistics error occurred"
 msgstr ""
 
@@ -407,15 +417,15 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: src/ui/settings.py:219
+#: src/ui/settings.py:224
 msgid "At least one operation must be enabled"
 msgstr ""
 
-#: src/ui/settings.py:229
+#: src/ui/settings.py:234
 msgid "About custom difficulty"
 msgstr ""
 
-#: src/ui/settings.py:233
+#: src/ui/settings.py:238
 msgid ""
 "- These settings apply only to the custom difficulty.\n"
 "- Division is always performed exactly.\n"
@@ -425,31 +435,31 @@ msgid ""
 "- At least one operation must be enabled."
 msgstr ""
 
-#: src/ui/settings.py:248
+#: src/ui/settings.py:253
 msgid "Close"
 msgstr ""
 
-#: src/ui/settings.py:255
+#: src/ui/settings.py:260
 msgid "Reset custom difficulty?"
 msgstr ""
 
-#: src/ui/settings.py:256
+#: src/ui/settings.py:261
 msgid "All ranges and operations will be reset to the Medium preset."
 msgstr ""
 
-#: src/ui/settings.py:258 src/ui/statistics.py:225 src/ui/window.py:363
+#: src/ui/settings.py:263 src/ui/statistics.py:225 src/ui/window.py:388
 msgid "Cancel"
 msgstr ""
 
-#: src/ui/settings.py:259
+#: src/ui/settings.py:264
 msgid "Reset"
 msgstr ""
 
-#: src/ui/settings.py:272
+#: src/ui/settings.py:277
 msgid "Custom difficulty reset to Medium"
 msgstr ""
 
-#: src/ui/settings.py:286
+#: src/ui/settings.py:291
 msgid "Invalid range"
 msgstr ""
 
@@ -485,106 +495,114 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
-#: src/ui/settings.ui:34
+#: src/ui/settings.ui:35
+msgid "Record Task Details"
+msgstr ""
+
+#: src/ui/settings.ui:36
+msgid "Review each task's answer after the session"
+msgstr ""
+
+#: src/ui/settings.ui:45
 msgid "Survival Mode"
 msgstr ""
 
-#: src/ui/settings.ui:38
+#: src/ui/settings.ui:49
 msgid "Mistakes allowed"
 msgstr ""
 
-#: src/ui/settings.ui:55
+#: src/ui/settings.ui:66
 msgid "Timer Mode"
 msgstr ""
 
-#: src/ui/settings.ui:58
+#: src/ui/settings.ui:69
 msgid "Duration"
 msgstr ""
 
-#: src/ui/settings.ui:59
+#: src/ui/settings.ui:70
 msgid "Minutes"
 msgstr ""
 
-#: src/ui/settings.ui:75
+#: src/ui/settings.ui:86
 msgid "Timer + Bonus Mode"
 msgstr ""
 
-#: src/ui/settings.ui:78
+#: src/ui/settings.ui:89
 msgid "Initial time"
 msgstr ""
 
-#: src/ui/settings.ui:79 src/ui/settings.ui:93
+#: src/ui/settings.ui:90 src/ui/settings.ui:104
 msgid "Seconds"
 msgstr ""
 
-#: src/ui/settings.ui:108
+#: src/ui/settings.ui:119
 msgid "Task Count Mode"
 msgstr ""
 
-#: src/ui/settings.ui:111
+#: src/ui/settings.ui:122
 msgid "Number of tasks"
 msgstr ""
 
-#: src/ui/settings.ui:126 src/ui/statistics.ui:6 src/ui/window.ui:511
+#: src/ui/settings.ui:137 src/ui/statistics.ui:6 src/ui/window.ui:529
 msgid "Statistics"
 msgstr ""
 
-#: src/ui/settings.ui:144
+#: src/ui/settings.ui:155
 msgid "Custom difficulty"
 msgstr ""
 
-#: src/ui/settings.ui:145
+#: src/ui/settings.ui:156
 msgid ""
 "Choose operations and set number ranges to create your own math challenge"
 msgstr ""
 
-#: src/ui/settings.ui:149
+#: src/ui/settings.ui:160
 msgid "About Custom Difficulty"
 msgstr ""
 
-#: src/ui/settings.ui:161
+#: src/ui/settings.ui:172
 msgid "Addition"
 msgstr ""
 
-#: src/ui/settings.ui:175 src/ui/settings.ui:219 src/ui/settings.ui:270
-#: src/ui/settings.ui:314 src/ui/settings.ui:357 src/ui/settings.ui:400
+#: src/ui/settings.ui:186 src/ui/settings.ui:230 src/ui/settings.ui:281
+#: src/ui/settings.ui:325 src/ui/settings.ui:368 src/ui/settings.ui:411
 msgid "Minimum number"
 msgstr ""
 
-#: src/ui/settings.ui:189 src/ui/settings.ui:233 src/ui/settings.ui:284
-#: src/ui/settings.ui:328 src/ui/settings.ui:371 src/ui/settings.ui:414
+#: src/ui/settings.ui:200 src/ui/settings.ui:244 src/ui/settings.ui:295
+#: src/ui/settings.ui:339 src/ui/settings.ui:382 src/ui/settings.ui:425
 msgid "Maximum number"
 msgstr ""
 
-#: src/ui/settings.ui:205
+#: src/ui/settings.ui:216
 msgid "Subtraction"
 msgstr ""
 
-#: src/ui/settings.ui:247
+#: src/ui/settings.ui:258
 msgid "Result is not negative"
 msgstr ""
 
-#: src/ui/settings.ui:248
+#: src/ui/settings.ui:259
 msgid "Only for fully positive ranges"
 msgstr ""
 
-#: src/ui/settings.ui:256
+#: src/ui/settings.ui:267
 msgid "Multiplication"
 msgstr ""
 
-#: src/ui/settings.ui:300
+#: src/ui/settings.ui:311
 msgid "Division"
 msgstr ""
 
-#: src/ui/settings.ui:344
+#: src/ui/settings.ui:355
 msgid "Integer Division"
 msgstr ""
 
-#: src/ui/settings.ui:387
+#: src/ui/settings.ui:398
 msgid "Modulo"
 msgstr ""
 
-#: src/ui/settings.ui:434
+#: src/ui/settings.ui:445
 msgid "Reset to default"
 msgstr ""
 
@@ -754,60 +772,97 @@ msgstr ""
 msgid "Delete all statistics"
 msgstr ""
 
-#: src/ui/window.py:175
+#: src/ui/task_dialog.py:33
+msgid "Record limit reached"
+msgstr ""
+
+#: src/ui/task_dialog.py:60
+#, python-format
+msgid "%(time_seconds)d s"
+msgstr ""
+
+#: src/ui/task_dialog.ui:6
+msgid "Statistics on tasks"
+msgstr ""
+
+#: src/ui/task_dialog.ui:35
+msgid "Show correct answers"
+msgstr ""
+
+#: src/ui/task_dialog.ui:49 src/ui/window.ui:321
+msgid "Correct"
+msgstr ""
+
+#: src/ui/task_dialog.ui:59
+msgid "Show wrong answers"
+msgstr ""
+
+#: src/ui/task_dialog.ui:73 src/ui/window.ui:347
+msgid "Wrong"
+msgstr ""
+
+#: src/ui/task_dialog.ui:111
+msgid "Nothing to Show"
+msgstr ""
+
+#: src/ui/task_dialog.ui:112
+msgid "Select at least one filter to see your tasks."
+msgstr ""
+
+#: src/ui/window.py:191
 msgid "No active game"
 msgstr ""
 
-#: src/ui/window.py:178
+#: src/ui/window.py:194
 msgid "The game is already over"
 msgstr ""
 
-#: src/ui/window.py:183
+#: src/ui/window.py:199
 msgid "Please enter an answer"
 msgstr ""
 
-#: src/ui/window.py:189
+#: src/ui/window.py:206
 msgid "Please enter a integer"
 msgstr ""
 
-#: src/ui/window.py:218
+#: src/ui/window.py:239
 #, python-format
 msgid "%(bonus)d s"
 msgstr ""
 
-#: src/ui/window.py:325
+#: src/ui/window.py:348
 #, python-format
 msgid "%(count)d life"
 msgid_plural "%(count)d lives"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/ui/window.py:329
+#: src/ui/window.py:352
 #, python-format
 msgid "%(minutes)d min"
 msgstr ""
 
-#: src/ui/window.py:333
+#: src/ui/window.py:356
 #, python-format
 msgid "%(initial)d s + %(bonus)d s"
 msgstr ""
 
-#: src/ui/window.py:341
+#: src/ui/window.py:364
 #, python-format
 msgid "%(count)d task"
 msgid_plural "%(count)d tasks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/ui/window.py:360
+#: src/ui/window.py:385
 msgid "Interrupt the game?"
 msgstr ""
 
-#: src/ui/window.py:361
+#: src/ui/window.py:386
 msgid "Your progress will not be saved."
 msgstr ""
 
-#: src/ui/window.py:364
+#: src/ui/window.py:389
 msgid "Interrupt"
 msgstr ""
 
@@ -851,14 +906,6 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: src/ui/window.ui:321
-msgid "Correct"
-msgstr ""
-
-#: src/ui/window.ui:347
-msgid "Wrong"
-msgstr ""
-
 #: src/ui/window.ui:373
 msgid "Accuracy (%)"
 msgstr ""
@@ -867,15 +914,19 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
-#: src/ui/window.ui:507
+#: src/ui/window.ui:493
+msgid "Statistics on Tasks"
+msgstr ""
+
+#: src/ui/window.ui:525
 msgid "Preferences"
 msgstr ""
 
-#: src/ui/window.ui:515
+#: src/ui/window.ui:533
 msgid "About Numo"
 msgstr ""
 
-#: src/ui/window.ui:519
+#: src/ui/window.ui:537
 msgid "Keyboard Shortcuts"
 msgstr ""
 

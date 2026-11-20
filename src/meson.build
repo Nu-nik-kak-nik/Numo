@@ -56,6 +56,7 @@ python_sources = {
     'utils/stats_manager.py',
     'utils/formatting.py',
     'utils/stats_migrations.py',
+    'utils/task_recorder.py',
     'utils/toast_builder.py',
   ],
   'game' : [

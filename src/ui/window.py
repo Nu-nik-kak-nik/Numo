@@ -26,28 +26,29 @@ from gettext import gettext as _, ngettext
 from gi.repository import Adw, Gtk, GLib, Gdk
 
 from numo.core.core_settings import (
-GameMode,
-Difficulty,
-RESOURCE_PATH_PREFIX,
-TaskRecord,
+    GameMode,
+    Difficulty,
+    RESOURCE_PATH_PREFIX,
+    TaskRecord,
 )
 from numo.core.custom_errors import StatsError
 from numo.core.settings_manager import SettingsManager
 from numo.game.game_session import GameSession
 from numo.ui.task_dialog import NumoTasksStatsDialog
 from numo.utils.stats_manager import StatsManager
+from numo.utils.task_recorder import TaskRecorder
 from numo.utils.toast_builder import ToastMixin
 from numo.core.ui_constants import (
-mode_label,
-diff_label,
-stats_error_message,
-TICK_INTERVAL_MS,
-FEEDBACK_DURATION_MS,
-BONUS_FADE_MS,
-MODE_ICONS,
-MODE_COLORS,
-DIFFICULTY_ICONS,
-MAX_LENGHT_ANSWER,
+    mode_label,
+    diff_label,
+    stats_error_message,
+    TICK_INTERVAL_MS,
+    FEEDBACK_DURATION_MS,
+    BONUS_FADE_MS,
+    MODE_ICONS,
+    MODE_COLORS,
+    DIFFICULTY_ICONS,
+    MAX_LENGHT_ANSWER,
 )
 
 
@@ -93,6 +94,7 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
         super().__init__(**kwargs)
         self._settings = settings
         self._stats = stats_manager
+        self._recorder: TaskRecorder | None = None
 
         self._session: GameSession | None = None
         self._tick_source: int | None = None
@@ -147,6 +149,9 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
         self._session = GameSession(mode, difficulty, options)
         self._finished = False
         self._reset_status_label_style()
+        self._recorder = TaskRecorder(
+            enabled=self._settings.get_record_task_details_enabled()
+        )
 
         page = self.nav_view.find_page("game")
         self.nav_view.push(page)
@@ -162,6 +167,8 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
 
     def _show_current_task(self) -> None:
         task = self._session.current_task
+        if self._recorder is not None:
+            self._recorder.on_task_show()
         self.expression_label.set_label(f"{task.expression} = ?")
         self.status_label.set_label(self._session.status_text())
         self.answer_entry.set_text("")
@@ -190,12 +197,14 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
         text = self.answer_entry.get_text().strip()
         if not text:
             self.show_toast(_("Please enter an answer"), 1)
+            self._focus_entry()
             return
 
         try:
             value = int(text)
         except ValueError:
             self.show_toast(_("Please enter a integer"), 1)
+            self._focus_entry()
             return
         self._submit_answer(value)
 
@@ -210,7 +219,10 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
 
     def _submit_answer(self, value: int) -> None:
         GLib.idle_add(self._deactivate_entry)
+        task = self._session.current_task
         is_correct = self._session.submit(value)
+        if self._recorder is not None:
+            self._recorder.record(task, value, is_correct)
         self._flash_feedback(is_correct)
 
     def _flash_feedback(self, is_correct: bool) -> None:
@@ -230,7 +242,7 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
             self.expression_label.remove_css_class(css_class)
             if show_bonus:
                 self._fade_out_bonus()
-            if self._finished:
+            if self._finished or self._session is None:
                 return False
             if self._session.finished:
                 self._finish_session()
@@ -307,13 +319,15 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
         s = self._session
         data = s.result_data()
 
-        self.results_big_icon.set_from_icon_name(MODE_ICONS[data["mode"]])
+        self.task_stats_button.set_visible(
+            self._recorder is not None and self._recorder.has_records()
+        )
 
+        self.results_big_icon.set_from_icon_name(MODE_ICONS[data["mode"]])
         self.results_value_correct.set_label(str(data["correct"]))
         self.results_value_wrong.set_label(str(data["wrong"]))
         self.results_value_accuracy.set_label(str(data["accuracy"]))
         self.results_value_time.set_label(str(data["duration"]))
-
         self.results_icon_mode.set_from_icon_name(MODE_ICONS[s.mode])
         self.results_label_mode.set_label(mode_label(s.mode))
         self.results_icon_difficulty.set_from_icon_name(DIFFICULTY_ICONS[data["difficulty"]])
@@ -358,6 +372,8 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
     def _on_results_ok_clicked(self, _button) -> None:
         self._session = None
         self._finished = False
+        self._recorder = None
+
         self.nav_view.pop_to_tag("home")
 
     def _on_game_back_clicked(self, _button) -> None:
@@ -390,24 +406,15 @@ class NumoWindow(Adw.ApplicationWindow, ToastMixin):
             self._tick_source = None
         self._session = None
         self._finished = False
+        self._recorder = None
         self._reset_status_label_style()
+
         self.nav_view.pop_to_tag("home")
 
     def _on_task_stats_clicked(self, _button) -> None:
-        test_records = [
-            TaskRecord(1, "2 + 2", "4", "4", 5, True),
-            TaskRecord(2, "7 × 8", "54", "56", 12, False),
-            TaskRecord(3, "9 - 3", "6", "6", 4, True),
-            TaskRecord(4, "10 ÷ 2", "3", "5", 8, False),
-            TaskRecord(5, "9 - 4", "5", "5", 3, True),
-            TaskRecord(6, "9 - 1", "8", "8", 10, True),
-            TaskRecord(7, "9 - 4", "5", "5", 3, True),
-            TaskRecord(8, "9 - 2", "7", "7", 8, True),
-            TaskRecord(9, "9 - 4", "5", "5", 3, True),
-            TaskRecord(10, "9 - 1", "8", "8", 10, True),
-            TaskRecord(11, "9 - 4", "5", "5", 3, True),
-            TaskRecord(12, "9 - 2", "7", "7", 8, True),
-        ]
-        dialog = NumoTasksStatsDialog(records=test_records)
+        if self._recorder is None or not self._recorder.has_records():
+            return
+
+        dialog = NumoTasksStatsDialog(records=self._recorder.get_records())
         dialog.present(self)
 

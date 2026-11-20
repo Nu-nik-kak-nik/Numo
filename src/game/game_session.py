@@ -33,18 +33,25 @@ class GameSession:
 
     @property
     def mode(self) -> GameMode: return self._mode
+
     @property
     def difficulty(self) -> Difficulty: return self._difficulty
+
     @property
     def current_task(self) -> Task: return self._current
+
     @property
     def correct(self) -> int: return self._correct
+
     @property
     def wrong(self) -> int: return self._wrong
+
     @property
     def finished(self) -> bool: return self._finished
+
     @property
     def elapsed_sec(self) -> float: return time.monotonic() - self._start
+
     @property
     def time_left(self) -> float | None: return self._time_left
 
